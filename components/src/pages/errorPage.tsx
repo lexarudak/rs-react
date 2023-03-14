@@ -1,9 +1,10 @@
-import PageProps from 'components/types';
+import PageNames from '../components/enums/pageNames';
+import PageProps from '../components/types';
 import Page from './page';
 
 class ErrorPage extends Page {
   constructor(props: PageProps) {
-    super(props, '404 not found :(');
+    super(props, PageNames.errorPage);
   }
 }
 

@@ -1,7 +1,7 @@
 const enum PageNames {
-  homePage = 'Home',
+  mainPage = 'Home',
   aboutPage = 'About Us',
-  errorPage = ':(',
+  errorPage = '404 page',
 }
 
 export default PageNames;

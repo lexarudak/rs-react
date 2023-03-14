@@ -8,17 +8,16 @@ import PageNames from './components/enums/pageNames';
 import Layout from './components/layout/layout';
 
 class App extends React.Component {
-  pageName: PageNames;
   state: Readonly<{ pageName: PageNames }>;
 
   constructor(props: string) {
     super(props);
 
-    this.pageName = PageNames.homePage;
-
     this.state = {
-      pageName: PageNames.homePage,
+      pageName: PageNames.mainPage,
     };
+
+    this.setPageName = this.setPageName.bind(this);
   }
 
   private setPageName(name: PageNames) {
@@ -31,21 +30,14 @@ class App extends React.Component {
         <BrowserRouter>
           <Routes>
             <Route path={RouteList.homePage} element={<Layout name={this.state.pageName} />}>
-              <Route
-                index
-                element={<MainPage changeName={this.setPageName.bind(this, PageNames.homePage)} />}
-              />
+              <Route index element={<MainPage changeName={this.setPageName} />} />
               <Route
                 path={RouteList.aboutPage}
-                element={
-                  <AboutPage changeName={this.setPageName.bind(this, PageNames.aboutPage)} />
-                }
+                element={<AboutPage changeName={this.setPageName} />}
               />
               <Route
                 path={RouteList.errorPage}
-                element={
-                  <ErrorPage changeName={this.setPageName.bind(this, PageNames.errorPage)} />
-                }
+                element={<ErrorPage changeName={this.setPageName} />}
               />
               <Route path="*" element={<Navigate to={RouteList.errorPage} />} />
             </Route>
