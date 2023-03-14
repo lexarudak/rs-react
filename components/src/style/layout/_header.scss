@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 30px 0px;
+
+
+  &__name {
+    width: 347px;
+    font-size: 50px;
+  }
+
+  &__link,
+  &__link:active {
+    color: $light-main;
+    text-decoration: none;
+    transition: .2s;
+  }
+
+  &__link:hover {
+    color: $active-main;
+  }
+
+  &__page-name {
+    align-self: flex-end;
+    color: $active-main;
+    font-size: 50px;
+    font-weight: bold;
+    
+  }
+
+  &__nav {
+    margin: 5px 0 0 auto;
+    display: flex;
+    display: flex;
+    gap: 20px;
+  }
+}
