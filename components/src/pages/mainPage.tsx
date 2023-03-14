@@ -1,5 +1,5 @@
-import PageNames from '../components/enums/pageNames';
-import PageProps from '../components/types';
+import PageNames from '../base/enums/pageNames';
+import PageProps from '../base/types';
 import Page from './page';
 
 class MainPage extends Page {

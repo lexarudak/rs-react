@@ -1,6 +1,6 @@
-import PageNames from '../components/enums/pageNames';
+import PageNames from '../base/enums/pageNames';
 import React from 'react';
-import PageProps from '../components/types';
+import PageProps from '../base/types';
 
 class Page extends React.Component<PageProps> {
   name: PageNames;

@@ -1,0 +1,18 @@
+.nav {
+  margin: 5px 0 0 auto;
+  display: flex;
+  display: flex;
+  gap: 20px;
+
+  &__link,
+  &__link:active {
+    color: $light-main;
+    text-decoration: none;
+    transition: .2s;
+  }
+
+  &__link:hover {
+    color: $active-main;
+  }
+  
+}
