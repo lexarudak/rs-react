@@ -1,7 +1,8 @@
+import PageProps from 'components/types';
 import Page from './page';
 
 class AboutPage extends Page {
-  constructor(props: string) {
+  constructor(props: PageProps) {
     super(props, 'About page');
   }
 }
