@@ -1,5 +1,6 @@
 import { CardInfo } from 'base/types';
 import React from 'react';
+import CardImg from './cardImg';
 
 class Card extends React.Component<CardInfo> {
   constructor(props: CardInfo) {
@@ -9,15 +10,7 @@ class Card extends React.Component<CardInfo> {
   public render() {
     return (
       <div className="card">
-        <div
-          className="card__img"
-          style={{
-            backgroundImage: this.props.thumbnail,
-          }}
-        >
-          <></>
-          <></>
-        </div>
+        <CardImg {...this.props} />
         <div className="card__type">{this.props.type}</div>
         <div className="card__title">{this.props.title}</div>
         <div className="card__text">{this.props.description}</div>

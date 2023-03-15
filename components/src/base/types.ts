@@ -22,3 +22,9 @@ export type CardInfo = {
   thumbnail: string;
   images: string[];
 };
+
+export type CardImgInfo = {
+  sale: number;
+  rating: number;
+  thumbnail: string;
+};
