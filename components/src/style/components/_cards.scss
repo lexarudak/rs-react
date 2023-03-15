@@ -96,12 +96,28 @@
   &__price {
     font-size: 30px;
     font-weight: 600;
+
+    &::before {
+      content: '$';
+    }
+
+    &_sale {
+      color: $active-main;
+    }
+
+    &_old {
+      margin-top: 5px;
+      text-decoration: line-through;
+      color: $light-second;
+      font-size: 16px;
+      font-weight: 500;
+      margin-left: 5px;
+    }
   }
 
   &__stoke {
     font-size: 14px;
     color: $active-main;
-    margin-top: 7px;
     display: flex;
     justify-content: flex-end;
     padding-right: 15px;
