@@ -115,11 +115,15 @@
     }
   }
 
-  &__stoke {
+  &__stock {
     font-size: 14px;
     color: $active-main;
     display: flex;
     justify-content: flex-end;
     padding-right: 15px;
+
+    &_null {
+      color: $light-second;
+    }
   }
 }

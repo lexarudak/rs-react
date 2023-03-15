@@ -8,7 +8,7 @@
       "price": 15,
       "sale": 10,
       "rating": 5,
-      "stock": 20,
+      "stock": 0,
       "type": "Succulent",
       "thumbnail": "url(src/data/plants/1/1.jpg)",
       "images": [

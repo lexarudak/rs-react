@@ -3,6 +3,7 @@ import CardButton from '../../components/buttons/cardButton';
 import React from 'react';
 import CardImg from './cardImg';
 import CardPrice from './cardPrice';
+import CardStoke from './cardStoke';
 
 class Card extends React.Component<CardInfo> {
   constructor(props: CardInfo) {
@@ -20,7 +21,7 @@ class Card extends React.Component<CardInfo> {
           <CardPrice {...this.props} />
           <CardButton {...this.props} />
         </div>
-        <div className="card__stoke">in stoke: 36</div>
+        <CardStoke {...this.props} />
       </div>
     );
   }
