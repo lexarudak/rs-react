@@ -30,7 +30,7 @@ class MainPage extends Page {
     return (
       <div className="main__container">
         <Search searchValue={this.state.search} changeSearchVal={this.changeSearchVal} />
-        <CardsContainer />
+        <CardsContainer searchValue={this.state.search} />
       </div>
     );
   }

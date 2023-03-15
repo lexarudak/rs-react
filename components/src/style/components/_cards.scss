@@ -1,7 +1,9 @@
 .cards-container {
+  display: flex;
   width: 100%;
   flex-wrap: wrap;
   padding: 40px 0;
+  justify-content: center;
 }
 
 .card {
@@ -11,6 +13,7 @@
   box-shadow: $shadow;
   position: relative;
   padding: 15px;
+  margin: 20px;
 
   &__img {
     width: 250px;
@@ -91,6 +94,7 @@
     align-items: flex-start;
     justify-content: space-between;
     margin-top: 25px;
+    height: 58px;
   }
 
   &__price {

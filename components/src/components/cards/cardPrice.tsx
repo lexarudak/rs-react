@@ -7,7 +7,7 @@ class CardPrice extends React.Component<CardInfo> {
   }
 
   private makeNewPrice() {
-    return Math.floor(this.props.price * ((100 - this.props.sale) / 100));
+    return (this.props.price * ((100 - this.props.sale) / 100)).toFixed(0);
   }
 
   private makePrice(isSale: boolean) {
