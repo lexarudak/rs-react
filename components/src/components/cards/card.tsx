@@ -1,4 +1,5 @@
 import { CardInfo } from 'base/types';
+import CardButton from '../../components/buttons/cardButton';
 import React from 'react';
 import CardImg from './cardImg';
 
@@ -15,8 +16,8 @@ class Card extends React.Component<CardInfo> {
         <div className="card__title">{this.props.title}</div>
         <div className="card__text">{this.props.description}</div>
         <div className="card__price-and-button">
-          <p className="card__price">20$</p>
-          <button className="card__button">Add to cart</button>
+          <p className="card__price">$2000</p>
+          <CardButton {...this.props} />
         </div>
         <div className="card__stoke">in stoke: 36</div>
       </div>
