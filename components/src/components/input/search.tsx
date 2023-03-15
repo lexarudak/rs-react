@@ -1,10 +1,8 @@
+import { MainState } from 'base/types';
 import React, { Component } from 'react';
 
-class Search extends Component<{
-  searchValue: string;
-  changeSearchVal: (searchValue: string) => void;
-}> {
-  constructor(props: { searchValue: string; changeSearchVal: (searchValue: string) => void }) {
+class Search extends Component<MainState> {
+  constructor(props: MainState) {
     super(props);
   }
 

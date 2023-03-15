@@ -3,6 +3,7 @@ import React from 'react';
 import PageNames from '../base/enums/pageNames';
 import { PageProps } from '../base/types';
 import Page from './page';
+import CardsContainer from '../components/cards/cardsContainer';
 
 class MainPage extends Page {
   state: Readonly<{ search: string }>;
@@ -29,6 +30,7 @@ class MainPage extends Page {
     return (
       <div className="main__container">
         <Search searchValue={this.state.search} changeSearchVal={this.changeSearchVal} />
+        <CardsContainer />
       </div>
     );
   }
