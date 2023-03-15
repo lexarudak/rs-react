@@ -1,7 +1,9 @@
 import PageNames from './enums/pageNames';
 
-type PageProps = {
+export type PageProps = {
   changeName: (name: PageNames) => void;
 };
 
-export default PageProps;
+export type MainState = {
+  search: string;
+};
