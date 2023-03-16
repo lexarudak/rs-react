@@ -12,7 +12,7 @@ class Card extends React.Component<CardInfo> {
 
   public render() {
     return (
-      <div className="card">
+      <div className="card" data-testid="card">
         <CardImg {...this.props} />
         <div className="card__type">{this.props.type}</div>
         <div className="card__title">{this.props.title}</div>

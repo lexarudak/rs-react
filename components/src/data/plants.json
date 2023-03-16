@@ -5,9 +5,9 @@
       "title": "Echeveria SC-092",
       "description": "Succulent plants are drought-resistant plants in which the leaves, stem, or roots have become more than usually fleshy by the development of water-storing tissue.",
       "price": 20,
-      "sale": 0.01,
+      "sale": 10,
       "rating": 5,
-      "stock": 1,
+      "stock": 10,
       "type": "Succulent",
       "thumbnail": "url(src/data/plants/1/1.jpg)"
     },

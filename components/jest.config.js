@@ -5,7 +5,7 @@ export default {
     '**/*.{ts,tsx}',
     '!**/node_modules/**',
     '!**/vendor/**',
-    '!**/vite.config/**',
-    '!**/vite-env.d/**',
+    '!**/vite.config.ts/**',
+    '!**/vite-env.d.ts/**',
   ],
 };
