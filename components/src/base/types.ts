@@ -13,14 +13,12 @@ export type CardInfo = {
   id: number;
   title: string;
   description: string;
-  height: number;
   price: number;
   sale: number;
   rating: number;
   stock: number;
   type: string;
   thumbnail: string;
-  images: string[];
 };
 
 export type CardImgInfo = {

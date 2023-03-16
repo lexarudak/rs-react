@@ -1,5 +1,5 @@
 import PageNames from 'base/enums/pageNames';
-import Nav from '../nav/nav';
+import Nav from '../../nav/nav';
 import React from 'react';
 
 class Header extends React.Component<{ name: PageNames }> {

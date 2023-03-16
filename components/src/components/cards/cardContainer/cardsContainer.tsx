@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './card';
-import plants from '../../data/plants.json';
+import Card from '../card';
+import plants from '../../../data/plants.json';
 
 class CardsContainer extends React.Component<{ searchValue: string }> {
   constructor(props: { searchValue: string }) {

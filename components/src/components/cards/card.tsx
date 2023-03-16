@@ -1,9 +1,9 @@
 import { CardInfo } from 'base/types';
 import CardButton from '../../components/buttons/cardButton';
 import React from 'react';
-import CardImg from './cardImg';
-import CardPrice from './cardPrice';
-import CardStock from './cardStock';
+import CardImg from './cardImg/cardImg';
+import CardPrice from './cardPrice/cardPrice';
+import CardStock from './cardStock/cardStock';
 
 class Card extends React.Component<CardInfo> {
   constructor(props: CardInfo) {
@@ -21,7 +21,7 @@ class Card extends React.Component<CardInfo> {
           <CardPrice {...this.props} />
           <CardButton {...this.props} />
         </div>
-        <CardStock {...this.props} />
+        <CardStock stock={this.props.stock} />
       </div>
     );
   }

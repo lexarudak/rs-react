@@ -1,8 +1,8 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import PageNames from '../../base/enums/pageNames';
-import Footer from './footer';
-import Header from './header';
+import Footer from './footer/footer';
+import Header from './header/header';
 
 class Layout extends React.Component<{ name: PageNames }> {
   constructor(props: { name: PageNames }) {
