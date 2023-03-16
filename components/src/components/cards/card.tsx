@@ -18,7 +18,7 @@ class Card extends React.Component<CardInfo> {
         <div className="card__title">{this.props.title}</div>
         <div className="card__text">{this.props.description}</div>
         <div className="card__price-and-button">
-          <CardPrice {...this.props} />
+          <CardPrice sale={this.props.sale} price={this.props.price} />
           <CardButton {...this.props} />
         </div>
         <CardStock stock={this.props.stock} />
