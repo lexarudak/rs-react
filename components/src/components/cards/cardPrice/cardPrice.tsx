@@ -12,7 +12,6 @@ class CardPrice extends React.Component<{ sale: number; price: number }> {
 
   private makePriceWithCents(price: number) {
     const str = price.toFixed(2);
-    console.log('str:', str, str.slice(0, -3));
     return (
       <>
         <span>{str.slice(0, -3)}</span>
@@ -26,7 +25,7 @@ class CardPrice extends React.Component<{ sale: number; price: number }> {
   }
 
   private isPriceInvalid() {
-    return this.price <= 0 || this.price > 9999;
+    return this.price < 0.01 || this.price > 9999.99;
   }
 
   private makePrice(isSale: boolean) {
@@ -45,7 +44,7 @@ class CardPrice extends React.Component<{ sale: number; price: number }> {
   }
 
   private isSale() {
-    return this.sale > 0 && this.sale < 100;
+    return this.sale > 0 && this.sale <= 99;
   }
 
   public render() {

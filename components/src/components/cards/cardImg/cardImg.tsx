@@ -13,8 +13,9 @@ class CardImg extends React.Component<CardImgInfo> {
   }
 
   private setSale() {
-    if (this.props.sale > 0 && this.props.sale <= 100) {
-      return <span className="card__sale">{this.props.sale.toFixed(0)}</span>;
+    const sale = Math.ceil(this.props.sale);
+    if (sale > 0 && sale < 100) {
+      return <span className="card__sale">{sale}</span>;
     }
   }
 
