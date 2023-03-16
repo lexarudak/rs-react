@@ -12,7 +12,7 @@ describe('Card container tests', () => {
     expect(card).toBeInTheDocument();
   });
 
-  test('Empty find', () => {
+  test('Empty search', () => {
     render(<CardsContainer searchValue={''} />);
     const cards = screen.getAllByTestId('card');
     expect(cards.length).toBe(plants.products.length);

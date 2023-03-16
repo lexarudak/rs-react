@@ -7,9 +7,8 @@ class CardImg extends React.Component<CardImgInfo> {
   }
 
   private setRating() {
-    if (this.props.rating) {
-      return <span className="card__rating">{this.props.rating.toFixed(1)}</span>;
-    }
+    const rating = this.props.rating > 0 && this.props.rating <= 5 ? this.props.rating : 0;
+    return <span className="card__rating">{rating.toFixed(1)}</span>;
   }
 
   private setSale() {
