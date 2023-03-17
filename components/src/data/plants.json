@@ -9,7 +9,7 @@
       "rating": 0.1,
       "stock": 10,
       "type": "Succulent",
-      "thumbnail": "url(./assets/plants/1/1.jpg)"
+      "thumbnail": "url(./plants/1/1.jpg)"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "rating": 4.3,
       "stock": 34,
       "type": "Succulent",
-      "thumbnail": "url(./assets/plants/2/1.jpg)"
+      "thumbnail": "url(./plants/2/1.jpg)"
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "rating": 4.6,
       "stock": 36,
       "type": "Succulent",
-      "thumbnail": "url(./assets/plants/3/1.jpg)"
+      "thumbnail": "url(./plants/3/1.jpg)"
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "rating": 4.8,
       "stock": 13,
       "type": "Succulent",
-      "thumbnail": "url(./assets/plants/4/1.jpg)"
+      "thumbnail": "url(./plants/4/1.jpg)"
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "rating": 4.3,
       "stock": 32,
       "type": "Succulent",
-      "thumbnail": "url(./assets/plants/5/1.jpg)"
+      "thumbnail": "url(./plants/5/1.jpg)"
        },
     {
       "id": 6,
@@ -64,7 +64,7 @@
       "rating": 3.7,
       "stock": 23,
       "type": "Succulent",
-      "thumbnail": "url(./assets/plants/6/1.jpg)"
+      "thumbnail": "url(./plants/6/1.jpg)"
        },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "rating": 4.2,
       "stock": 1,
       "type": "Sansevieria",
-      "thumbnail": "url(./assets/plants/7/1.jpg)"
+      "thumbnail": "url(./plants/7/1.jpg)"
        },
     {
       "id": 8,
@@ -86,7 +86,7 @@
       "rating": 4.1,
       "stock": 3800,
       "type": "Sansevieria",
-      "thumbnail": "url(./assets/plants/8/1.jpg)"
+      "thumbnail": "url(./plants/8/1.jpg)"
        },
     {
       "id": 9,
@@ -97,7 +97,7 @@
       "rating": 4.5,
       "stock": 36,
       "type": "Sansevieria",
-      "thumbnail": "url(./assets/plants/9/1.jpg)"
+      "thumbnail": "url(./plants/9/1.jpg)"
        },
     {
       "id": 10,
@@ -108,7 +108,7 @@
       "rating": 4.8,
       "stock": 28,
       "type": "Flowering",
-      "thumbnail": "url(./assets/plants/10/1.jpg)"
+      "thumbnail": "url(./plants/10/1.jpg)"
        },
     {
       "id": 11,
@@ -119,7 +119,7 @@
       "rating": 4.2,
       "stock": 65,
       "type": "Flowering",
-      "thumbnail": "url(./assets/plants/11/1.jpg)"
+      "thumbnail": "url(./plants/11/1.jpg)"
     },
     {
       "id": 12,
@@ -130,7 +130,7 @@
       "rating": 4.6,
       "stock": 52,
       "type": "Flowering",
-      "thumbnail": "url(./assets/plants/12/1.jpg)"
+      "thumbnail": "url(./plants/12/1.jpg)"
        },
     {
       "id": 13,
@@ -141,7 +141,7 @@
       "rating": 4.8,
       "stock": 40,
       "type": "Flowering",
-      "thumbnail": "url(./assets/plants/13/1.jpg)"
+      "thumbnail": "url(./plants/13/1.jpg)"
        },
     {
       "id": 14,
@@ -152,7 +152,7 @@
       "rating": 4.8,
       "stock": 40,
       "type": "Flowering",
-      "thumbnail": "url(./assets/plants/14/1.jpg)"
+      "thumbnail": "url(./plants/14/1.jpg)"
        },
     {
       "id": 15,
@@ -163,7 +163,7 @@
       "rating": 4.7,
       "stock": 35,
       "type": "Fern",
-      "thumbnail": "url(./assets/plants/15/1.jpg)"
+      "thumbnail": "url(./plants/15/1.jpg)"
     },
     {
       "id": 16,
@@ -174,7 +174,7 @@
       "rating": 4.2,
       "stock": 14,
       "type": "Fern",
-      "thumbnail": "url(./assets/plants/16/1.jpg)"
+      "thumbnail": "url(./plants/16/1.jpg)"
        },
     {
       "id": 17,
@@ -185,7 +185,7 @@
       "rating": 4.5,
       "stock": 38,
       "type": "Lavender",
-      "thumbnail": "url(./assets/plants/17/1.jpg)"
+      "thumbnail": "url(./plants/17/1.jpg)"
        },
     {
       "id": 18,
@@ -196,7 +196,7 @@
       "rating": 4.6,
       "stock": 23,
       "type": "Lavender",
-      "thumbnail": "url(./assets/plants/18/1.jpg)"
+      "thumbnail": "url(./plants/18/1.jpg)"
        },
     {
       "id": 19,
@@ -207,7 +207,7 @@
       "rating": 4.4,
       "stock": 34,
       "type": "Cactus",
-      "thumbnail": "url(./assets/plants/19/1.jpg)"
+      "thumbnail": "url(./plants/19/1.jpg)"
        },
     {
       "id": 20,
@@ -218,7 +218,7 @@
       "rating": 4.1,
       "stock": 31,
       "type": "Cactus",
-      "thumbnail": "url(./assets/plants/20/1.jpg)"
+      "thumbnail": "url(./plants/20/1.jpg)"
        },
     {
       "id": 21,
@@ -229,7 +229,7 @@
       "rating": 4.4,
       "stock": 65,
       "type": "Cactus",
-      "thumbnail": "url(./assets/plants/21/1.jpg)"
+      "thumbnail": "url(./plants/21/1.jpg)"
        },
     {
       "id": 22,
@@ -240,7 +240,7 @@
       "rating": 4.5,
       "stock": 46,
       "type": "Tree",
-      "thumbnail": "url(./assets/plants/22/1.jpg)"
+      "thumbnail": "url(./plants/22/1.jpg)"
     },
     {
       "id": 23,
@@ -251,7 +251,7 @@
       "rating": 4.4,
       "stock": 63,
       "type": "Tree",
-      "thumbnail": "url(./assets/plants/23/1.jpg)"
+      "thumbnail": "url(./plants/23/1.jpg)"
        },
     {
       "id": 24,
@@ -262,7 +262,7 @@
       "rating": 4.5,
       "stock": 27,
       "type": "Tree",
-      "thumbnail": "url(./assets/plants/24/1.jpg)"
+      "thumbnail": "url(./plants/24/1.jpg)"
        }
   ],
   "total": 24

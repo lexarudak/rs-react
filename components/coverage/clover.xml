@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1678970668438" clover="3.2.0">
-  <project timestamp="1678970668438" name="All files">
-    <metrics statements="128" coveredstatements="54" conditionals="20" coveredconditionals="16" methods="49" coveredmethods="23" elements="197" coveredelements="93" complexity="0" loc="128" ncloc="128" packages="14" files="18" classes="18"/>
+<coverage generated="1679028702848" clover="3.2.0">
+  <project timestamp="1679028702849" name="All files">
+    <metrics statements="128" coveredstatements="0" conditionals="20" coveredconditionals="0" methods="49" coveredmethods="0" elements="197" coveredelements="0" complexity="0" loc="128" ncloc="128" packages="14" files="18" classes="18"/>
     <package name="src">
       <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="App.tsx" path="/Users/admin/Desktop/RS_School/Projects/rs-react/components/src/App.tsx">
@@ -41,93 +41,93 @@
       </file>
     </package>
     <package name="src.components.buttons">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="cardButton.tsx" path="/Users/admin/Desktop/RS_School/Projects/rs-react/components/src/components/buttons/cardButton.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="6" count="49" type="stmt"/>
-        <line num="10" count="49" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="src.components.cards">
-      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="card.tsx" path="/Users/admin/Desktop/RS_School/Projects/rs-react/components/src/components/cards/card.tsx">
-        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="10" count="49" type="stmt"/>
-        <line num="14" count="49" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
+    <package name="src.components.cards.card">
+      <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="card.tsx" path="/Users/admin/Desktop/RS_School/Projects/rs-react/components/src/components/cards/card/card.tsx">
+        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.cards.cardContainer">
-      <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="1" methods="5" coveredmethods="5"/>
+      <metrics statements="10" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="0"/>
       <file name="cardsContainer.tsx" path="/Users/admin/Desktop/RS_School/Projects/rs-react/components/src/components/cards/cardContainer/cardsContainer.tsx">
-        <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="1" methods="5" coveredmethods="5"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="48" type="cond" truecount="1" falsecount="2"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="24" count="48" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <metrics statements="10" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.cards.cardImg">
-      <metrics statements="9" coveredstatements="9" conditionals="7" coveredconditionals="7" methods="4" coveredmethods="4"/>
+      <metrics statements="9" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="cardImg.tsx" path="/Users/admin/Desktop/RS_School/Projects/rs-react/components/src/components/cards/cardImg/cardImg.tsx">
-        <metrics statements="9" coveredstatements="9" conditionals="7" coveredconditionals="7" methods="4" coveredmethods="4"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="6" count="55" type="stmt"/>
-        <line num="10" count="55" type="cond" truecount="4" falsecount="0"/>
-        <line num="11" count="55" type="stmt"/>
-        <line num="15" count="55" type="stmt"/>
-        <line num="16" count="55" type="cond" truecount="3" falsecount="0"/>
-        <line num="17" count="37" type="stmt"/>
-        <line num="22" count="55" type="stmt"/>
-        <line num="36" count="3" type="stmt"/>
+        <metrics statements="9" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="10" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.cards.cardPrice">
-      <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+      <metrics statements="15" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
       <file name="cardPrice.tsx" path="/Users/admin/Desktop/RS_School/Projects/rs-react/components/src/components/cards/cardPrice/cardPrice.tsx">
-        <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="7" count="54" type="stmt"/>
-        <line num="9" count="54" type="stmt"/>
-        <line num="10" count="54" type="stmt"/>
-        <line num="14" count="86" type="stmt"/>
-        <line num="15" count="86" type="stmt"/>
-        <line num="24" count="35" type="stmt"/>
-        <line num="28" count="54" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="54" type="cond" truecount="1" falsecount="0"/>
-        <line num="33" count="51" type="cond" truecount="1" falsecount="0"/>
-        <line num="34" count="35" type="stmt"/>
-        <line num="43" count="16" type="stmt"/>
-        <line num="47" count="54" type="cond" truecount="2" falsecount="0"/>
-        <line num="51" count="54" type="stmt"/>
-        <line num="59" count="3" type="stmt"/>
+        <metrics statements="15" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.cards.cardStock">
-      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <metrics statements="8" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="cardStock.tsx" path="/Users/admin/Desktop/RS_School/Projects/rs-react/components/src/components/cards/cardStock/cardStock.tsx">
-        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="5" count="55" type="stmt"/>
-        <line num="9" count="55" type="stmt"/>
-        <line num="11" count="55" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="52" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="17" count="55" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
+        <metrics statements="8" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.input">
