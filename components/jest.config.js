@@ -1,11 +1,15 @@
 export default {
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
   testEnvironment: 'jest-environment-jsdom',
   preset: 'ts-jest',
   collectCoverageFrom: [
-    '**/*.{ts,tsx}',
+    '**/*.{js,jsx}',
     '!**/node_modules/**',
+    '!**/dist/**',
+    '!**/coverage/**',
     '!**/vendor/**',
-    '!**/vite.config.ts/**',
-    '!**/vite-env.d.ts/**',
+    '!**/src/base/**',
   ],
 };
