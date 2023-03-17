@@ -1,8 +1,8 @@
-import CardButton from '../../components/buttons/cardButton';
+import CardButton from '../../buttons/cardButton';
 import React from 'react';
-import CardImg from './cardImg/cardImg';
-import CardPrice from './cardPrice/cardPrice';
-import CardStock from './cardStock/cardStock';
+import CardImg from '../cardImg/cardImg';
+import CardPrice from '../cardPrice/cardPrice';
+import CardStock from '../cardStock/cardStock';
 class Card extends React.Component {
   constructor(props) {
     super(props);

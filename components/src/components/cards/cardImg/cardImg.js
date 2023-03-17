@@ -19,7 +19,7 @@ class CardImg extends React.Component {
       {
         className: 'card__img',
         style: {
-          backgroundImage: this.props.thumbnail,
+          backgroundImage: 'this.props.thumbnail',
         },
       },
       React.createElement(React.Fragment, null, this.setSale()),

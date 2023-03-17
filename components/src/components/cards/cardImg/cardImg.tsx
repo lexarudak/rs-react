@@ -23,7 +23,7 @@ class CardImg extends React.Component<CardImgInfo> {
       <div
         className="card__img"
         style={{
-          backgroundImage: this.props.thumbnail,
+          backgroundImage: 'this.props.thumbnail',
         }}
       >
         <>{this.setSale()}</>
