@@ -1,9 +1,9 @@
 import PageNames from '../../base/enums/pageNames';
 import RouteList from '../../base/enums/routeList';
 import Layout from '../layout/layout';
-import AboutPage from '../../pages/aboutPage';
-import ErrorPage from '../../pages/errorPage';
-import MainPage from '../../pages/mainPage';
+import AboutPage from '../../pages/aboutPage/aboutPage';
+import ErrorPage from '../../pages/errorPage/errorPage';
+import MainPage from '../../pages/mainPage/mainPage';
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 

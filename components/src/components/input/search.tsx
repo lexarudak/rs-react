@@ -6,14 +6,17 @@ class Search extends Component<MainState> {
     super(props);
   }
 
+  public setLocalStorage() {
+    localStorage.setItem('searchVal', this.props.searchValue);
+  }
+
   public componentDidMount() {
-    console.log('Mount');
-    const savedValue = localStorage.getItem('searchVal');
-    this.props.changeSearchVal(savedValue || '');
+    this.props.changeSearchVal(localStorage.getItem('searchVal') || '');
+    window.addEventListener('beforeunload', this.setLocalStorage, { once: true });
   }
 
   public componentWillUnmount() {
-    localStorage.setItem('searchVal', this.props.searchValue);
+    this.setLocalStorage();
   }
 
   render() {

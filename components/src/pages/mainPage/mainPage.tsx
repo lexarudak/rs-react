@@ -1,9 +1,9 @@
-import Search from '../components/input/search';
+import Search from '../../components/input/search';
 import React from 'react';
-import PageNames from '../base/enums/pageNames';
-import { PageProps } from '../base/types';
-import Page from './page';
-import CardsContainer from '../components/cards/cardContainer/cardsContainer';
+import PageNames from '../../base/enums/pageNames';
+import { PageProps } from '../../base/types';
+import Page from '../page/page';
+import CardsContainer from '../../components/cards/cardContainer/cardsContainer';
 
 class MainPage extends Page {
   state: Readonly<{ search: string }>;

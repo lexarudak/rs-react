@@ -1,19 +1,25 @@
 import React from 'react';
 import Card from '../card/card';
 import plants from '../../../data/plants.json';
+import { CardInfo } from 'base/types';
 
 class CardsContainer extends React.Component<{ searchValue: string }> {
   constructor(props: { searchValue: string }) {
     super(props);
   }
 
+  private isPlantIncludesSting(plant: CardInfo, string: string) {
+    const upperString = string.toUpperCase();
+    return (
+      plant.description.toUpperCase().includes(upperString) ||
+      plant.title.toUpperCase().includes(upperString) ||
+      plant.type.toUpperCase().includes(upperString)
+    );
+  }
+
   private setFilterArr() {
-    const str = this.props.searchValue.toUpperCase();
-    return plants.products.filter(
-      (plant) =>
-        plant.description.toUpperCase().includes(str) ||
-        plant.title.toUpperCase().includes(str) ||
-        plant.type.toUpperCase().includes(str)
+    return plants.products.filter((plant) =>
+      this.isPlantIncludesSting(plant, this.props.searchValue)
     );
   }
 
