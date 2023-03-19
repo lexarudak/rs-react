@@ -4,8 +4,12 @@ class Search extends Component {
     super(props);
   }
   componentDidMount() {
+    console.log('Mount');
     const savedValue = localStorage.getItem('searchVal');
     this.props.changeSearchVal(savedValue || '');
+  }
+  componentWillUnmount() {
+    localStorage.setItem('searchVal', this.props.searchValue);
   }
   render() {
     return React.createElement('input', {

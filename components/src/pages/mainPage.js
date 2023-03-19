@@ -11,9 +11,6 @@ class MainPage extends Page {
     };
     this.changeSearchVal = this.changeSearchVal.bind(this);
   }
-  componentDidUpdate() {
-    localStorage.setItem('searchVal', this.state.search);
-  }
   changeSearchVal(searchVal) {
     this.setState({ search: searchVal });
   }
