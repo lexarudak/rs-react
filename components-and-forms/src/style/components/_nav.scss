@@ -1,9 +1,11 @@
 .nav {
+  position: absolute;
   margin: 5px 0 0 auto;
-  display: flex;
   display: flex;
   gap: 20px;
   font-size: 16px;
+  top: 30px;
+  right: 0px;
 
   &__link,
   &__link:active {
@@ -17,14 +19,9 @@
     color: $active-main;
   }
 
-  @media (max-width: 830px) {
-    position: absolute;
-    top: 30px;
-    right: 0px;
-  }
-
-  @media (max-width: 500px) {
-    top: 15px;
+  @media (max-width: 555px) {
+    top: 17px;
+    gap: 10px;
   }
   
 }
