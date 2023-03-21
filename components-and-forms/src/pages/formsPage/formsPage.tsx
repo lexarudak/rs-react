@@ -1,5 +1,5 @@
-import AppForm from '../../components/appForm/AppForm';
-import FormCardsContainer from '../../components/formCards/formCardsContainer';
+import AppForm from './appForm/appForm';
+import FormCardsContainer from './formCards/formCardsContainer';
 import React from 'react';
 import PageNames from '../../base/enums/pageNames';
 import { PageProps } from '../../base/types';
