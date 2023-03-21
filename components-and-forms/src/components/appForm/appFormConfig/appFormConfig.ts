@@ -3,6 +3,10 @@ const appFormConfig = {
     name: 'Card name',
   },
 
+  img: {
+    name: 'Add card image',
+  },
+
   date: {
     name: 'Card date',
     from: '2023-01-01',
@@ -25,7 +29,6 @@ const appFormConfig = {
       ['2', '+ 2 speed'],
       ['3', '+ 3 damage'],
     ],
-    error: '',
   },
 
   radio: <{ name: string; values: [id: string, value: string][] }>{
@@ -34,7 +37,6 @@ const appFormConfig = {
       ['1', 'Yes, of course!'],
       ['2', 'No, thanks'],
     ],
-    error: '',
   },
 };
 
