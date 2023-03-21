@@ -3,6 +3,7 @@ import React from 'react';
 import AppFormBlock from './appFormBlocks/appFormBlock';
 import DateInput from '../../components/input/dateInput/dateInput';
 import SelectInput from '../../components/input/selectInput/selectInput';
+import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
 
 class AppForm extends React.Component {
   constructor(props: string) {
@@ -31,6 +32,19 @@ class AppForm extends React.Component {
               })
             }
             errorText="CCC!"
+          />
+          <AppFormBlock
+            inputBlock={
+              new CheckboxInput({
+                name: 'Upgrade the card',
+                values: [
+                  ['1', '+ 5 health'],
+                  ['2', '+ 2 speed'],
+                  ['3', '+ 3 damage'],
+                ],
+              })
+            }
+            errorText="DDD!"
           />
         </fieldset>
       </form>
