@@ -27,6 +27,15 @@ const appFormConfig = {
     ],
     error: '',
   },
+
+  radio: <{ name: string; values: [id: string, value: string][] }>{
+    name: 'Add awesome border?',
+    values: [
+      ['1', 'Yes, of course!'],
+      ['2', 'No, thanks'],
+    ],
+    error: '',
+  },
 };
 
 export default appFormConfig;

@@ -3,6 +3,7 @@ const enum AppFormErrorList {
   date = 'please, select a date',
   select = '',
   checkbox = 'choose at least 1 item',
+  radio = 'please, make a choice',
 }
 
 export default AppFormErrorList;
