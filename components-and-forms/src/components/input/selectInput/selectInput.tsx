@@ -1,9 +1,9 @@
 import React from 'react';
 
-class SelectInput extends React.Component<{ name: string; values: [string, string][] }> {
+class SelectInput extends React.Component<{ name: string; values: [id: string, value: string][] }> {
   name: string;
-  values: [string, string][];
-  constructor(props: { name: string; values: [string, string][] }) {
+  values: [id: string, value: string][];
+  constructor(props: { name: string; values: [id: string, value: string][] }) {
     super(props);
     this.name = props.name;
     this.values = props.values;
@@ -14,10 +14,11 @@ class SelectInput extends React.Component<{ name: string; values: [string, strin
       <label className="input-label">
         {this.name}
         <select name={this.name}>
-          {this.values.map((value) => {
+          {this.values.map((values) => {
+            const [id, value] = values;
             return (
-              <option value={value[0]} key={value[1]}>
-                {value[0]}
+              <option value={value} key={id}>
+                {value}
               </option>
             );
           })}

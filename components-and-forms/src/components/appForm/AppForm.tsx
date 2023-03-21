@@ -24,9 +24,9 @@ class AppForm extends React.Component {
               new SelectInput({
                 name: 'Card type',
                 values: [
-                  ['cool card', '1'],
-                  ['very cool card', '2'],
-                  ['extremely cool card', '3'],
+                  ['1', 'cool card'],
+                  ['2', 'very cool card'],
+                  ['3', 'extremely cool card'],
                 ],
               })
             }
