@@ -6,6 +6,7 @@ import ErrorPage from '../../pages/errorPage/errorPage';
 import MainPage from '../../pages/mainPage/mainPage';
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import FormsPage from '../../pages/formsPage/formsPage';
 
 class AppRouter extends React.Component {
   state: Readonly<{ pageName: PageNames }>;
@@ -31,6 +32,7 @@ class AppRouter extends React.Component {
           <Route index element={<MainPage changeName={this.setPageName} />} />
           <Route path={RouteList.aboutPage} element={<AboutPage changeName={this.setPageName} />} />
           <Route path={RouteList.errorPage} element={<ErrorPage changeName={this.setPageName} />} />
+          <Route path={RouteList.formsPage} element={<FormsPage changeName={this.setPageName} />} />
           <Route path="*" element={<Navigate to={RouteList.errorPage} />} />
         </Route>
       </Routes>

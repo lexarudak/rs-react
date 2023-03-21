@@ -14,6 +14,9 @@ class Nav extends React.Component {
         <Link className="nav__link" to={RouteList.homePage}>
           {PageNames.mainPage}
         </Link>
+        <Link className="nav__link" to={RouteList.formsPage}>
+          {PageNames.formsPage}
+        </Link>
         <Link className="nav__link" to={RouteList.aboutPage}>
           {PageNames.aboutPage}
         </Link>
