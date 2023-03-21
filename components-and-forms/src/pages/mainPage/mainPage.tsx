@@ -1,4 +1,4 @@
-import Search from '../../components/input/search';
+import Search from '../../components/input/search/search';
 import React from 'react';
 import PageNames from '../../base/enums/pageNames';
 import { PageProps } from '../../base/types';
