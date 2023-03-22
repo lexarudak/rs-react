@@ -26,3 +26,21 @@ export type CardImgInfo = {
   rating: number;
   thumbnail: string;
 };
+
+export type TextInputProps = {
+  name: string;
+  error: string;
+};
+
+export type DateInputProps = {
+  name: string;
+  from: string;
+  to: string;
+  error: string;
+};
+
+export type MultiInputProps = {
+  name: string;
+  values: [id: string, value: string][];
+  error: string;
+};

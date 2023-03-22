@@ -1,14 +1,44 @@
+import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
+import DateInput from '../../components/input/dateInput/dateInput';
+import ImageInput from '../../components/input/imageInput/imageInput';
+import RadioInput from '../../components/input/radioInput/radioInput';
+import SelectInput from '../../components/input/selectInput/selectInput';
+import React, { RefObject } from 'react';
 import FormButton from '../../components/buttons/formButton';
-import React from 'react';
+import TextInput from '../../components/input/textInput/textInput';
 import AppFormBlock from './appFormBlock/appFormBlock';
-import appFormList from './appFormBlockList/appFormBlockList';
+import config from './appFormConfig/appFormConfig';
 
 class AppForm extends React.Component {
-  formList: [key: string, inputBlock: React.Component, errorText: string][];
+  nameRef: RefObject<HTMLInputElement>;
+  dateRef: RefObject<HTMLInputElement>;
+  selectRef: RefObject<HTMLInputElement>;
+  checkboxRef: RefObject<HTMLInputElement>;
+  radioRef: RefObject<HTMLInputElement>;
+  imgRef: RefObject<HTMLInputElement>;
+
   constructor(props: string) {
     super(props);
 
-    this.formList = appFormList;
+    this.nameRef = React.createRef();
+    this.dateRef = React.createRef();
+    this.selectRef = React.createRef();
+    this.checkboxRef = React.createRef();
+    this.radioRef = React.createRef();
+    this.imgRef = React.createRef();
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event: React.MouseEvent) {
+    event.preventDefault();
+    console.log('Submit', this);
+    console.log(this.nameRef.current?.value);
+    console.log(this.dateRef.current?.value);
+    console.log(this.selectRef.current?.value);
+    console.log(this.checkboxRef.current?.value);
+    console.log(this.radioRef.current?.value);
+    console.log(this.imgRef.current?.value);
   }
 
   render(): React.ReactNode {
@@ -16,11 +46,13 @@ class AppForm extends React.Component {
       <form className="app-form">
         <fieldset className="app-form__border">
           <legend className="app-form__title">Create form card</legend>
-          {this.formList.map((value) => {
-            const [key, inputBlock, errorText] = value;
-            return <AppFormBlock key={key} inputBlock={inputBlock} errorText={errorText} />;
-          })}
-          <FormButton name={'Create card'} />
+          <AppFormBlock inputBlock={new TextInput(config.name, this.nameRef)} />
+          <AppFormBlock inputBlock={new DateInput(config.date, this.dateRef)} />
+          <AppFormBlock inputBlock={new SelectInput(config.select, this.selectRef)} />
+          <AppFormBlock inputBlock={new CheckboxInput(config.checkbox, this.checkboxRef)} />
+          <AppFormBlock inputBlock={new RadioInput(config.radio, this.radioRef)} />
+          <AppFormBlock inputBlock={new ImageInput(config.name, this.imgRef)} />
+          <FormButton name={'Create card'} callback={this.handleSubmit} />
         </fieldset>
       </form>
     );

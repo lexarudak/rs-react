@@ -1,12 +1,19 @@
 import React from 'react';
 
-class FormButton extends React.Component<{ name: string }> {
-  constructor(props: { name: string }) {
+class FormButton extends React.Component<{
+  name: string;
+  callback: (event: React.MouseEvent) => void;
+}> {
+  constructor(props: { name: string; callback: (event: React.MouseEvent) => void }) {
     super(props);
   }
 
   public render() {
-    return <button className="card-button">{this.props.name}</button>;
+    return (
+      <button className="card-button" onClick={(event) => this.props.callback(event)}>
+        {this.props.name}
+      </button>
+    );
   }
 }
 

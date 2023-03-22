@@ -1,12 +1,23 @@
-import React from 'react';
+import { MultiInputProps } from 'base/types';
+import React, { RefObject } from 'react';
 
-class SelectInput extends React.Component<{ name: string; values: [id: string, value: string][] }> {
+class SelectInput extends React.Component {
   name: string;
   values: [id: string, value: string][];
-  constructor(props: { name: string; values: [id: string, value: string][] }) {
+  error: string;
+  ref: RefObject<HTMLInputElement>;
+
+  constructor(props: MultiInputProps, ref: RefObject<HTMLInputElement>) {
     super(props);
+
     this.name = props.name;
     this.values = props.values;
+    this.error = props.error;
+    this.ref = ref;
+  }
+
+  public get errorText(): string {
+    return this.error;
   }
 
   render() {
