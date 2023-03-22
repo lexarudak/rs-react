@@ -9,12 +9,12 @@ class TextInput extends React.Component<{ name: string }> {
 
   render() {
     return (
-      <label className="input-label">
-        {this.name}
+      <label className="input-block__label">
+        <span className="input-block__title">{this.name}</span>
         <input
           type={'text'}
           placeholder={`enter ${this.name.toLowerCase()}`}
-          className="text-input"
+          className="input-block__input"
         ></input>
       </label>
     );

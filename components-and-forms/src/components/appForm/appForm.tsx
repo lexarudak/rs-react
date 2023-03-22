@@ -1,3 +1,4 @@
+import FormButton from '../../components/buttons/formButton';
 import React from 'react';
 import AppFormBlock from './appFormBlock/appFormBlock';
 import appFormList from './appFormBlockList/appFormBlockList';
@@ -19,6 +20,7 @@ class AppForm extends React.Component {
             const [key, inputBlock, errorText] = value;
             return <AppFormBlock key={key} inputBlock={inputBlock} errorText={errorText} />;
           })}
+          <FormButton name={'Create card'} />
         </fieldset>
       </form>
     );

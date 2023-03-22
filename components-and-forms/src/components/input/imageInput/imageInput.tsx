@@ -11,9 +11,14 @@ class ImageInput extends React.Component<{
 
   render() {
     return (
-      <label className="input-label">
-        {this.name}
-        <input type="file" name={this.name} accept="image/png, image/jpeg"></input>
+      <label className="input-block__label">
+        <span className="input-block__title">{this.name}</span>
+        <input
+          className="input-block__img-input"
+          type="file"
+          name={this.name}
+          accept="image/png, image/jpeg"
+        ></input>
       </label>
     );
   }

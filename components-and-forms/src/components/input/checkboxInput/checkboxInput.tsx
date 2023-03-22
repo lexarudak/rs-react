@@ -14,14 +14,14 @@ class CheckboxInput extends React.Component<{
 
   render() {
     return (
-      <fieldset>
-        <legend>{this.name}</legend>
+      <fieldset className="input-block__border">
+        <legend className="input-block__border-title">{this.name}</legend>
         {this.values.map((values) => {
           const [id, value] = values;
           return (
-            <label className="input-label" key={id}>
-              <input name={value} type="checkbox"></input>
-              {value}
+            <label className="input-block__label input-block__checkbox" key={id}>
+              <input className="input-block__label-check" name={value} type="checkbox"></input>
+              <span className="input-block__label-text">{value}</span>
             </label>
           );
         })}

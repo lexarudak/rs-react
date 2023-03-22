@@ -13,11 +13,11 @@ class DateInput extends React.Component<{ name: string; from: string; to: string
 
   render() {
     return (
-      <label className="input-label">
-        {this.name}
+      <label className="input-block__label">
+        <span className="input-block__title">{this.name}</span>
         <input
           type={'date'}
-          className="date-input"
+          className="date-input input-block__input"
           name="trip-start"
           min={this.from}
           max={this.to}

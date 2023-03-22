@@ -11,9 +11,9 @@ class SelectInput extends React.Component<{ name: string; values: [id: string, v
 
   render() {
     return (
-      <label className="input-label">
-        {this.name}
-        <select name={this.name}>
+      <label className="input-block__label">
+        <span className="input-block__title">{this.name}</span>
+        <select name={this.name} className="input-block__input">
           {this.values.map((values) => {
             const [id, value] = values;
             return (
