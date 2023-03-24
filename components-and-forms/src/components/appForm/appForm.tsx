@@ -114,7 +114,7 @@ class AppForm extends React.Component<AppFormProps> {
 
     setTimeout(() => {
       this.showPopup(false);
-    }, 1500);
+    }, 1000);
   }
 
   render(): React.ReactNode {
