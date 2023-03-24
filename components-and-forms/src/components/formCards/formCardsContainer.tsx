@@ -6,7 +6,11 @@ class FormCardsContainer extends React.Component {
   }
 
   render(): React.ReactNode {
-    return <div className="form-cards-container">Cards container</div>;
+    return (
+      <div className="form-cards-container">
+        <h2 className="title">Your cards</h2>
+      </div>
+    );
   }
 }
 

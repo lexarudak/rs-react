@@ -10,7 +10,7 @@ class Header extends React.Component<{ name: PageNames }> {
   public render() {
     return (
       <header className="header">
-        <h2 className="header__name">React Components.</h2>
+        <h1 className="header__name">React Components.</h1>
         <span className="header__page-name">/ {this.props.name}</span>
         <Nav />
       </header>

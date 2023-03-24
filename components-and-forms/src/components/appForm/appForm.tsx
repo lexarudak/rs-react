@@ -93,7 +93,7 @@ class AppForm extends React.Component<AppFormProps> {
     return (
       <form className="app-form">
         <fieldset className="app-form__border">
-          <legend className="app-form__title">Create form card</legend>
+          <legend className="title">Create form card</legend>
           <AppFormBlock inputBlock={new TextInput(config.name)} isValid={this.state.isNameValid} />
           <AppFormBlock inputBlock={new DateInput(config.date)} isValid={this.state.isDateValid} />
           <AppFormBlock

@@ -17,7 +17,7 @@ class Page extends React.Component<PageProps> {
   public render() {
     return (
       <div>
-        <h1>{this.name}</h1>
+        <h2 className="title">{this.name}</h2>
       </div>
     );
   }
