@@ -1,5 +1,5 @@
 import { AppFormProps, FormInputs, FormPageCard, FormState } from 'base/types';
-import Validator from '../../components/validator.ts/validator';
+import Validator from '../validator/validator';
 import React from 'react';
 import FormButton from '../../components/buttons/formButton';
 import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
@@ -47,7 +47,7 @@ class AppForm extends React.Component<AppFormProps> {
     return {
       newState: {
         isNameValid: this.validator.isValueLonger(2, nameInput?.value),
-        isDateValid: this.validator.isValueNotEmpty(dateInput?.value),
+        isDateValid: this.validator.isDateValid(dateInput?.value, config.date.from, config.date.to),
         isSelectValid: this.validator.isSelectValid(selectInput?.selectedIndex.toString()),
         isCheckboxValid: this.validator.isMultipleInputDone(checkboxInputs),
         isRadioValid: this.validator.isMultipleInputDone(radioInputs),

@@ -30,6 +30,11 @@ class Validator {
     });
     return answer;
   }
+
+  public isDateValid(date: string | undefined, from: string, to: string) {
+    if (!date) return false;
+    return Date.parse(date) >= Date.parse(from) && Date.parse(date) <= Date.parse(to);
+  }
 }
 
 export default Validator;

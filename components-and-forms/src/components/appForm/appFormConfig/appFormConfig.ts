@@ -4,7 +4,7 @@ import React from 'react';
 const appFormConfig = {
   name: {
     name: 'Card name',
-    errorText: 'Minimum 3 characters, please',
+    errorText: 'minimum 3 characters, please',
     inputRef: React.createRef<HTMLInputElement>(),
   },
 
@@ -18,7 +18,7 @@ const appFormConfig = {
     name: 'Card date',
     from: '2023-01-01',
     to: '2024-12-31',
-    errorText: 'please, select a date',
+    errorText: 'expected day 2023 or 2024',
     inputRef: React.createRef<HTMLInputElement>(),
   },
 
