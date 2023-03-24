@@ -25,15 +25,18 @@ class FormsPage extends Page {
   }
 
   public addNewCard(cardInfo: FormPageCard): void {
-    const newArr = [...this.state.cards];
-    this.setState({ cards: newArr.push(cardInfo) });
+    this.setState((state: FormPageState) => {
+      const newArr = [...state.cards];
+      newArr.push(cardInfo);
+      return { cards: newArr };
+    });
   }
 
   public render() {
     return (
       <div className="main__container">
         <AppForm showPopup={this.showPopup} addNewCard={this.addNewCard} />
-        <FormCardsContainer />
+        <FormCardsContainer cards={this.state.cards} />
         <PopupWithText text={'Card created successfully!'} isPopupShow={this.state.isPopupShow} />
       </div>
     );

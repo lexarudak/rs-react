@@ -1,7 +1,8 @@
+import { FormPageCard } from 'base/types';
 import React from 'react';
 
-class FormCardsContainer extends React.Component {
-  constructor(props: string) {
+class FormCardsContainer extends React.Component<{ cards: FormPageCard[] }> {
+  constructor(props: { cards: FormPageCard[] }) {
     super(props);
   }
 
@@ -9,6 +10,7 @@ class FormCardsContainer extends React.Component {
     return (
       <div className="form-cards-container">
         <h2 className="title">Your cards</h2>
+        <div>{this.props.cards.toString()}</div>
       </div>
     );
   }
