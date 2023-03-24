@@ -66,6 +66,30 @@ export type FormState = {
 
 export type FormPageState = {
   isPopupShow: boolean;
+  cards: FormPageCard[];
 };
 
-export type MultipleValue = [id: string, value: string, ref: RefObject<HTMLInputElement>];
+export type FormPageCard = {
+  name: string;
+  date: string;
+  type: string;
+  titleStyle: string[];
+  border: string;
+  image: string;
+};
+
+export type MultipleValue = [id: string, text: string, ref: RefObject<HTMLInputElement>];
+
+export type AppFormProps = {
+  showPopup: (isPopupShow: boolean) => void;
+  addNewCard: (cardInfo: FormPageCard) => void;
+};
+
+export type FormInputs = {
+  nameInput: HTMLInputElement | null;
+  dateInput: HTMLInputElement | null;
+  selectInput: HTMLSelectElement | null;
+  checkboxInputs: (HTMLInputElement | null)[];
+  radioInputs: (HTMLInputElement | null)[];
+  imageInput: HTMLInputElement | null;
+};

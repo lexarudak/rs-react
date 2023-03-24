@@ -1,21 +1,23 @@
-import { FormState } from 'base/types';
-import DateInput from '../../components/input/dateInput/dateInput';
+import { AppFormProps, FormInputs, FormPageCard, FormState } from 'base/types';
+import Validator from '../../components/validator.ts/validator';
 import React from 'react';
-import { isSelectValid, isValueLonger, isValueNotEmpty } from '../../base/validators/validators';
 import FormButton from '../../components/buttons/formButton';
+import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
+import DateInput from '../../components/input/dateInput/dateInput';
+import ImageInput from '../../components/input/imageInput/imageInput';
+import RadioInput from '../../components/input/radioInput/radioInput';
+import SelectInput from '../../components/input/selectInput/selectInput';
 import TextInput from '../../components/input/textInput/textInput';
 import AppFormBlock from './appFormBlock/appFormBlock';
 import config from './appFormConfig/appFormConfig';
-import SelectInput from '../../components/input/selectInput/selectInput';
-import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
-import RadioInput from '../../components/input/radioInput/radioInput';
-import ImageInput from '../../components/input/imageInput/imageInput';
 
-class AppForm extends React.Component<{ showPopup: (isPopupShow: boolean) => void }> {
+class AppForm extends React.Component<AppFormProps> {
   state: FormState;
+  validator: Validator;
   showPopup: (isPopupShow: boolean) => void;
+  addNewCard: (cardInfo: FormPageCard) => void;
 
-  constructor(props: { showPopup: (isPopupShow: boolean) => void }) {
+  constructor(props: AppFormProps) {
     super(props);
 
     this.state = {
@@ -27,64 +29,64 @@ class AppForm extends React.Component<{ showPopup: (isPopupShow: boolean) => voi
       isImageValid: true,
     };
 
+    this.validator = new Validator();
+
     this.showPopup = props.showPopup;
+    this.addNewCard = props.addNewCard;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  private isValueValid(
-    value: string | undefined,
-    validator: (value: string | undefined) => boolean
-  ) {
-    return validator(value);
-  }
-
-  private isMultipleInputDone(arr: (HTMLInputElement | null)[]) {
-    let answer = false;
-    arr.forEach((input) => {
-      if (input !== null) {
-        if (input.checked) answer = true;
-      }
-    });
-    return answer;
-  }
-
-  private makeNewState() {
-    const name = config.name.inputRef.current;
-    const date = config.date.inputRef.current;
-    const select = config.select.selectRef.current;
-    const checkbox = config.checkbox.values.map((val) => val[2].current);
-    const radio = config.radio.values.map((val) => val[2].current);
-    const image = config.image.inputRef.current;
+  private makeNewState(): { newState: FormState; inputs: FormInputs } {
+    const nameInput = config.name.inputRef.current;
+    const dateInput = config.date.inputRef.current;
+    const selectInput = config.select.selectRef.current;
+    const checkboxInputs = config.checkbox.values.map((val) => val[2].current);
+    const radioInputs = config.radio.values.map((val) => val[2].current);
+    const imageInput = config.image.inputRef.current;
 
     return {
-      isNameValid: this.isValueValid(name?.value, isValueLonger.bind(null, 2)),
-      isDateValid: this.isValueValid(date?.value, isValueNotEmpty),
-      isSelectValid: this.isValueValid(select?.selectedIndex.toString(), isSelectValid),
-      isCheckboxValid: this.isMultipleInputDone(checkbox),
-      isRadioValid: this.isMultipleInputDone(radio),
-      isImageValid: this.isValueValid(image?.value, isValueNotEmpty),
+      newState: {
+        isNameValid: this.validator.isValueLonger(2, nameInput?.value),
+        isDateValid: this.validator.isValueNotEmpty(dateInput?.value),
+        isSelectValid: this.validator.isSelectValid(selectInput?.selectedIndex.toString()),
+        isCheckboxValid: this.validator.isMultipleInputDone(checkboxInputs),
+        isRadioValid: this.validator.isMultipleInputDone(radioInputs),
+        isImageValid: this.validator.isValueNotEmpty(imageInput?.value),
+      },
+      inputs: { nameInput, dateInput, selectInput, checkboxInputs, radioInputs, imageInput },
     };
   }
 
-  private isFormValid(newState: FormState) {
-    let answer = true;
+  private setCardInfo({
+    nameInput,
+    dateInput,
+    selectInput,
+    checkboxInputs,
+    radioInputs,
+    imageInput,
+  }: FormInputs): FormPageCard {
+    const name = nameInput ? nameInput.value : '';
+    const date = dateInput ? dateInput.value : '';
+    const type = selectInput ? selectInput.value : '';
+    const titleStyle = checkboxInputs.map((input) => (input?.checked ? input.value : ''));
+    const border = radioInputs.filter((input) => input?.checked)[0]?.value || '';
+    const image = imageInput ? imageInput.value : '';
 
-    Object.values(newState).forEach((state) => {
-      if (!state) answer = false;
-    });
-    return answer;
+    return { name, date, type, titleStyle, border, image };
   }
 
   handleSubmit(event: React.MouseEvent) {
     event.preventDefault();
-    const newState = this.makeNewState();
+    const { newState, inputs } = this.makeNewState();
     this.setState(newState);
-    if (this.isFormValid(newState)) {
-      this.showPopup(true);
-      setTimeout(() => {
-        this.showPopup(false);
-      }, 2000);
-    }
+    if (!this.validator.isFormValid(newState)) return;
+
+    this.showPopup(true);
+    this.addNewCard(this.setCardInfo(inputs));
+
+    setTimeout(() => {
+      this.showPopup(false);
+    }, 2000);
   }
 
   render(): React.ReactNode {
