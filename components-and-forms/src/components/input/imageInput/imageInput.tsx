@@ -3,19 +3,19 @@ import React, { RefObject } from 'react';
 
 class ImageInput extends React.Component {
   name: string;
-  error: string;
+  _errorText: string;
   ref: RefObject<HTMLInputElement>;
 
-  constructor(props: TextInputProps, ref: RefObject<HTMLInputElement>) {
+  constructor(props: TextInputProps) {
     super(props);
 
     this.name = props.name;
-    this.error = props.error;
-    this.ref = ref;
+    this._errorText = props.errorText;
+    this.ref = props.inputRef;
   }
 
   public get errorText(): string {
-    return this.error;
+    return this._errorText;
   }
 
   render() {

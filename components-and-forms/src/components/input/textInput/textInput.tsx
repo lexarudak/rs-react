@@ -3,19 +3,19 @@ import { TextInputProps } from 'base/types';
 
 class TextInput extends React.Component {
   name: string;
-  error: string;
-  ref: RefObject<HTMLInputElement>;
+  _errorText: string;
+  inputRef: RefObject<HTMLInputElement>;
 
-  constructor(props: TextInputProps, ref: RefObject<HTMLInputElement>) {
+  constructor(props: TextInputProps) {
     super(props);
 
     this.name = props.name;
-    this.error = props.error;
-    this.ref = ref;
+    this._errorText = props.errorText;
+    this.inputRef = props.inputRef;
   }
 
   public get errorText(): string {
-    return this.error;
+    return this._errorText;
   }
 
   render() {
@@ -23,7 +23,7 @@ class TextInput extends React.Component {
       <label className="input-block__label">
         <span className="input-block__title">{this.name}</span>
         <input
-          ref={this.ref}
+          ref={this.inputRef}
           type={'text'}
           placeholder={`enter ${this.name.toLowerCase()}`}
           className="input-block__input"

@@ -5,21 +5,21 @@ class DateInput extends React.Component {
   name: string;
   from: string;
   to: string;
-  error: string;
+  _errorText: string;
   ref: RefObject<HTMLInputElement>;
 
-  constructor(props: DateInputProps, ref: RefObject<HTMLInputElement>) {
+  constructor(props: DateInputProps) {
     super(props);
 
     this.name = props.name;
     this.from = props.from;
     this.to = props.to;
-    this.error = props.error;
-    this.ref = ref;
+    this._errorText = props.errorText;
+    this.ref = props.inputRef;
   }
 
   public get errorText(): string {
-    return this.error;
+    return this._errorText;
   }
 
   render() {

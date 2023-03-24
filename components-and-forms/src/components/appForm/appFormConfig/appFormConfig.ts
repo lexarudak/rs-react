@@ -1,50 +1,56 @@
-import { MultiInputProps } from 'base/types';
+import { MultiInputProps, SelectInputProps } from 'base/types';
+import React from 'react';
 
 const appFormConfig = {
   name: {
     name: 'Card name',
-    error: 'please enter a name',
+    errorText: 'Minimum 3 characters, please',
+    inputRef: React.createRef<HTMLInputElement>(),
   },
 
-  img: {
+  image: {
     name: 'Add image',
-    error: 'please, add a picture',
+    errorText: 'please, add a picture',
+    inputRef: React.createRef<HTMLInputElement>(),
   },
 
   date: {
     name: 'Card date',
     from: '2023-01-01',
     to: '2024-12-31',
-    error: 'please, select a date',
+    errorText: 'please, select a date',
+    inputRef: React.createRef<HTMLInputElement>(),
   },
 
-  select: <MultiInputProps>{
+  select: <SelectInputProps>{
     name: 'Card type',
     values: [
-      ['1', 'Cool card'],
-      ['2', 'Very cool card'],
-      ['3', 'Extremely cool card'],
+      ['1', 'Select card type'], // init point (disabled)
+      ['2', 'Cool card'],
+      ['3', 'Very cool card'],
+      ['4', 'Extremely cool card'],
     ],
-    error: '0e',
+    errorText: 'please, select card type',
+    selectRef: React.createRef<HTMLSelectElement>(),
   },
 
   checkbox: <MultiInputProps>{
     name: 'Upgrade card title',
     values: [
-      ['1', 'Bold'],
-      ['2', 'Italic'],
-      ['3', 'Bright color'],
+      ['1', 'Bold', React.createRef<HTMLInputElement>()],
+      ['2', 'Italic', React.createRef<HTMLInputElement>()],
+      ['3', 'Bright color', React.createRef<HTMLInputElement>()],
     ],
-    error: 'choose at least 1 item',
+    errorText: 'choose at least 1 item',
   },
 
   radio: <MultiInputProps>{
     name: 'Add awesome border?',
     values: [
-      ['1', 'Yes, of course!'],
-      ['2', 'No, thanks'],
+      ['1', 'Yes, of course!', React.createRef<HTMLInputElement>()],
+      ['2', 'No, thanks', React.createRef<HTMLInputElement>()],
     ],
-    error: 'please, make a choice',
+    errorText: 'please, make a choice',
   },
 };
 

@@ -1,5 +1,4 @@
 .app-form {
-  // width: 100%;
   position: relative;
 
   &__title {
@@ -28,6 +27,8 @@
     transform: translateY(-50px);
 
     &_active {
+      transition: .3s;
+      visibility: visible;
       color: $active-main;
       transform: translateY(0px);
     }
