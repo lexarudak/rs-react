@@ -64,4 +64,8 @@ export type FormState = {
   isImageValid: boolean;
 };
 
+export type FormPageState = {
+  isPopupShow: boolean;
+};
+
 export type MultipleValue = [id: string, value: string, ref: RefObject<HTMLInputElement>];

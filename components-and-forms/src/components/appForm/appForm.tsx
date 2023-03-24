@@ -11,10 +11,11 @@ import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
 import RadioInput from '../../components/input/radioInput/radioInput';
 import ImageInput from '../../components/input/imageInput/imageInput';
 
-class AppForm extends React.Component {
+class AppForm extends React.Component<{ showPopup: (isPopupShow: boolean) => void }> {
   state: FormState;
+  showPopup: (isPopupShow: boolean) => void;
 
-  constructor(props: string) {
+  constructor(props: { showPopup: (isPopupShow: boolean) => void }) {
     super(props);
 
     this.state = {
@@ -26,16 +27,7 @@ class AppForm extends React.Component {
       isImageValid: true,
     };
 
-    // this.nameRefs = {
-    //   blockRef: React.createRef(),
-    //   inputRef: React.createRef(),
-    // };
-    // this.dateRef = React.createRef();
-    // this.selectRef = React.createRef();
-    // this.checkboxRefs = this.getMultipleRef(config.checkbox.values.length);
-    // this.radioRefs = this.getMultipleRef(config.radio.values.length);
-    // this.imageRef = React.createRef();
-
+    this.showPopup = props.showPopup;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -64,14 +56,6 @@ class AppForm extends React.Component {
     const radio = config.radio.values.map((val) => val[2].current);
     const image = config.image.inputRef.current;
 
-    // this.setState({
-    //   isNameValid: this.isValueValid(name?.value, isValueLonger.bind(null, 2)),
-    //   isDateValid: this.isValueValid(date?.value, isValueNotEmpty),
-    //   isSelectValid: this.isValueValid(select?.selectedIndex.toString(), isSelectValid),
-    //   isCheckboxValid: this.isMultipleInputDone(checkbox),
-    //   isRadioValid: this.isMultipleInputDone(radio),
-    //   isImageValid: this.isValueValid(image?.value, isValueNotEmpty),
-    // });
     return {
       isNameValid: this.isValueValid(name?.value, isValueLonger.bind(null, 2)),
       isDateValid: this.isValueValid(date?.value, isValueNotEmpty),
@@ -88,17 +72,18 @@ class AppForm extends React.Component {
     Object.values(newState).forEach((state) => {
       if (!state) answer = false;
     });
-    console.log('farm valid:', answer);
     return answer;
   }
 
   handleSubmit(event: React.MouseEvent) {
     event.preventDefault();
-    console.log('Submit');
     const newState = this.makeNewState();
     this.setState(newState);
     if (this.isFormValid(newState)) {
-      console.log('VALID');
+      this.showPopup(true);
+      setTimeout(() => {
+        this.showPopup(false);
+      }, 2000);
     }
   }
 
