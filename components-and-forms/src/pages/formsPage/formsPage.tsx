@@ -13,17 +13,7 @@ class FormsPage extends Page {
 
     this.state = {
       isPopupShow: false,
-      cards: [
-        {
-          border: 'No, thanks',
-          date: '0001-11-11',
-          image: 'C:fakepath.travel.png',
-          key: -1,
-          name: 'Card title',
-          titleStyle: ['Bold', '', 'Bright color'],
-          type: 'Cool card',
-        },
-      ],
+      cards: [],
       counter: 0,
     };
 

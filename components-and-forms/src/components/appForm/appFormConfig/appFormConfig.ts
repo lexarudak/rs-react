@@ -45,7 +45,7 @@ const appFormConfig = {
   },
 
   radio: <MultiInputProps>{
-    name: 'Add awesome border?',
+    name: 'Add border?',
     values: [
       ['1', 'Yes, of course!', React.createRef<HTMLInputElement>()],
       ['2', 'No, thanks', React.createRef<HTMLInputElement>()],

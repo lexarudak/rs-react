@@ -7,6 +7,10 @@
   padding: 15px;
   margin: 20px;
 
+  &__border {
+    border: 1.5px solid $light-main;
+  }
+
   &__img {
     width: 170px;
     height: 170px;
@@ -18,12 +22,39 @@
 
   &__type {
     color: $light-second;
+
+    .form-card__cool-card &::after {
+      content: '\2605 \2605 \2605 \2606 \2606';
+      margin-left: 10px;
+    }
+
+    .form-card__very-cool-card &::after {
+      content: '\2605 \2605 \2605 \2605 \2606';
+      margin-left: 10px;
+    }
+
+    .form-card__extremely-cool-card &::after {
+      content: '\2605 \2605 \2605 \2605 \2605';
+      margin-left: 10px;
+    }
   }
 
   &__title {
     font-size: 30px;
     margin-bottom: 30px;
-    @include oneLineText
+    @include oneLineText;
+
+    .form-card__bright-color & {
+      color: $active-main;
+    }
+
+    .form-card__bold & {
+      font-weight: bold;
+    }
+
+    .form-card__italic & {
+      font-style: italic;
+    }
   }
 
   &__name {

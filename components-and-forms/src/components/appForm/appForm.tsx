@@ -57,6 +57,33 @@ class AppForm extends React.Component<AppFormProps> {
     };
   }
 
+  private resetInput(input: HTMLInputElement | null) {
+    if (input) input.value = '';
+  }
+
+  private resetInputsArr(input: (HTMLInputElement | null)[]) {
+    input.forEach((input) => {
+      if (input) input.checked = false;
+    });
+  }
+
+  private resetForm({
+    nameInput,
+    dateInput,
+    selectInput,
+    checkboxInputs,
+    radioInputs,
+    imageInput,
+  }: FormInputs): void {
+    [nameInput, dateInput, imageInput].forEach((input) => {
+      this.resetInput(input);
+    });
+    [checkboxInputs, radioInputs].forEach((inputsArr) => {
+      this.resetInputsArr(inputsArr);
+    });
+    if (selectInput) selectInput.value = config.select.values[0][1];
+  }
+
   private setCardInfo({
     nameInput,
     dateInput,
@@ -83,10 +110,11 @@ class AppForm extends React.Component<AppFormProps> {
 
     this.showPopup(true);
     this.addNewCard(this.setCardInfo(inputs));
+    this.resetForm(inputs);
 
     setTimeout(() => {
       this.showPopup(false);
-    }, 2000);
+    }, 1500);
   }
 
   render(): React.ReactNode {
