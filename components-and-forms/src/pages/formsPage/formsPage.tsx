@@ -1,5 +1,5 @@
 import AppForm from '../../components/appForm/appForm';
-import FormCardsContainer from '../../components/formCards/formCardsContainer';
+import FormCardsContainer from '../../components/formCards/formCardsContainer/formCardsContainer';
 import React from 'react';
 import PageNames from '../../base/enums/pageNames';
 import { FormPageCard, FormPageState, PageProps } from '../../base/types';
@@ -13,7 +13,18 @@ class FormsPage extends Page {
 
     this.state = {
       isPopupShow: false,
-      cards: [],
+      cards: [
+        {
+          border: 'No, thanks',
+          date: '0001-11-11',
+          image: 'C:fakepath.travel.png',
+          key: -1,
+          name: 'Card title',
+          titleStyle: ['Bold', '', 'Bright color'],
+          type: 'Cool card',
+        },
+      ],
+      counter: 0,
     };
 
     this.showPopup = this.showPopup.bind(this);
@@ -27,8 +38,10 @@ class FormsPage extends Page {
   public addNewCard(cardInfo: FormPageCard): void {
     this.setState((state: FormPageState) => {
       const newArr = [...state.cards];
-      newArr.push(cardInfo);
-      return { cards: newArr };
+      const newCardInfo = { ...cardInfo, key: state.counter };
+      console.log(newCardInfo);
+      newArr.push(newCardInfo);
+      return { cards: newArr, counter: state.counter + 1 };
     });
   }
 

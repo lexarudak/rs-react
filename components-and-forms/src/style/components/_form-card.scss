@@ -1,0 +1,40 @@
+.form-card {
+  height: 600px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: $shadow;
+  position: relative;
+  padding: 15px;
+  margin: 20px;
+
+  &__img {
+    width: 170px;
+    height: 170px;
+    background-color: $light-main;
+    border-radius: 100%;
+    box-shadow: $shadow;
+    margin: 20px 0px 80px;
+  }
+
+  &__type {
+    color: $light-second;
+  }
+
+  &__title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    @include oneLineText
+  }
+
+  &__name {
+    font-weight: 500;
+    display: inline-block;
+    width: 110px;
+    margin-top: 7px;
+  }
+
+  &__value {
+    color: $light-second;
+    @include oneLineText
+  }
+}

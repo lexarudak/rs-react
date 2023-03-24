@@ -67,6 +67,7 @@ export type FormState = {
 export type FormPageState = {
   isPopupShow: boolean;
   cards: FormPageCard[];
+  counter: number;
 };
 
 export type FormPageCard = {
@@ -76,6 +77,7 @@ export type FormPageCard = {
   titleStyle: string[];
   border: string;
   image: string;
+  key?: number;
 };
 
 export type MultipleValue = [id: string, text: string, ref: RefObject<HTMLInputElement>];
