@@ -29,7 +29,6 @@ class FormsPage extends Page {
     this.setState((state: FormPageState) => {
       const newArr = [...state.cards];
       const newCardInfo = { ...cardInfo, key: state.counter };
-      console.log(newCardInfo);
       newArr.push(newCardInfo);
       return { cards: newArr, counter: state.counter + 1 };
     });

@@ -67,6 +67,11 @@ class AppForm extends React.Component<AppFormProps> {
     });
   }
 
+  private getImgSrc(imageInput: HTMLInputElement) {
+    const file = imageInput.files ? imageInput.files[0] : null;
+    return file ? URL.createObjectURL(file).toString() : '';
+  }
+
   private resetForm({
     nameInput,
     dateInput,
@@ -97,7 +102,7 @@ class AppForm extends React.Component<AppFormProps> {
     const type = selectInput ? selectInput.value : '';
     const titleStyle = checkboxInputs.map((input) => (input?.checked ? input.value : ''));
     const border = radioInputs.filter((input) => input?.checked)[0]?.value || '';
-    const image = imageInput ? imageInput.value : '';
+    const image = imageInput ? this.getImgSrc(imageInput) : '';
 
     return { name, date, type, titleStyle, border, image };
   }

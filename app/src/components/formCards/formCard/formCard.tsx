@@ -10,7 +10,6 @@ class FormCard extends React.Component<FormPageCard> {
   private isBorder(textValue: string) {
     const [trueValue] = config.radio.values;
     const [, trueValueText] = trueValue;
-    console.log(trueValueText, textValue, trueValueText === textValue);
     return trueValueText === textValue;
   }
 
@@ -32,16 +31,12 @@ class FormCard extends React.Component<FormPageCard> {
   public render() {
     return (
       <div className={`form-card ${this.addAdditionalStyles(this.props)}`}>
-        <div className="form-card__img"></div>
+        <img className="form-card__img" src={this.props.image}></img>
         <div className="form-card__type">{this.props.type}</div>
         <div className="form-card__title">{this.props.name}</div>
         <div>
           <span className="form-card__name">Date:</span>
           <span className="form-card__value">{this.props.date}</span>
-        </div>
-        <div>
-          <span className="form-card__name">Img:</span>
-          <span className="form-card__value">{this.props.image}</span>
         </div>
         <div>
           <span className="form-card__name">Title style:</span>
