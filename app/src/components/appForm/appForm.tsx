@@ -73,6 +73,8 @@ class AppForm extends React.Component<AppFormProps> {
 
   private getImgSrc(imageInput: HTMLInputElement) {
     const file = imageInput.files ? imageInput.files[0] : null;
+    console.log(file);
+    if (file) console.log(URL.createObjectURL(file).toString());
     return file ? URL.createObjectURL(file).toString() : '';
   }
 

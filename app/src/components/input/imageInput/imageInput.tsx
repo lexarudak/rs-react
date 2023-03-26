@@ -28,7 +28,7 @@ class ImageInput extends React.Component {
           ref={this.ref}
           type="file"
           name={this.name}
-          accept="image/png, image/jpeg"
+          accept="image/png, image/jpeg, image/jpg"
         ></input>
       </label>
     );
