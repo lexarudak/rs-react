@@ -27,6 +27,7 @@ class DateInput extends React.Component {
       <label className="input-block__label">
         <span className="input-block__title">{this.name}</span>
         <input
+          data-testid="date-input"
           ref={this.ref}
           type={'date'}
           className="date-input input-block__input"
