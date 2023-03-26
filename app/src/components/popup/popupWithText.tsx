@@ -8,6 +8,7 @@ class PopupWithText extends React.Component<{ text: string; isPopupShow: boolean
   render() {
     return (
       <div
+        data-testid="popup-with-text"
         className={
           this.props.isPopupShow ? 'popup-with-text popup-with-text_active' : 'popup-with-text'
         }
