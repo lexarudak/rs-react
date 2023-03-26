@@ -42,4 +42,10 @@ describe('popupWithText tests', () => {
     if (props.inputRef.current) props.inputRef.current.value = '123';
     expect(textInput).toHaveValue('123');
   });
+
+  test('get error text', () => {
+    const input = new TextInput(props);
+    expect(input._errorText).toEqual('error text');
+    expect(input._errorText).not.toEqual('error text ');
+  });
 });

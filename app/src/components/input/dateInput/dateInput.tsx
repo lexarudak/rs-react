@@ -31,7 +31,7 @@ class DateInput extends React.Component {
           ref={this.ref}
           type={'date'}
           className="date-input input-block__input"
-          name="trip-start"
+          name="date-input"
           min={this.from}
           max={this.to}
         ></input>

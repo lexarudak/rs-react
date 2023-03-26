@@ -23,6 +23,7 @@ class ImageInput extends React.Component {
       <label className="input-block__label">
         <span className="input-block__title">{this.name}</span>
         <input
+          data-testid="image-input"
           className="input-block__img-input"
           ref={this.ref}
           type="file"

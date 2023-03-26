@@ -35,4 +35,9 @@ describe('popupWithText tests', () => {
     const textErrorText = screen.queryByText(props.errorText);
     expect(textErrorText).not.toBeInTheDocument();
   });
+
+  test('get error text', () => {
+    const input = new SelectInput(props);
+    expect(input._errorText).toEqual(props.errorText);
+  });
 });
