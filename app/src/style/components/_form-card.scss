@@ -1,0 +1,91 @@
+.form-card {
+  height: 540px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: $shadow;
+  position: relative;
+  padding: 15px;
+  margin: 20px;
+
+  @media (max-width: 500px) {
+    margin: 20px 0;
+  }
+
+  &__border {
+    border: 1.5px solid $light-main;
+  }
+
+  &__img {
+    width: 170px;
+    height: 170px;
+    background-color: $light-main;
+    border-radius: 100%;
+    box-shadow: $shadow;
+    margin: 20px 0px 80px;
+    object-fit: cover;
+
+    @media (max-width: 400px) {
+      margin: 20px 0px 55px;
+    }
+  }
+
+  &__type {
+    color: $light-second;
+
+    &::after {
+      margin-left: 10px;
+
+      @media (max-width: 400px) {
+        margin-left: 0px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-card__cool-card &::after {
+      content: '\2605 \2605 \2605 \2606 \2606';
+    }
+
+    .form-card__very-cool-card &::after {
+      content: '\2605 \2605 \2605 \2605 \2606';
+    }
+
+    .form-card__extremely-cool-card &::after {
+      content: '\2605 \2605 \2605 \2605 \2605';
+    }
+  }
+
+  &__title {
+    width: 250px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    @include oneLineText;
+
+    .form-card__bright-color & {
+      color: $active-main;
+    }
+
+    .form-card__bold & {
+      font-weight: bold;
+    }
+
+    .form-card__italic & {
+      font-style: italic;
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+    display: inline-block;
+    width: 110px;
+    margin-top: 7px;
+  }
+
+  &__value {
+    color: $light-second;
+    @include oneLineText
+  }
+}

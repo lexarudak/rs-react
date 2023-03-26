@@ -1,0 +1,25 @@
+.body {
+  background-color: $dark-main;
+  color: $light-main;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+
+    @media (max-width: 555px) {
+      padding: 0 20px;
+    }
+  }
+
+}
+
+html,
+.body,
+.body__container,
+#root {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
