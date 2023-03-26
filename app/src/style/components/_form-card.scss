@@ -7,6 +7,10 @@
   padding: 15px;
   margin: 20px;
 
+  @media (max-width: 500px) {
+    margin: 20px 0;
+  }
+
   &__border {
     border: 1.5px solid $light-main;
   }
@@ -18,29 +22,44 @@
     border-radius: 100%;
     box-shadow: $shadow;
     margin: 20px 0px 80px;
-    object-fit: cover
+    object-fit: cover;
+
+    @media (max-width: 400px) {
+      margin: 20px 0px 55px;
+    }
   }
 
   &__type {
     color: $light-second;
 
+    &::after {
+      margin-left: 10px;
+
+      @media (max-width: 400px) {
+        margin-left: 0px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      display: flex;
+      flex-direction: column;
+    }
+
     .form-card__cool-card &::after {
       content: '\2605 \2605 \2605 \2606 \2606';
-      margin-left: 10px;
     }
 
     .form-card__very-cool-card &::after {
       content: '\2605 \2605 \2605 \2605 \2606';
-      margin-left: 10px;
     }
 
     .form-card__extremely-cool-card &::after {
       content: '\2605 \2605 \2605 \2605 \2605';
-      margin-left: 10px;
     }
   }
 
   &__title {
+    width: 250px;
     font-size: 30px;
     margin-bottom: 30px;
     @include oneLineText;
