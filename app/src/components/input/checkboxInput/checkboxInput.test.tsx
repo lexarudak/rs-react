@@ -4,7 +4,7 @@ import { MultiInputProps } from 'base/types';
 import React from 'react';
 import CheckboxInput from './checkboxInput';
 
-describe('popupWithText tests', () => {
+describe('checkbox input tests', () => {
   const props: MultiInputProps = {
     name: 'title',
     errorText: 'error text',

@@ -4,7 +4,7 @@ import { MultiInputProps } from 'base/types';
 import React from 'react';
 import RadioInput from './radioInput';
 
-describe('popupWithText tests', () => {
+describe('radio buttons tests', () => {
   const props: MultiInputProps = {
     name: 'title',
     errorText: 'error text',

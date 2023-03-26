@@ -4,7 +4,7 @@ import { TextInputProps } from 'base/types';
 import React from 'react';
 import ImageInput from './imageInput';
 
-describe('popupWithText tests', () => {
+describe('image input tests', () => {
   const props: TextInputProps = {
     name: 'title',
     errorText: 'error text',
