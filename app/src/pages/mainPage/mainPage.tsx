@@ -1,9 +1,9 @@
-import Search from '../../components/input/search/search';
 import React from 'react';
 import PageNames from '../../base/enums/pageNames';
 import { PageProps } from '../../base/types';
-import Page from '../page/page';
 import CardsContainer from '../../components/cards/cardContainer/cardsContainer';
+import SearchInput from '../../components/input/searchInput/searchInput';
+import Page from '../page/page';
 
 class MainPage extends Page {
   state: Readonly<{ search: string }>;
@@ -25,7 +25,7 @@ class MainPage extends Page {
   public render() {
     return (
       <div className="main__container">
-        <Search searchValue={this.state.search} changeSearchVal={this.changeSearchVal} />
+        <SearchInput searchValue={this.state.search} changeSearchVal={this.changeSearchVal} />
         <CardsContainer searchValue={this.state.search} />
       </div>
     );

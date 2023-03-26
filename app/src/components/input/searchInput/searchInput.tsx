@@ -1,7 +1,7 @@
 import { MainState } from 'base/types';
 import React, { Component } from 'react';
 
-class Search extends Component<MainState> {
+class SearchInput extends Component<MainState> {
   constructor(props: MainState) {
     super(props);
   }
@@ -34,4 +34,4 @@ class Search extends Component<MainState> {
   }
 }
 
-export default Search;
+export default SearchInput;
