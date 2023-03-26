@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import FormButton from './formButton';
 
-describe('popupWithText tests', () => {
+describe('form button tests', () => {
   let value = 0;
 
   const props: { name: string; callback: (event: React.MouseEvent) => void } = {

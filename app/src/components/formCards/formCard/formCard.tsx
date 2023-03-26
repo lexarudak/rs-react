@@ -30,7 +30,7 @@ class FormCard extends React.Component<FormPageCard> {
 
   public render() {
     return (
-      <div className={`form-card ${this.addAdditionalStyles(this.props)}`}>
+      <div data-testid="form-card" className={`form-card ${this.addAdditionalStyles(this.props)}`}>
         <img className="form-card__img" src={this.props.image}></img>
         <div className="form-card__type">{this.props.type}</div>
         <div className="form-card__title">{this.props.name}</div>

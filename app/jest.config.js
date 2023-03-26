@@ -12,6 +12,7 @@ export default {
     '!**/vendor/**',
     '!**/src/base/**',
     '!**/vite.config.ts',
+    '!**/appFormConfig.ts',
     '!**/src/vite-env.d.ts',
   ],
 };
