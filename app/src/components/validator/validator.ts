@@ -10,15 +10,14 @@ class Validator {
   }
 
   public isSelectValid(selectedIndex: string | undefined): boolean {
-    return selectedIndex !== '0' && selectedIndex !== undefined;
+    return Number(selectedIndex) > 0;
   }
 
-  public isMultipleInputDone(arr: (HTMLInputElement | null)[]) {
+  public isMultipleInputDone(checkedArr: (boolean | undefined)[]) {
+    if (checkedArr.includes(undefined)) return false;
     let answer = false;
-    arr.forEach((input) => {
-      if (input !== null) {
-        if (input.checked) answer = true;
-      }
+    checkedArr.forEach((checked) => {
+      if (checked) answer = true;
     });
     return answer;
   }

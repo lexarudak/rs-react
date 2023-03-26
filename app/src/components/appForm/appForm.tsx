@@ -49,8 +49,12 @@ class AppForm extends React.Component<AppFormProps> {
         isNameValid: this.validator.isValueLonger(2, nameInput?.value),
         isDateValid: this.validator.isDateValid(dateInput?.value, config.date.from, config.date.to),
         isSelectValid: this.validator.isSelectValid(selectInput?.selectedIndex.toString()),
-        isCheckboxValid: this.validator.isMultipleInputDone(checkboxInputs),
-        isRadioValid: this.validator.isMultipleInputDone(radioInputs),
+        isCheckboxValid: this.validator.isMultipleInputDone(
+          checkboxInputs.map((input) => input?.checked)
+        ),
+        isRadioValid: this.validator.isMultipleInputDone(
+          checkboxInputs.map((input) => input?.checked)
+        ),
         isImageValid: this.validator.isValueNotEmpty(imageInput?.value),
       },
       inputs: { nameInput, dateInput, selectInput, checkboxInputs, radioInputs, imageInput },
