@@ -1,7 +1,7 @@
 import { AppFormProps, FormInputs, FormPageCard, FormState } from 'base/types';
 import Validator from '../validator/validator';
 import React from 'react';
-import FormButton from '../../components/buttons/formButton';
+import FormButton from '../buttons/formButton/formButton';
 import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
 import DateInput from '../../components/input/dateInput/dateInput';
 import ImageInput from '../../components/input/imageInput/imageInput';
