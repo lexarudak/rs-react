@@ -5,7 +5,6 @@ import Footer from './footer/footer';
 import Header from './header/header';
 
 function Layout(props: { pageName: PageNames }) {
-  console.log(props);
   return (
     <>
       <Header {...props} />
