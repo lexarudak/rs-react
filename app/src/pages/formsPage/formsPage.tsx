@@ -1,48 +1,31 @@
+import React, { useEffect, useState } from 'react';
+import PageNames from '../../base/enums/pageNames';
+import { FormPageCard, PageProps } from '../../base/types';
 import AppForm from '../../components/appForm/appForm';
 import FormCardsContainer from '../../components/formCards/formCardsContainer/formCardsContainer';
-import React from 'react';
-import PageNames from '../../base/enums/pageNames';
-import { FormPageCard, FormPageState, PageProps } from '../../base/types';
-import Page from '../page/page';
 import PopupWithText from '../../components/popup/popupWithText';
 
-class FormsPage extends Page {
-  state: FormPageState;
-  constructor(props: PageProps) {
-    super(props, PageNames.formsPage);
+function FormsPage(props: PageProps) {
+  useEffect(() => {
+    props.changeName(PageNames.formsPage);
+  });
 
-    this.state = {
-      isPopupShow: false,
-      cards: [],
-      counter: 0,
-    };
+  const [isPopupShow, showPopup] = useState(false);
+  const [cards, updateCards] = useState<FormPageCard[]>([]);
+  const [currentKey, increaseCurrentKey] = useState(0);
 
-    this.showPopup = this.showPopup.bind(this);
-    this.addNewCard = this.addNewCard.bind(this);
+  function addNewCard(cardInfo: FormPageCard): void {
+    increaseCurrentKey(currentKey + 1);
+    updateCards([...cards, { ...cardInfo, key: currentKey }]);
   }
 
-  public showPopup(isPopupShowNow: boolean) {
-    this.setState({ isPopupShow: isPopupShowNow });
-  }
-
-  public addNewCard(cardInfo: FormPageCard): void {
-    this.setState((state: FormPageState) => {
-      const newArr = [...state.cards];
-      const newCardInfo = { ...cardInfo, key: state.counter };
-      newArr.push(newCardInfo);
-      return { cards: newArr, counter: state.counter + 1 };
-    });
-  }
-
-  public render() {
-    return (
-      <div className="main__container">
-        <AppForm showPopup={this.showPopup} addNewCard={this.addNewCard} />
-        <FormCardsContainer cards={this.state.cards} />
-        <PopupWithText text={'Card created successfully!'} isPopupShow={this.state.isPopupShow} />
-      </div>
-    );
-  }
+  return (
+    <div className="main__container">
+      <AppForm showPopup={showPopup} addNewCard={addNewCard} />
+      <FormCardsContainer cards={cards} />
+      <PopupWithText text={'Card created successfully!'} isPopupShow={isPopupShow} />
+    </div>
+  );
 }
 
 export default FormsPage;

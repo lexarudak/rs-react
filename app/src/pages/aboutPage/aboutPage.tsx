@@ -1,11 +1,13 @@
-import PageNames from '../../base/enums/pageNames';
 import { PageProps } from 'base/types';
-import Page from '../page/page';
+import React, { useEffect } from 'react';
+import PageNames from '../../base/enums/pageNames';
 
-class AboutPage extends Page {
-  constructor(props: PageProps) {
-    super(props, PageNames.aboutPage);
-  }
+function AboutPage(props: PageProps) {
+  useEffect(() => {
+    props.changeName(PageNames.aboutPage);
+  });
+
+  return <h2>{PageNames.aboutPage}</h2>;
 }
 
 export default AboutPage;
