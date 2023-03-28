@@ -13,7 +13,7 @@ function AppRouter() {
 
   return (
     <Routes>
-      <Route path={RouteList.homePage} element={<Layout name={pageName} />}>
+      <Route path={RouteList.homePage} element={<Layout pageName={pageName} />}>
         <Route index element={<MainPage changeName={changePageName} />} />
         <Route path={RouteList.aboutPage} element={<AboutPage changeName={changePageName} />} />
         <Route path={RouteList.errorPage} element={<ErrorPage changeName={changePageName} />} />
