@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import FormsPage from '../../pages/formsPage/formsPage';
 
-function App() {
+function AppRouter() {
   const [pageName, changePageName] = useState(PageNames.mainPage);
 
   return (
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRouter;
