@@ -1,5 +1,5 @@
 import { CardInfo } from 'base/types';
-import CardButton from '../../buttons/cardButton';
+import CardButton from '../../buttons/cardButton/cardButton';
 import React from 'react';
 import CardImg from '../cardImg/cardImg';
 import CardPrice from '../cardPrice/cardPrice';
