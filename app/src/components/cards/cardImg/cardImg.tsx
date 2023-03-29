@@ -1,36 +1,30 @@
 import { CardImgInfo } from 'base/types';
 import React from 'react';
 
-class CardImg extends React.Component<CardImgInfo> {
-  constructor(props: CardImgInfo) {
-    super(props);
-  }
-
-  private setRating() {
-    const rating = this.props.rating > 0 && this.props.rating <= 5 ? this.props.rating : 0;
+function CardImg(props: CardImgInfo) {
+  function setRating() {
+    const rating = props.rating > 0 && props.rating <= 5 ? props.rating : 0;
     return <span className="card__rating">{rating.toFixed(1)}</span>;
   }
 
-  private setSale() {
-    const sale = Math.ceil(this.props.sale);
+  function setSale() {
+    const sale = Math.ceil(props.sale);
     if (sale > 0 && sale < 100) {
       return <span className="card__sale">{sale}</span>;
     }
   }
 
-  public render() {
-    return (
-      <div
-        className="card__img"
-        style={{
-          backgroundImage: this.props.thumbnail,
-        }}
-      >
-        <>{this.setSale()}</>
-        <>{this.setRating()}</>
-      </div>
-    );
-  }
+  return (
+    <div
+      className="card__img"
+      style={{
+        backgroundImage: props.thumbnail,
+      }}
+    >
+      <>{setSale()}</>
+      <>{setRating()}</>
+    </div>
+  );
 }
 
 export default CardImg;
