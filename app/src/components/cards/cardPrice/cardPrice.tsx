@@ -1,16 +1,9 @@
 import React from 'react';
 
-class CardPrice extends React.Component<{ sale: number; price: number }> {
-  sale;
-  price;
-  constructor(props: { sale: number; price: number }) {
-    super(props);
+function CardPrice(props: { sale: number; price: number }) {
+  const sale = Math.ceil(props.sale);
 
-    this.sale = Math.ceil(this.props.sale);
-    this.price = this.props.price;
-  }
-
-  private makePriceWithCents(price: number) {
+  function makePriceWithCents(price: number) {
     const str = price.toFixed(2);
     return (
       <>
@@ -20,40 +13,38 @@ class CardPrice extends React.Component<{ sale: number; price: number }> {
     );
   }
 
-  private makeNewPrice() {
-    return this.price * ((100 - this.sale) / 100);
+  function makeNewPrice(price: number, sale: number) {
+    return price * ((100 - sale) / 100);
   }
 
-  private isPriceInvalid() {
-    return this.price < 0.01 || this.price > 9999.99;
+  function isPriceInvalid(price: number) {
+    return price < 0.01 || price > 9999.99;
   }
 
-  private makePrice(isSale: boolean) {
-    if (this.isPriceInvalid()) return <p className="card__price"> -</p>;
+  function makePrice(price: number, isSale: boolean) {
+    if (isPriceInvalid(price)) return <p className="card__price"> -</p>;
     if (isSale) {
       return (
         <>
           <p className="card__price card__price_sale">
-            {this.makePriceWithCents(this.makeNewPrice())}
+            {makePriceWithCents(makeNewPrice(price, sale))}
           </p>
-          <span className="card__price card__price_old">{this.makePriceWithCents(this.price)}</span>
+          <span className="card__price card__price_old">{makePriceWithCents(price)}</span>
         </>
       );
     }
-    return <p className="card__price">{this.makePriceWithCents(this.price)}</p>;
+    return <p className="card__price">{makePriceWithCents(price)}</p>;
   }
 
-  private isSale() {
-    return this.sale > 0 && this.sale <= 99;
+  function isSale(sale: number) {
+    return sale > 0 && sale <= 99;
   }
 
-  public render() {
-    return (
-      <div className="card__prices">
-        <>{this.makePrice(this.isSale())}</>
-      </div>
-    );
-  }
+  return (
+    <div className="card__prices">
+      <>{makePrice(props.price, isSale(sale))}</>
+    </div>
+  );
 }
 
 export default CardPrice;
