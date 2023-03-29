@@ -1,37 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { MainState } from 'base/types';
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
-class SearchInput extends Component<MainState> {
-  constructor(props: MainState) {
-    super(props);
-  }
+function SearchInput(props: MainState) {
+  useEffect(() => {
+    props.changeSearchVal(localStorage.getItem('searchVal') || '');
+  }, []);
 
-  public setLocalStorage() {
-    localStorage.setItem('searchVal', this.props.searchValue);
-  }
+  useEffect(() => {
+    return localStorage.setItem('searchVal', props.searchValue);
+  });
 
-  public componentDidMount() {
-    this.props.changeSearchVal(localStorage.getItem('searchVal') || '');
-    window.addEventListener('beforeunload', this.setLocalStorage, { once: true });
-  }
-
-  public componentWillUnmount() {
-    this.setLocalStorage();
-  }
-
-  render() {
-    return (
-      <input
-        type={'text'}
-        placeholder={'Search'}
-        className="search"
-        value={this.props.searchValue}
-        onChange={(event) => {
-          this.props.changeSearchVal(event.target.value);
-        }}
-      ></input>
-    );
-  }
+  return (
+    <input
+      type={'text'}
+      placeholder={'Search'}
+      className="search"
+      value={props.searchValue}
+      onChange={(event) => {
+        props.changeSearchVal(event.target.value);
+      }}
+    ></input>
+  );
 }
 
 export default SearchInput;
