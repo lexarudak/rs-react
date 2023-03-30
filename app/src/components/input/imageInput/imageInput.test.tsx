@@ -7,7 +7,6 @@ import ImageInput from './imageInput';
 describe('image input tests', () => {
   const props: TextInputProps = {
     name: 'title',
-    errorText: 'error text',
     inputRef: React.createRef(),
   };
 
@@ -24,18 +23,5 @@ describe('image input tests', () => {
 
     const title = screen.getByText(props.name);
     expect(title).toBeInTheDocument();
-  });
-
-  test('not render errorText test', () => {
-    render(<ImageInput {...props} />);
-
-    const textErrorText = screen.queryByText(props.errorText);
-    expect(textErrorText).not.toBeInTheDocument();
-  });
-
-  test('get error text', () => {
-    const input = new ImageInput(props);
-    expect(input._errorText).toEqual('error text');
-    expect(input._errorText).not.toEqual('error text ');
   });
 });

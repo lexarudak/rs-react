@@ -1,4 +1,3 @@
-import { MultiInputProps, SelectInputProps } from 'base/types';
 import React from 'react';
 
 const appFormConfig = {
@@ -22,33 +21,33 @@ const appFormConfig = {
     inputRef: React.createRef<HTMLInputElement>(),
   },
 
-  select: <SelectInputProps>{
+  select: {
     name: 'Card type',
-    values: [
-      ['1', 'Select card type'], // init point (disabled)
-      ['2', 'Cool card'],
-      ['3', 'Very cool card'],
-      ['4', 'Extremely cool card'],
+    valuesArr: [
+      { id: 0, value: 'Select card type' },
+      { id: 1, value: 'Cool card' },
+      { id: 2, value: 'Very cool card' },
+      { id: 3, value: 'Extremely cool card' },
     ],
     errorText: 'please, select card type',
     selectRef: React.createRef<HTMLSelectElement>(),
   },
 
-  checkbox: <MultiInputProps>{
+  checkbox: {
     name: 'Upgrade card title',
-    values: [
-      ['1', 'Bold', React.createRef<HTMLInputElement>()],
-      ['2', 'Italic', React.createRef<HTMLInputElement>()],
-      ['3', 'Bright color', React.createRef<HTMLInputElement>()],
+    valuesArr: [
+      { id: 1, text: 'Bold', ref: React.createRef<HTMLInputElement>() },
+      { id: 2, text: 'Italic', ref: React.createRef<HTMLInputElement>() },
+      { id: 3, text: 'Bright color', ref: React.createRef<HTMLInputElement>() },
     ],
     errorText: 'choose at least 1 item',
   },
 
-  radio: <MultiInputProps>{
+  radio: {
     name: 'Add border?',
-    values: [
-      ['1', 'Yes, of course!', React.createRef<HTMLInputElement>()],
-      ['2', 'No, thanks', React.createRef<HTMLInputElement>()],
+    valuesArr: [
+      { id: 1, text: 'Yes, of course!', ref: React.createRef<HTMLInputElement>() },
+      { id: 2, text: 'No, thanks', ref: React.createRef<HTMLInputElement>() },
     ],
     errorText: 'please, make a choice',
   },

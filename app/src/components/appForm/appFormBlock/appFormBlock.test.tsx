@@ -8,16 +8,17 @@ import AppFormBlock from './appFormBlock';
 describe('form block tests', () => {
   const textInputProps: TextInputProps = {
     name: 'title',
-    errorText: 'error text',
     inputRef: React.createRef(),
   };
 
   test('render form block test', () => {
-    const props: { inputBlock: React.Component; isValid: boolean } = {
-      inputBlock: new TextInput(textInputProps),
-      isValid: true,
-    };
-    render(<AppFormBlock {...props} />);
+    render(
+      <AppFormBlock
+        inputBlock={<TextInput {...textInputProps} />}
+        isValid={true}
+        errorText={'error text'}
+      />
+    );
 
     const block = screen.getByText('title');
     expect(block).toBeInTheDocument();
@@ -26,11 +27,13 @@ describe('form block tests', () => {
   });
 
   test('render form block text error test', () => {
-    const props: { inputBlock: React.Component; isValid: boolean } = {
-      inputBlock: new TextInput(textInputProps),
-      isValid: false,
-    };
-    render(<AppFormBlock {...props} />);
+    render(
+      <AppFormBlock
+        inputBlock={<TextInput {...textInputProps} />}
+        isValid={false}
+        errorText={'error text'}
+      />
+    );
 
     const errorText = screen.getByText('error text');
     expect(errorText).toHaveClass('app-form__error-text_active');

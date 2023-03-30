@@ -7,18 +7,17 @@ import SelectInput from './selectInput';
 describe('popupWithText tests', () => {
   const props: SelectInputProps = {
     name: 'title',
-    errorText: 'error text',
     selectRef: React.createRef<HTMLSelectElement>(),
-    values: [
-      ['1', 'first'],
-      ['2', 'second'],
+    valuesArr: [
+      { id: 0, value: 'Select card type' },
+      { id: 1, value: 'Cool card' },
     ],
   };
 
   test('render select test', () => {
     render(<SelectInput {...props} />);
 
-    const select = screen.getByDisplayValue(props.values[0][1]);
+    const select = screen.getByDisplayValue(props.valuesArr[0].value);
     expect(select).toBeInTheDocument();
   });
 
@@ -27,17 +26,5 @@ describe('popupWithText tests', () => {
 
     const title = screen.getByText(props.name);
     expect(title).toBeInTheDocument();
-  });
-
-  test('not render errorText test', () => {
-    render(<SelectInput {...props} />);
-
-    const textErrorText = screen.queryByText(props.errorText);
-    expect(textErrorText).not.toBeInTheDocument();
-  });
-
-  test('get error text', () => {
-    const input = new SelectInput(props);
-    expect(input._errorText).toEqual(props.errorText);
   });
 });

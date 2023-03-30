@@ -7,7 +7,6 @@ import DateInput from './dateInput';
 describe('popupWithText tests', () => {
   const props: DateInputProps = {
     name: 'title',
-    errorText: 'error text',
     from: '01-01-2000',
     to: '01-01-2001',
     inputRef: React.createRef(),
@@ -27,17 +26,5 @@ describe('popupWithText tests', () => {
 
     const title = screen.getByText(props.name);
     expect(title).toBeInTheDocument();
-  });
-
-  test('not render errorText test', () => {
-    render(<DateInput {...props} />);
-
-    const textErrorText = screen.queryByText(props.errorText);
-    expect(textErrorText).not.toBeInTheDocument();
-  });
-
-  test('get error text', () => {
-    const input = new DateInput(props);
-    expect(input._errorText).toEqual(props.errorText);
   });
 });

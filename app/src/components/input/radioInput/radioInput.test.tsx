@@ -7,10 +7,9 @@ import RadioInput from './radioInput';
 describe('radio buttons tests', () => {
   const props: MultiInputProps = {
     name: 'title',
-    errorText: 'error text',
-    values: [
-      ['1', 'first', React.createRef()],
-      ['2', 'second', React.createRef()],
+    valuesArr: [
+      { id: 1, text: 'first', ref: React.createRef<HTMLInputElement>() },
+      { id: 2, text: 'second', ref: React.createRef<HTMLInputElement>() },
     ],
   };
 
@@ -37,18 +36,5 @@ describe('radio buttons tests', () => {
 
     const title = screen.getByText(props.name);
     expect(title).toBeInTheDocument();
-  });
-
-  test('not render errorText test', () => {
-    render(<RadioInput {...props} />);
-
-    const textErrorText = screen.queryByText(props.errorText);
-    expect(textErrorText).not.toBeInTheDocument();
-  });
-
-  test('get error text', () => {
-    const input = new RadioInput(props);
-    expect(input._errorText).toEqual('error text');
-    expect(input._errorText).not.toEqual('error text ');
   });
 });

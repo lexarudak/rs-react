@@ -40,8 +40,8 @@ class AppForm extends React.Component<AppFormProps> {
     const nameInput = config.name.inputRef.current;
     const dateInput = config.date.inputRef.current;
     const selectInput = config.select.selectRef.current;
-    const checkboxInputs = config.checkbox.values.map((val) => val[2].current);
-    const radioInputs = config.radio.values.map((val) => val[2].current);
+    const checkboxInputs = config.checkbox.valuesArr.map(({ ref }) => ref.current);
+    const radioInputs = config.radio.valuesArr.map(({ ref }) => ref.current);
     const imageInput = config.image.inputRef.current;
 
     return {
@@ -53,7 +53,7 @@ class AppForm extends React.Component<AppFormProps> {
           checkboxInputs.map((input) => input?.checked)
         ),
         isRadioValid: this.validator.isMultipleInputDone(
-          checkboxInputs.map((input) => input?.checked)
+          radioInputs.map((input) => input?.checked)
         ),
         isImageValid: this.validator.isValueNotEmpty(imageInput?.value),
       },
@@ -92,7 +92,7 @@ class AppForm extends React.Component<AppFormProps> {
     [checkboxInputs, radioInputs].forEach((inputsArr) => {
       this.resetInputsArr(inputsArr);
     });
-    if (selectInput) selectInput.value = config.select.values[0][1];
+    if (selectInput) selectInput.value = config.select.valuesArr[0].value;
   }
 
   private setCardInfo({
@@ -133,23 +133,35 @@ class AppForm extends React.Component<AppFormProps> {
       <form className="app-form">
         <fieldset className="app-form__border">
           <legend className="title">Create form card</legend>
-          <AppFormBlock inputBlock={new TextInput(config.name)} isValid={this.state.isNameValid} />
-          <AppFormBlock inputBlock={new DateInput(config.date)} isValid={this.state.isDateValid} />
           <AppFormBlock
-            inputBlock={new SelectInput(config.select)}
+            inputBlock={<TextInput {...config.name} />}
+            isValid={this.state.isNameValid}
+            errorText={config.name.errorText}
+          />
+          <AppFormBlock
+            inputBlock={<DateInput {...config.date} />}
+            isValid={this.state.isDateValid}
+            errorText={config.date.errorText}
+          />
+          <AppFormBlock
+            inputBlock={<SelectInput {...config.select} />}
             isValid={this.state.isSelectValid}
+            errorText={config.select.errorText}
           />
           <AppFormBlock
-            inputBlock={new CheckboxInput(config.checkbox)}
+            inputBlock={<CheckboxInput {...config.checkbox} />}
             isValid={this.state.isCheckboxValid}
+            errorText={config.checkbox.errorText}
           />
           <AppFormBlock
-            inputBlock={new RadioInput(config.radio)}
+            inputBlock={<RadioInput {...config.radio} />}
             isValid={this.state.isRadioValid}
+            errorText={config.radio.errorText}
           />
           <AppFormBlock
-            inputBlock={new ImageInput(config.image)}
+            inputBlock={<ImageInput {...config.image} />}
             isValid={this.state.isImageValid}
+            errorText={config.image.errorText}
           />
           <FormButton name={'Create card'} callback={this.handleSubmit} />
         </fieldset>

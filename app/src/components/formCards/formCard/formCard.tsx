@@ -8,9 +8,9 @@ class FormCard extends React.Component<FormPageCard> {
   }
 
   private isBorder(textValue: string) {
-    const [trueValue] = config.radio.values;
-    const [, trueValueText] = trueValue;
-    return trueValueText === textValue;
+    const [trueValue] = config.radio.valuesArr;
+    const { text } = trueValue;
+    return text === textValue;
   }
 
   private getTitleStyleText(titleStyles: string[]) {

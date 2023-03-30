@@ -1,4 +1,4 @@
-import { RefObject } from 'react';
+import { ReactElement, RefObject } from 'react';
 import PageNames from './enums/pageNames';
 
 export type PageProps = {
@@ -30,7 +30,6 @@ export type CardImgInfo = {
 
 export type TextInputProps = {
   name: string;
-  errorText: string;
   inputRef: RefObject<HTMLInputElement>;
 };
 
@@ -38,21 +37,20 @@ export type DateInputProps = {
   name: string;
   from: string;
   to: string;
-  errorText: string;
   inputRef: RefObject<HTMLInputElement>;
 };
 
+export type SelectValueObj = { id: number; value: string };
+
 export type SelectInputProps = {
   name: string;
-  values: [id: string, value: string][];
-  errorText: string;
+  valuesArr: SelectValueObj[];
   selectRef: RefObject<HTMLSelectElement>;
 };
 
 export type MultiInputProps = {
   name: string;
-  values: MultipleValue[];
-  errorText: string;
+  valuesArr: MultipleValueObj[];
 };
 
 export type FormState = {
@@ -80,7 +78,13 @@ export type FormPageCard = {
   key?: number;
 };
 
-export type MultipleValue = [id: string, text: string, ref: RefObject<HTMLInputElement>];
+export type FormBlock = {
+  inputBlock: ReactElement;
+  isValid: boolean;
+  errorText: string;
+};
+
+export type MultipleValueObj = { id: number; text: string; ref: RefObject<HTMLInputElement> };
 
 export type AppFormProps = {
   showPopup: (isPopupShow: boolean) => void;
