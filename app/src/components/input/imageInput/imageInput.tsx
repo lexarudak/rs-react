@@ -1,16 +1,15 @@
 import { TextInputProps } from 'base/types';
 import React from 'react';
 
-function ImageInput({ name, inputRef }: TextInputProps) {
+function ImageInput({ config: { title }, register }: TextInputProps) {
   return (
     <label className="input-block__label">
-      <span className="input-block__title">{name}</span>
+      <span className="input-block__title">{title}</span>
       <input
+        {...register}
         data-testid="image-input"
         className="input-block__img-input"
-        ref={inputRef}
         type="file"
-        name={name}
         accept="image/png, image/jpeg, image/jpg"
       ></input>
     </label>

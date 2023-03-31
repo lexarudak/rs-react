@@ -11,12 +11,13 @@ function FormsPage(props: PageProps) {
   });
 
   const [isPopupShow, showPopup] = useState(false);
-  const [cards, updateCards] = useState<FormPageCard[]>([]);
-  const [currentKey, increaseCurrentKey] = useState(0);
+  const [cards] = useState<FormPageCard[]>([]);
+  // const [currentKey, increaseCurrentKey] = useState(0);
 
-  function addNewCard(cardInfo: FormPageCard): void {
-    increaseCurrentKey(currentKey + 1);
-    updateCards([...cards, { ...cardInfo, key: currentKey }]);
+  function addNewCard(data: object): void {
+    console.log('Add new Card:', data);
+    // increaseCurrentKey(currentKey + 1);
+    // updateCards([...cards, { ...cardInfo, key: currentKey }]);
   }
 
   return (

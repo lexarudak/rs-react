@@ -1,4 +1,5 @@
-import { ReactElement, RefObject } from 'react';
+import { ReactElement } from 'react';
+import { FieldError, Merge, UseFormRegisterReturn } from 'react-hook-form';
 import PageNames from './enums/pageNames';
 
 export type PageProps = {
@@ -29,29 +30,37 @@ export type CardImgInfo = {
 };
 
 export type TextInputProps = {
-  name: string;
-  inputRef: RefObject<HTMLInputElement>;
+  config: {
+    title: string;
+  };
+  register: UseFormRegisterReturn<string>;
 };
 
 export type DateInputProps = {
-  name: string;
-  from: string;
-  to: string;
-  inputRef: RefObject<HTMLInputElement>;
+  config: {
+    title: string;
+    from: string;
+    to: string;
+  };
+  register: UseFormRegisterReturn<string>;
 };
 
-export type SelectValueObj = { id: number; value: string };
+export type SelectValueObj = { id: number | string; value: string };
 
 export type SelectInputProps = {
-  name: string;
-  valuesArr: SelectValueObj[];
-  selectRef: RefObject<HTMLSelectElement>;
+  config: {
+    title: string;
+    valuesArr: SelectValueObj[];
+  };
+  register: UseFormRegisterReturn<string>;
 };
 
 export type MultiInputProps = {
-  name: string;
-  valuesArr: MultipleValueObj[];
+  config: { title: string; valuesArr: MultipleValueObj[] };
+  register: UseFormRegisterReturn<string>;
 };
+
+export type MultipleValueObj = { id: number; text: string };
 
 export type FormState = {
   isNameValid: boolean;
@@ -80,15 +89,12 @@ export type FormPageCard = {
 
 export type FormBlock = {
   inputBlock: ReactElement;
-  isValid: boolean;
-  errorText: string;
+  err: FieldError | Merge<FieldError, FieldError> | undefined;
 };
-
-export type MultipleValueObj = { id: number; text: string; ref: RefObject<HTMLInputElement> };
 
 export type AppFormProps = {
   showPopup: (isPopupShow: boolean) => void;
-  addNewCard: (cardInfo: FormPageCard) => void;
+  addNewCard: (date: object) => void;
 };
 
 export type FormInputs = {

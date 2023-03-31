@@ -1,14 +1,14 @@
 import React from 'react';
 import { TextInputProps } from 'base/types';
 
-function TextInput({ name, inputRef }: TextInputProps) {
+function TextInput({ config: { title }, register }: TextInputProps) {
   return (
     <label className="input-block__label">
-      <span className="input-block__title">{name}</span>
+      <span className="input-block__title">{title}</span>
       <input
-        ref={inputRef}
+        {...register}
         type={'text'}
-        placeholder={`enter ${name.toLowerCase()}`}
+        placeholder={`enter ${title.toLowerCase()}`}
         className="input-block__input"
       ></input>
     </label>

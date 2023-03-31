@@ -1,6 +1,6 @@
 import { FormPageCard } from 'base/types';
 import React from 'react';
-import config from '../../appForm/appFormConfig/appFormConfig';
+import { radioConfig } from '../../appForm/appFormConfig/appFormConfig';
 
 class FormCard extends React.Component<FormPageCard> {
   constructor(props: FormPageCard) {
@@ -8,7 +8,7 @@ class FormCard extends React.Component<FormPageCard> {
   }
 
   private isBorder(textValue: string) {
-    const [trueValue] = config.radio.valuesArr;
+    const [trueValue] = radioConfig.valuesArr;
     const { text } = trueValue;
     return text === textValue;
   }

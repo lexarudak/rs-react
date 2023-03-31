@@ -1,56 +1,71 @@
-import React from 'react';
-
-const appFormConfig = {
-  name: {
-    name: 'Card name',
-    errorText: 'minimum 3 characters, please',
-    inputRef: React.createRef<HTMLInputElement>(),
-  },
-
-  image: {
-    name: 'Add image',
-    errorText: 'please, add a picture',
-    inputRef: React.createRef<HTMLInputElement>(),
-  },
-
-  date: {
-    name: 'Card date',
-    from: '2023-01-01',
-    to: '2024-12-31',
-    errorText: 'expected day 2023 or 2024',
-    inputRef: React.createRef<HTMLInputElement>(),
-  },
-
-  select: {
-    name: 'Card type',
-    valuesArr: [
-      { id: 0, value: 'Select card type' },
-      { id: 1, value: 'Cool card' },
-      { id: 2, value: 'Very cool card' },
-      { id: 3, value: 'Extremely cool card' },
-    ],
-    errorText: 'please, select card type',
-    selectRef: React.createRef<HTMLSelectElement>(),
-  },
-
-  checkbox: {
-    name: 'Upgrade card title',
-    valuesArr: [
-      { id: 1, text: 'Bold', ref: React.createRef<HTMLInputElement>() },
-      { id: 2, text: 'Italic', ref: React.createRef<HTMLInputElement>() },
-      { id: 3, text: 'Bright color', ref: React.createRef<HTMLInputElement>() },
-    ],
-    errorText: 'choose at least 1 item',
-  },
-
-  radio: {
-    name: 'Add border?',
-    valuesArr: [
-      { id: 1, text: 'Yes, of course!', ref: React.createRef<HTMLInputElement>() },
-      { id: 2, text: 'No, thanks', ref: React.createRef<HTMLInputElement>() },
-    ],
-    errorText: 'please, make a choice',
+export const nameConfig = {
+  title: 'Card name',
+  registerName: 'name',
+  registerOptions: {
+    required: 'minimum 3 characters, please',
+    minLength: {
+      value: 3,
+      message: 'minimum 3 characters, please',
+    },
   },
 };
 
-export default appFormConfig;
+export const dateConfig = {
+  title: 'Card date',
+  from: '2023-01-01',
+  to: '2024-12-31',
+  registerName: 'date',
+  registerOptions: {
+    required: 'choose a day in 2023 or 2024',
+  },
+};
+
+export const selectConfig = {
+  title: 'Card type',
+  valuesArr: [
+    { id: 'default', value: 'Select card type' },
+    { id: 1, value: 'Cool card' },
+    { id: 2, value: 'Very cool card' },
+    { id: 3, value: 'Extremely cool card' },
+  ],
+  registerName: 'select',
+  registerOptions: {
+    validate: (value: string, d: object) => {
+      console.log(d);
+      return value !== 'Select card type' || 'select card type';
+    },
+  },
+};
+
+export const checkboxConfig = {
+  title: 'Upgrade card title',
+  valuesArr: [
+    { id: 1, text: 'Bold' },
+    { id: 2, text: 'Italic' },
+    { id: 3, text: 'Bright color' },
+  ],
+  registerName: 'checkbox',
+  registerOptions: {
+    required: 'choose at least 1 item',
+  },
+};
+
+export const radioConfig = {
+  title: 'Add border?',
+  valuesArr: [
+    { id: 1, text: 'Yes, of course!' },
+    { id: 2, text: 'No, thanks' },
+  ],
+  registerName: 'radio',
+  registerOptions: {
+    required: 'please, make a choice',
+  },
+};
+
+export const imageConfig = {
+  title: 'Add image',
+  registerName: 'image',
+  registerOptions: {
+    required: 'please, add a picture',
+  },
+};

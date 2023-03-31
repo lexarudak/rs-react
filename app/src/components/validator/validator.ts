@@ -31,6 +31,7 @@ class Validator {
   }
 
   public isDateValid(date: string | undefined, from: string, to: string) {
+    console.log(date);
     if (!date) return false;
     return Date.parse(date) >= Date.parse(from) && Date.parse(date) <= Date.parse(to);
   }

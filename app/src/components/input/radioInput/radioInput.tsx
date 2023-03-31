@@ -1,20 +1,18 @@
 import { MultiInputProps, MultipleValueObj } from 'base/types';
 import React from 'react';
 
-function RadioInput({ name, valuesArr }: MultiInputProps) {
+function RadioInput({ config: { title, valuesArr }, register }: MultiInputProps) {
   return (
     <fieldset className="input-block__border">
-      <legend className="input-block__border-title">{name}</legend>
-      {valuesArr.map(({ id, text, ref }: MultipleValueObj) => {
+      <legend className="input-block__border-title">{title}</legend>
+      {valuesArr.map(({ id, text }: MultipleValueObj) => {
         return (
           <label className="input-block__label input-block__radio" key={id}>
             <input
+              {...register}
               className="input-block__label-check"
-              name={name}
               value={text}
-              id={name}
               type="radio"
-              ref={ref}
             ></input>
             <span className="input-block__label-text">{text}</span>
           </label>

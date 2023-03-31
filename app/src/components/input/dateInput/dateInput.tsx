@@ -1,18 +1,20 @@
 import { DateInputProps } from 'base/types';
 import React from 'react';
 
-function DateInput({ name, from, to, inputRef }: DateInputProps) {
+function DateInput({ config: { title, from, to }, register }: DateInputProps) {
   return (
     <label className="input-block__label">
-      <span className="input-block__title">{name}</span>
+      <span className="input-block__title">{title}</span>
       <input
+        {...register}
         data-testid="date-input"
-        ref={inputRef}
         type={'date'}
         className="date-input input-block__input"
-        name="date-input"
         min={from}
         max={to}
+        onChange={function (e) {
+          console.log(e.target.value);
+        }}
       ></input>
     </label>
   );
