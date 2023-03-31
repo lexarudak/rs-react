@@ -1,6 +1,6 @@
 export const nameConfig = {
   title: 'Card name',
-  registerName: 'name',
+  registerName: 'name' as const,
   registerOptions: {
     required: 'minimum 3 characters, please',
     minLength: {
@@ -14,7 +14,7 @@ export const dateConfig = {
   title: 'Card date',
   from: '2023-01-01',
   to: '2024-12-31',
-  registerName: 'date',
+  registerName: 'date' as const,
   registerOptions: {
     required: 'choose a day in 2023 or 2024',
   },
@@ -28,7 +28,7 @@ export const selectConfig = {
     { id: 2, value: 'Very cool card' },
     { id: 3, value: 'Extremely cool card' },
   ],
-  registerName: 'select',
+  registerName: 'select' as const,
   registerOptions: {
     validate: (value: string, d: object) => {
       console.log(d);
@@ -44,7 +44,7 @@ export const checkboxConfig = {
     { id: 2, text: 'Italic' },
     { id: 3, text: 'Bright color' },
   ],
-  registerName: 'checkbox',
+  registerName: 'checkbox' as const,
   registerOptions: {
     required: 'choose at least 1 item',
   },
@@ -56,7 +56,7 @@ export const radioConfig = {
     { id: 1, text: 'Yes, of course!' },
     { id: 2, text: 'No, thanks' },
   ],
-  registerName: 'radio',
+  registerName: 'radio' as const,
   registerOptions: {
     required: 'please, make a choice',
   },
@@ -64,7 +64,7 @@ export const radioConfig = {
 
 export const imageConfig = {
   title: 'Add image',
-  registerName: 'image',
+  registerName: 'image' as const,
   registerOptions: {
     required: 'please, add a picture',
   },

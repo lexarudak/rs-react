@@ -1,6 +1,6 @@
-import { AppFormProps } from 'base/types';
+import { AppFormData, AppFormProps } from 'base/types';
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
 import DateInput from '../../components/input/dateInput/dateInput';
 import ImageInput from '../../components/input/imageInput/imageInput';
@@ -17,13 +17,15 @@ import {
   selectConfig,
 } from './appFormConfig/appFormConfig';
 
-function AppForm({ showPopup, addNewCard }: AppFormProps) {
+function AppForm({ showPopupForSeconds, addNewCard }: AppFormProps) {
   const {
     register,
     formState: { errors },
     reset,
     handleSubmit,
-  } = useForm();
+  } = useForm<AppFormData>({
+    reValidateMode: 'onSubmit',
+  });
 
   const registers = {
     name: register(nameConfig.registerName, nameConfig.registerOptions),
@@ -34,16 +36,11 @@ function AppForm({ showPopup, addNewCard }: AppFormProps) {
     image: register(imageConfig.registerName, imageConfig.registerOptions),
   };
 
-  function onSubmit(data: object) {
-    console.log(data);
-    showPopup(true);
-    addNewCard(data);
+  const onSubmit: SubmitHandler<AppFormData> = ({ name, date, select, checkbox, radio, image }) => {
+    addNewCard({ name, date, select, checkbox, radio, imageSrc: URL.createObjectURL(image[0]) });
+    showPopupForSeconds(1.5);
     reset();
-
-    setTimeout(() => {
-      showPopup(false);
-    }, 1000);
-  }
+  };
 
   return (
     <form className="app-form" onSubmit={handleSubmit(onSubmit)}>

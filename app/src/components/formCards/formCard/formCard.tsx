@@ -2,55 +2,46 @@ import { FormPageCard } from 'base/types';
 import React from 'react';
 import { radioConfig } from '../../appForm/appFormConfig/appFormConfig';
 
-class FormCard extends React.Component<FormPageCard> {
-  constructor(props: FormPageCard) {
-    super(props);
-  }
-
-  private isBorder(textValue: string) {
+function FormCard({ name, date, select, checkbox, radio, imageSrc }: FormPageCard) {
+  function isBorder(textValue: string | null) {
     const [trueValue] = radioConfig.valuesArr;
     const { text } = trueValue;
     return text === textValue;
   }
 
-  private getTitleStyleText(titleStyles: string[]) {
-    const cleanArr = titleStyles.filter((value) => value);
-    return cleanArr.join(' | ');
-  }
-
-  private addAdditionalStyles(props: FormPageCard) {
+  function addAdditionalStyles(select: string, checkbox: false | string[], radio: string | null) {
     const addStyles = [];
-    if (this.isBorder(props.border)) addStyles.push('form-card__border');
-    this.props.titleStyle.forEach((style) => {
-      if (style) addStyles.push(`form-card__${style.replace(/ /gi, '-').toLowerCase()}`);
-    });
-    addStyles.push(`form-card__${this.props.type.replace(/ /gi, '-').toLowerCase()}`);
+    if (isBorder(radio)) addStyles.push('form-card__border');
+    if (checkbox)
+      checkbox.forEach((style) => {
+        addStyles.push(`form-card__${style.replace(/ /gi, '-').toLowerCase()}`);
+      });
+    addStyles.push(`form-card__${select.replace(/ /gi, '-').toLowerCase()}`);
     return addStyles.join(' ');
   }
 
-  public render() {
-    return (
-      <div data-testid="form-card" className={`form-card ${this.addAdditionalStyles(this.props)}`}>
-        <img className="form-card__img" src={this.props.image}></img>
-        <div className="form-card__type">{this.props.type}</div>
-        <div className="form-card__title">{this.props.name}</div>
-        <div>
-          <span className="form-card__name">Date:</span>
-          <span className="form-card__value">{this.props.date}</span>
-        </div>
-        <div>
-          <span className="form-card__name">Title style:</span>
-          <span className="form-card__value">{this.getTitleStyleText(this.props.titleStyle)}</span>
-        </div>
-        <div>
-          <span className="form-card__name">Border:</span>
-          <span className="form-card__value">
-            {this.isBorder(this.props.border) ? 'Yes' : 'No'}
-          </span>
-        </div>
+  return (
+    <div
+      data-testid="form-card"
+      className={`form-card ${addAdditionalStyles(select, checkbox, radio)}`}
+    >
+      <img className="form-card__img" src={imageSrc}></img>
+      <div className="form-card__type">{select}</div>
+      <div className="form-card__title">{name}</div>
+      <div>
+        <span className="form-card__name">Date:</span>
+        <span className="form-card__value">{date}</span>
       </div>
-    );
-  }
+      <div>
+        <span className="form-card__name">Title style:</span>
+        <span className="form-card__value">{checkbox && checkbox.join(' | ')}</span>
+      </div>
+      <div>
+        <span className="form-card__name">Border:</span>
+        <span className="form-card__value">{isBorder(radio) ? 'Yes' : 'No'}</span>
+      </div>
+    </div>
+  );
 }
 
 export default FormCard;

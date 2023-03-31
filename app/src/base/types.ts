@@ -77,13 +77,22 @@ export type FormPageState = {
   counter: number;
 };
 
+export type AppFormData = {
+  name: string;
+  date: string;
+  select: string;
+  checkbox: string[] | false;
+  radio: string | null;
+  image: FileList;
+};
+
 export type FormPageCard = {
   name: string;
   date: string;
-  type: string;
-  titleStyle: string[];
-  border: string;
-  image: string;
+  select: string;
+  checkbox: string[] | false;
+  radio: string | null;
+  imageSrc: string;
   key?: number;
 };
 
@@ -93,8 +102,8 @@ export type FormBlock = {
 };
 
 export type AppFormProps = {
-  showPopup: (isPopupShow: boolean) => void;
-  addNewCard: (date: object) => void;
+  showPopupForSeconds: (seconds: number) => void;
+  addNewCard: (date: FormPageCard) => void;
 };
 
 export type FormInputs = {

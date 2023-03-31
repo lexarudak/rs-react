@@ -10,19 +10,25 @@ function FormsPage(props: PageProps) {
     props.changeName(PageNames.formsPage);
   });
 
-  const [isPopupShow, showPopup] = useState(false);
-  const [cards] = useState<FormPageCard[]>([]);
-  // const [currentKey, increaseCurrentKey] = useState(0);
+  const [isPopupShow, setIsPopupShow] = useState(false);
+  const [cards, updateCards] = useState<FormPageCard[]>([]);
+  const [currentKey, increaseCurrentKey] = useState(0);
 
-  function addNewCard(data: object): void {
-    console.log('Add new Card:', data);
-    // increaseCurrentKey(currentKey + 1);
-    // updateCards([...cards, { ...cardInfo, key: currentKey }]);
+  function showPopupCurrently(seconds: number) {
+    setIsPopupShow(true);
+    setTimeout(() => {
+      setIsPopupShow(false);
+    }, seconds * 1000);
+  }
+
+  function addNewCard(cardInfo: FormPageCard): void {
+    increaseCurrentKey(currentKey + 1);
+    updateCards([...cards, { ...cardInfo, key: currentKey }]);
   }
 
   return (
     <div className="main__container">
-      <AppForm showPopup={showPopup} addNewCard={addNewCard} />
+      <AppForm showPopupForSeconds={showPopupCurrently} addNewCard={addNewCard} />
       <FormCardsContainer cards={cards} />
       <PopupWithText text={'Card created successfully!'} isPopupShow={isPopupShow} />
     </div>
