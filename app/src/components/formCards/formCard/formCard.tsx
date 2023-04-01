@@ -9,22 +9,29 @@ function FormCard({ name, date, select, checkbox, radio, imageSrc }: FormPageCar
     return text === textValue;
   }
 
-  function addAdditionalStyles(select: string, checkbox: false | string[], radio: string | null) {
-    const addStyles = [];
-    if (isBorder(radio)) addStyles.push('form-card__border');
-    if (checkbox)
-      checkbox.forEach((style) => {
-        addStyles.push(`form-card__${style.replace(/ /gi, '-').toLowerCase()}`);
-      });
-    addStyles.push(`form-card__${select.replace(/ /gi, '-').toLowerCase()}`);
-    return addStyles.join(' ');
+  function getBorderStyle(isBorder: boolean) {
+    return isBorder ? 'form-card__border' : '';
+  }
+
+  function getTitleStyles(checkbox: false | string[]) {
+    return checkbox
+      ? checkbox.map((style) => `form-card__${style.replace(/ /gi, '-').toLowerCase()}`)
+      : '';
+  }
+
+  function getTypeStyle(select: string) {
+    return `form-card__${select.replace(/ /gi, '-').toLowerCase()}`;
+  }
+
+  function addStyles(select: string, checkbox: false | string[], radio: string | null) {
+    return [getBorderStyle(isBorder(radio)), getTitleStyles(checkbox), getTypeStyle(select)]
+      .flat(Infinity)
+      .filter((value) => value)
+      .join(' ');
   }
 
   return (
-    <div
-      data-testid="form-card"
-      className={`form-card ${addAdditionalStyles(select, checkbox, radio)}`}
-    >
+    <div data-testid="form-card" className={`form-card ${addStyles(select, checkbox, radio)}`}>
       <img className="form-card__img" src={imageSrc}></img>
       <div className="form-card__type">{select}</div>
       <div className="form-card__title">{name}</div>

@@ -12,9 +12,6 @@ function DateInput({ config: { title, from, to }, register }: DateInputProps) {
         className="date-input input-block__input"
         min={from}
         max={to}
-        onChange={function (e) {
-          console.log(e.target.value);
-        }}
       ></input>
     </label>
   );

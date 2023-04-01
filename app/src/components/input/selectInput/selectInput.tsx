@@ -5,12 +5,7 @@ function SelectInput({ config: { title, valuesArr }, register }: SelectInputProp
   return (
     <label className="input-block__label">
       <span className="input-block__title">{title}</span>
-      <select
-        {...register}
-        // name={name}
-        className="input-block__input"
-        defaultValue={valuesArr[0].value}
-      >
+      <select {...register} className="input-block__input" defaultValue={valuesArr[0].value}>
         {valuesArr.map(({ id, value }: SelectValueObj, index) => {
           return (
             <option value={value} key={id} disabled={index === 0 ? true : false}>
