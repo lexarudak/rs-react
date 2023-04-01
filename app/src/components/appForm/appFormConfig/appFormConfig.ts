@@ -30,8 +30,7 @@ export const selectConfig = {
   ],
   registerName: 'select' as const,
   registerOptions: {
-    validate: (value: string, d: object) => {
-      console.log(d);
+    validate: (value: string) => {
       return value !== 'Select card type' || 'select card type';
     },
   },

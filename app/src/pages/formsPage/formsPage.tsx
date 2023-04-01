@@ -14,7 +14,7 @@ function FormsPage(props: PageProps) {
   const [cards, updateCards] = useState<FormPageCard[]>([]);
   const [currentKey, increaseCurrentKey] = useState(0);
 
-  function showPopupCurrently(seconds: number) {
+  function showPopupForSeconds(seconds: number) {
     setIsPopupShow(true);
     setTimeout(() => {
       setIsPopupShow(false);
@@ -28,7 +28,7 @@ function FormsPage(props: PageProps) {
 
   return (
     <div className="main__container">
-      <AppForm showPopupForSeconds={showPopupCurrently} addNewCard={addNewCard} />
+      <AppForm showPopupForSeconds={showPopupForSeconds} addNewCard={addNewCard} />
       <FormCardsContainer cards={cards} />
       <PopupWithText text={'Card created successfully!'} isPopupShow={isPopupShow} />
     </div>

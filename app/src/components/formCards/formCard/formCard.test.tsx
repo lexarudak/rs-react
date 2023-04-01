@@ -8,10 +8,10 @@ describe('form card tests', () => {
   const props: FormPageCard = {
     name: 'card',
     date: '01-01-2023',
-    type: 'cool card',
-    titleStyle: ['bold', 'italic'],
-    border: 'Yes, of course!',
-    image: '/public/plants/1/1.jpg',
+    select: 'cool card',
+    checkbox: ['bold', 'italic'],
+    radio: 'Yes, of course!',
+    imageSrc: '/public/plants/1/1.jpg',
   };
 
   test('render card test', () => {
@@ -60,6 +60,6 @@ describe('form card tests', () => {
 
     const img: HTMLImageElement = screen.getByRole('img');
     expect(img).toBeInTheDocument();
-    expect(img.src.includes(props.image)).toBeTruthy();
+    expect(img.src.includes(props.imageSrc)).toBeTruthy();
   });
 });

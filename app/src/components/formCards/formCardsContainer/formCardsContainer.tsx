@@ -3,7 +3,6 @@ import React from 'react';
 import FormCard from '../formCard/formCard';
 
 function FormCardsContainer(props: { cards: FormPageCard[] }) {
-  console.log(props.cards);
   return (
     <div className="form-cards-container">
       <h2 className="form-cards-container__title title">Your cards</h2>
