@@ -1,8 +1,8 @@
 import { MainState } from 'base/types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 
 function SearchInput({ searchValue, changeSearchVal }: MainState) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     changeSearchVal(localStorage.getItem('searchVal') || '');
   }, [changeSearchVal]);
 
