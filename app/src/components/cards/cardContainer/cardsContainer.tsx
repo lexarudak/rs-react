@@ -3,7 +3,7 @@ import Card from '../card/card';
 import plants from '../../../data/plants.json';
 import { CardInfo } from 'base/types';
 
-function CardsContainer(props: { searchValue: string }) {
+function CardsContainer({ searchValue }: { searchValue: string }) {
   function isPlantIncludesSting(plant: CardInfo, string: string) {
     const upperString = string.toUpperCase();
     return (
@@ -14,7 +14,7 @@ function CardsContainer(props: { searchValue: string }) {
   }
 
   function setFilterArr() {
-    return plants.products.filter((plant) => isPlantIncludesSting(plant, props.searchValue));
+    return plants.products.filter((plant) => isPlantIncludesSting(plant, searchValue));
   }
 
   return (

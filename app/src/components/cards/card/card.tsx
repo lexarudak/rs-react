@@ -5,18 +5,18 @@ import CardImg from '../cardImg/cardImg';
 import CardPrice from '../cardPrice/cardPrice';
 import CardStock from '../cardStock/cardStock';
 
-function Card(props: CardInfo) {
+function Card({ type, title, description, sale, price, stock, rating, thumbnail }: CardInfo) {
   return (
     <div className="card" data-testid="card">
-      <CardImg {...props} />
-      <div className="card__type">{props.type}</div>
-      <div className="card__title">{props.title}</div>
-      <div className="card__text">{props.description}</div>
+      <CardImg {...{ sale, rating, thumbnail }} />
+      <div className="card__type">{type}</div>
+      <div className="card__title">{title}</div>
+      <div className="card__text">{description}</div>
       <div className="card__price-and-button">
-        <CardPrice sale={props.sale} price={props.price} />
-        <CardButton {...props} />
+        <CardPrice sale={sale} price={price} />
+        <CardButton stock={stock} />
       </div>
-      <CardStock stock={props.stock} />
+      <CardStock stock={stock} />
     </div>
   );
 }

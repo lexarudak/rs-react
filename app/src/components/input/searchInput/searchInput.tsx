@@ -1,14 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { MainState } from 'base/types';
 import React, { useEffect } from 'react';
 
-function SearchInput(props: MainState) {
+function SearchInput({ searchValue, changeSearchVal }: MainState) {
   useEffect(() => {
-    props.changeSearchVal(localStorage.getItem('searchVal') || '');
-  }, []);
+    changeSearchVal(localStorage.getItem('searchVal') || '');
+  }, [changeSearchVal]);
 
   useEffect(() => {
-    return localStorage.setItem('searchVal', props.searchValue);
+    return localStorage.setItem('searchVal', searchValue);
   });
 
   return (
@@ -16,9 +15,9 @@ function SearchInput(props: MainState) {
       type={'text'}
       placeholder={'Search'}
       className="search"
-      value={props.searchValue}
+      value={searchValue}
       onChange={(event) => {
-        props.changeSearchVal(event.target.value);
+        changeSearchVal(event.target.value);
       }}
     ></input>
   );

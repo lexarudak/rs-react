@@ -1,16 +1,16 @@
 import { CardImgInfo } from 'base/types';
 import React from 'react';
 
-function CardImg(props: CardImgInfo) {
+function CardImg({ rating, sale, thumbnail }: CardImgInfo) {
   function setRating() {
-    const rating = props.rating > 0 && props.rating <= 5 ? props.rating : 0;
-    return <span className="card__rating">{rating.toFixed(1)}</span>;
+    const validRating = rating > 0 && rating <= 5 ? rating : 0;
+    return <span className="card__rating">{validRating.toFixed(1)}</span>;
   }
 
   function setSale() {
-    const sale = Math.ceil(props.sale);
-    if (sale > 0 && sale < 100) {
-      return <span className="card__sale">{sale}</span>;
+    const validSale = Math.ceil(sale);
+    if (validSale > 0 && validSale < 100) {
+      return <span className="card__sale">{validSale}</span>;
     }
   }
 
@@ -18,7 +18,7 @@ function CardImg(props: CardImgInfo) {
     <div
       className="card__img"
       style={{
-        backgroundImage: props.thumbnail,
+        backgroundImage: thumbnail,
       }}
     >
       <>{setSale()}</>
