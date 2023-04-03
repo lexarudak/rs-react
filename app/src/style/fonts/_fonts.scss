@@ -1,0 +1,21 @@
+html {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: .8px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.title {
+  font-size: 35px;
+  font-weight: 600;
+
+  @media (max-width: 555px) {
+    font-size: 22px;
+  }
+}

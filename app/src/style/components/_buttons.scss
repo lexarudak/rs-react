@@ -1,0 +1,18 @@
+.card-button {
+  padding: 15px 25px;
+  background-color: $light-main;
+  border: 1px solid $dark-main;
+  color: $dark-main;
+  border-radius: 25px;
+  transition: .2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $light-main-trans80;
+  }
+
+  &:disabled {
+    background-color: $light-second;
+    cursor: default;
+  }
+}
