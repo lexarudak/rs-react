@@ -9,7 +9,7 @@ function MainPage(props: PageProps) {
     props.changeName(PageNames.mainPage);
   });
 
-  const [searchState, changeSearchState] = useState('');
+  const [searchState, changeSearchState] = useState(localStorage.getItem('searchVal') || '');
 
   return (
     <div className="main__container">
