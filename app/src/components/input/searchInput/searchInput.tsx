@@ -8,7 +8,7 @@ function SearchInput({ searchValue, changeSearchVal }: MainState) {
 
   useEffect(() => {
     return localStorage.setItem('searchVal', searchValue);
-  });
+  }, [searchValue]);
 
   return (
     <input
