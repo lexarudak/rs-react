@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import SearchInput from './searchInput';
+import SearchInput from './searchBar';
 
 describe('search input tests', () => {
   const { getByPlaceholderText } = screen;
