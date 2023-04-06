@@ -6,8 +6,20 @@ export type PageProps = {
   changeName: (name: PageNames) => void;
 };
 
-export type MainState = {
+export type SearchBarProps = {
   setCards: (cards: Character[]) => void;
+  setIsLoading: (isLoading: boolean) => void;
+};
+
+export type PopupProps = {
+  isShow: boolean;
+  closeFn?: () => void;
+  children: React.ReactNode;
+};
+
+export type CardsContainerProps = {
+  cards: Character[];
+  setActiveCard: (character: Character | null) => void;
 };
 
 export type CharacterResp = {
@@ -42,15 +54,8 @@ export type Character = {
 };
 
 export type CardInfo = {
-  image: string;
-  name: string;
-  status: string;
-};
-
-export type CardImgInfo = {
-  sale: number;
-  rating: number;
-  thumbnail: string;
+  character: Character;
+  setActiveCard: (character: Character | null) => void;
 };
 
 export type TextInputProps = {

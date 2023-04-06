@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 import '@testing-library/jest-dom';
 import CardsContainer from './cardsContainer';
-import plants from '../../data/plants.json';
+import plants from '../../../data/plants.json';
 
 describe('Card container tests', () => {
   test('Exist find first element by title', () => {

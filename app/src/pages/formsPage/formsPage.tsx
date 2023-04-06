@@ -1,9 +1,10 @@
+import Banner from '../../components/banner/banner';
+import Popup from '../../components/popup/popup';
 import React, { useEffect, useState } from 'react';
 import PageNames from '../../base/enums/pageNames';
 import { FormPageCard, PageProps } from '../../base/types';
-import AppForm from '../../components/appForm/appForm';
-import FormCardsContainer from '../../components/formCards/formCardsContainer/formCardsContainer';
-import PopupWithText from '../../components/popup/popupWithText';
+import FormCardsContainer from '../../components/containers/formCardsContainer/formCardsContainer';
+import AppForm from '../../components/forms/appForm/appForm';
 
 function FormsPage(props: PageProps) {
   useEffect(() => {
@@ -30,7 +31,9 @@ function FormsPage(props: PageProps) {
     <div className="main__container">
       <AppForm showPopupForSeconds={showPopupForSeconds} addNewCard={addNewCard} />
       <FormCardsContainer cards={cards} />
-      <PopupWithText text={'Card created successfully!'} isPopupShow={isPopupShow} />
+      <Popup isShow={isPopupShow}>
+        <Banner text="Card created successfully!" />
+      </Popup>
     </div>
   );
 }

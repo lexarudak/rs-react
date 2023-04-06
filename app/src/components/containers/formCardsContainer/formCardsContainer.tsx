@@ -1,6 +1,6 @@
 import { FormPageCard } from 'base/types';
 import React from 'react';
-import FormCard from '../formCard/formCard';
+import FormCard from '../../cards/formCard/formCard';
 
 function FormCardsContainer({ cards }: { cards: FormPageCard[] }) {
   return (

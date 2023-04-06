@@ -16,3 +16,29 @@
     cursor: default;
   }
 }
+
+.close-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+
+  &__stick {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    border-radius: 3px;
+    background-color: $light-second;
+  }
+
+  &__top-stick {
+    transform: rotate(-45deg);
+  }
+
+  &__bottom-stick {
+    transform: rotate(45deg);
+  }
+}

@@ -2,22 +2,22 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import SearchInput from './searchBar';
+import SearchInput from './searchForm';
 
 describe('search input tests', () => {
   const { getByPlaceholderText } = screen;
 
   it('render test', () => {
-    render(<SearchInput searchValue={''} changeSearchVal={jest.fn()} />);
+    render(<SearchInput setCards={jest.fn()} />);
     expect(getByPlaceholderText('Search')).toBeInTheDocument();
   });
 
   it('change value test', async () => {
     let value = '';
-    const changeSearchVal = (searchValue: string) => {
+    const setCards = (searchValue: string) => {
       value += searchValue;
     };
-    render(<SearchInput searchValue={''} changeSearchVal={changeSearchVal} />);
+    render(<SearchInput searchValue={''} setCards={changeSearchVal} />);
     await userEvent.type(getByPlaceholderText('Search'), 'test text');
     expect(value).toEqual('test text');
   });

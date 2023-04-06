@@ -1,6 +1,6 @@
 import { FormPageCard } from 'base/types';
 import React from 'react';
-import { radioConfig } from '../../appForm/appFormConfig/appFormConfig';
+import { radioConfig } from '../../forms/appForm/appFormConfig/appFormConfig';
 
 function FormCard({ name, date, select, checkbox, radio, imageSrc }: FormPageCard) {
   function isBorder(textValue: string | null) {

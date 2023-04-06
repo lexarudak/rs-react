@@ -7,68 +7,31 @@
 }
 
 .card {
-  height: 485px;
-  width: 250px;
+  height: 360px;
+  width: 230px;
   border-radius: 15px;
   box-shadow: $shadow;
   position: relative;
   padding: 15px;
   margin: 20px;
+  transition: .2s;
+  border: 2px solid transparent;
+  cursor: pointer; 
+
+  &:hover {
+    box-shadow: $shadow-hide;
+    border: 2px solid $light-main;
+  }
 
   &__img {
-    width: 250px;
-    height: 250px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-
-  &__rating, 
-  &__sale {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 35px;
-    width: 35px;
-    font-size: 12px;
-    font-weight: 500;
+    width: 200px;
+    height: 200px;
+    box-shadow: $shadow;
     border-radius: 100%;
-    position: relative;
-    margin: 5px;
-
-    &::after {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      font-size: 20px;
-    }
-  }
-
-  &__rating {
-    background-color: $light-main;
-    color: $dark-main;
-
-    &::after {
-      color: $light-main;
-      content: '☆';
-    }
-  }
-
-  &__sale {
-    background-color: $active-main;
-    color: $dark-main;
-
-    &::after {
-      color: $active-main;
-      content: '%';
-    }
   }
 
   &__type {
+    margin-top: 60px;
     color: $light-second;
   }
 
@@ -76,73 +39,5 @@
     color: $light-main;
     font-size: 22px;
     font-weight: 600;
-  }
-
-  &__text {
-    margin-top: 10px;
-    overflow: hidden;
-    font-size: 14px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    color: $light-second;
-  }
-
-  &__price-and-button {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-top: 25px;
-    height: 58px;
-  }
-
-  &__price {
-    font-size: 30px;
-    font-weight: 600;
-
-    &::before {
-      content: '$';
-    }
-
-    &_sale {
-      color: $active-main;
-    }
-
-    &_old {
-      display: inline-block;
-      margin-top: 5px;
-      color: $light-second;
-      font-size: 16px;
-      font-weight: 500;
-      margin-left: 5px;
-      position: relative;
-
-      &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: $light-second;
-        position: absolute;
-        top: 50%;
-      }
-    }
-  }
-
-  &__stock {
-    font-size: 14px;
-    color: $active-main;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 15px;
-
-    &_null {
-      color: $light-second;
-    }
-  }
-
-  &__cents {
-    font-size: 14px;
   }
 }

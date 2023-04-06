@@ -1,12 +1,12 @@
 import { AppFormData, AppFormProps } from 'base/types';
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import CheckboxInput from '../../components/input/checkboxInput/checkboxInput';
-import DateInput from '../../components/input/dateInput/dateInput';
-import ImageInput from '../../components/input/imageInput/imageInput';
-import RadioInput from '../../components/input/radioInput/radioInput';
-import SelectInput from '../../components/input/selectInput/selectInput';
-import TextInput from '../../components/input/textInput/textInput';
+import CheckboxInput from '../../inputs/checkboxInput/checkboxInput';
+import DateInput from '../../inputs/dateInput/dateInput';
+import ImageInput from '../../inputs/imageInput/imageInput';
+import RadioInput from '../../inputs/radioInput/radioInput';
+import SelectInput from '../../inputs/selectInput/selectInput';
+import TextInput from '../../inputs/textInput/textInput';
 import AppFormBlock from './appFormBlock/appFormBlock';
 import {
   checkboxConfig,
