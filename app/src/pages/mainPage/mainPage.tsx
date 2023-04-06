@@ -1,3 +1,4 @@
+import Loading from '../../components/loading/loading';
 import React, { useEffect, useState } from 'react';
 import PageNames from '../../base/enums/pageNames';
 import { Character, PageProps } from '../../base/types';
@@ -16,12 +17,18 @@ function MainPage(props: PageProps) {
   const [isLoading, setIsLoading] = useState(true);
   const removeActiveCard = setActiveCard.bind(null, null);
 
+  function fillPage() {
+    if (isLoading) return <Loading />;
+    if (cards[0] && !isLoading)
+      return <CardsContainer cards={cards} setActiveCard={setActiveCard} />;
+
+    return <p className="main__no-cards">No cards</p>;
+  }
+
   return (
     <div className="main__container">
       <SearchInput setCards={setCards} setIsLoading={setIsLoading} />
-      {isLoading && <div>loading...</div>}
-      {cards[0] && !isLoading && <CardsContainer cards={cards} setActiveCard={setActiveCard} />}
-      {!isLoading && !cards[0] && <p className="no-cards">No cards</p>}
+      {fillPage()}
       <Popup isShow={Boolean(activeCard)} closeFn={removeActiveCard}>
         <BigCard char={activeCard} />
       </Popup>

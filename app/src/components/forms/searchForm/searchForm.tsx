@@ -22,6 +22,7 @@ function SearchForm({ setCards, setIsLoading }: SearchBarProps) {
       className="search-bar"
       onSubmit={async (e) => {
         e.preventDefault();
+        changeSearchVal((...prev) => prev[0].trim());
         setFetchData(searchValue);
         localStorage.setItem('searchVal', searchValue);
       }}
