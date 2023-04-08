@@ -2,6 +2,7 @@ import Api from '../../../api/api';
 import CharacterSearchParam from '../../../base/enums/params';
 import { SearchBarProps } from '../../../base/types';
 import React, { useEffect, useState } from 'react';
+import style from './searchForm.module.scss';
 
 function SearchForm({ setCards, setIsLoading }: SearchBarProps) {
   const [searchValue, changeSearchVal] = useState(localStorage.getItem('searchVal') || '');
@@ -19,7 +20,7 @@ function SearchForm({ setCards, setIsLoading }: SearchBarProps) {
 
   return (
     <form
-      className="search-bar"
+      className={style.form}
       onSubmit={async (e) => {
         e.preventDefault();
         changeSearchVal((...prev) => prev[0].trim());
@@ -30,7 +31,7 @@ function SearchForm({ setCards, setIsLoading }: SearchBarProps) {
       <input
         type={'text'}
         placeholder={'Search'}
-        className="search-bar__input"
+        className={style.input}
         value={searchValue}
         onChange={(event) => {
           changeSearchVal(event.target.value);

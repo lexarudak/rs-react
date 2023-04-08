@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "resolveJsonModule": true,
+    "plugins": [{ "name": "ts-plugin-scss-modules" }]
   },
   "include": ["./src/**/*", "styled.d.ts", "babel.config.js"]
 }

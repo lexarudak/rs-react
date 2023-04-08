@@ -1,0 +1,62 @@
+.card {
+  width: 670px;
+  min-height: 400px;
+  border-radius: 25px;
+  box-shadow: $shadow-main;
+  position: relative;
+  padding: 25px;
+  margin: 20px;
+  transition: .2s;
+  background-color: $color-bg;
+  display: flex;
+  gap: 25px;
+  overflow: hidden;
+  color: $color-second;
+
+  @media (max-width: 760px) {
+    flex-direction: column;
+    width: 300px;
+  }
+}
+
+.info {
+  overflow: hidden;
+}
+
+.img {
+  width: 300px;
+  height: 300px;
+  box-shadow: $shadow-main;
+  border-radius: 100%;
+}
+
+.title {
+  color: $color-main;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.status {
+  color: $color-active;
+  font-weight: 800;
+  margin-bottom: 60px;
+}
+
+.prop {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
+.propName {
+  display: block;
+  width: 100px;
+  color: $color-main;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.propValue {
+  display: block;
+}

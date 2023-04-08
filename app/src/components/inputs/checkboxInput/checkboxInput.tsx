@@ -1,20 +1,16 @@
 import { MultiInputProps, MultipleValueObj } from 'base/types';
 import React from 'react';
+import inputStyles from '../inputs.module.scss';
 
 function CheckboxInput({ config: { title, valuesArr }, register }: MultiInputProps) {
   return (
-    <fieldset className="input-block__border">
-      <legend className="input-block__border-title">{title}</legend>
+    <fieldset className={inputStyles.border}>
+      <legend>{title}</legend>
       {valuesArr.map(({ id, text }: MultipleValueObj) => {
         return (
-          <label className="input-block__label input-block__checkbox" key={id}>
-            <input
-              {...register}
-              className="input-block__label-check"
-              value={text}
-              type="checkbox"
-            ></input>
-            <span className="input-block__label-text">{text}</span>
+          <label key={id}>
+            <input {...register} className={inputStyles.hide} value={text} type="checkbox"></input>
+            <span className={inputStyles.checkerText}>{text}</span>
           </label>
         );
       })}

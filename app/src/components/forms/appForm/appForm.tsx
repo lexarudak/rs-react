@@ -16,6 +16,7 @@ import {
   radioConfig,
   selectConfig,
 } from './appFormConfig/appFormConfig';
+import styles from './appForm.module.scss';
 
 function AppForm({ showPopupForSeconds, addNewCard }: AppFormProps) {
   const {
@@ -43,9 +44,9 @@ function AppForm({ showPopupForSeconds, addNewCard }: AppFormProps) {
   };
 
   return (
-    <form className="app-form" onSubmit={handleSubmit(onSubmit)}>
-      <fieldset className="app-form__border">
-        <legend className="title">Create form card</legend>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <fieldset className={styles.border}>
+        <legend className={styles.title}>Create form card</legend>
         <AppFormBlock
           inputBlock={<TextInput config={nameConfig} register={registers.name} />}
           err={errors[nameConfig.registerName]}
@@ -70,7 +71,7 @@ function AppForm({ showPopupForSeconds, addNewCard }: AppFormProps) {
           inputBlock={<ImageInput config={imageConfig} register={registers.image} />}
           err={errors[imageConfig.registerName]}
         />
-        <input type="submit" className="card-button"></input>
+        <input type="submit" className={styles.button}></input>
       </fieldset>
     </form>
   );

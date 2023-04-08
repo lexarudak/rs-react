@@ -1,0 +1,33 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 30px;
+  gap: 10px;
+
+  @media (max-width: 555px) {
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+
+}
+
+.input {
+  width: 100%;
+}
+
+.error {
+  height: 24px;
+}
+
+.errorText {
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  color: $color-active;
+}
+  
+.errorTextActive {
+  opacity: 1;
+  visibility: visible;
+}
+

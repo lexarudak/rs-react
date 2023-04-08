@@ -1,12 +1,13 @@
 import { FormBlock } from 'base/types';
 import React from 'react';
+import styles from './appFormBlock.module.scss';
 
 function AppFormBlock({ inputBlock, err }: FormBlock) {
   return (
-    <div className="app-form__block">
-      <div className="app-form__input-block">{inputBlock}</div>
-      <div className="app-form__error-block">
-        <span className={!err ? 'app-form__error-text' : 'app-form__error-text_active'}>
+    <div className={styles.block}>
+      <div className={styles.input}>{inputBlock}</div>
+      <div className={styles.error}>
+        <span className={`${styles.errorText} ${err && styles.errorTextActive}`}>
           {err?.message}
         </span>
       </div>

@@ -5,6 +5,7 @@ import PageNames from '../../base/enums/pageNames';
 import { FormPageCard, PageProps } from '../../base/types';
 import FormCardsContainer from '../../components/containers/formCardsContainer/formCardsContainer';
 import AppForm from '../../components/forms/appForm/appForm';
+import styles from './formsPage.module.scss';
 
 function FormsPage(props: PageProps) {
   useEffect(() => {
@@ -28,7 +29,7 @@ function FormsPage(props: PageProps) {
   }
 
   return (
-    <div className="main__container">
+    <div className={styles.container}>
       <AppForm showPopupForSeconds={showPopupForSeconds} addNewCard={addNewCard} />
       <FormCardsContainer cards={cards} />
       <Popup isShow={isPopupShow}>

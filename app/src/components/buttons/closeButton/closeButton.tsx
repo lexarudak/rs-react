@@ -1,15 +1,16 @@
 import React from 'react';
+import styles from './closeButton.module.scss';
 
 function CloseButton({ closeFn }: { closeFn: () => void }) {
   return (
     <div
-      className="close-button"
+      className={styles.closeButton}
       onClick={() => {
         closeFn();
       }}
     >
-      <div className="close-button__stick close-button__top-stick"></div>
-      <div className="close-button__stick close-button__bottom-stick"></div>
+      <div className={styles.topStick}></div>
+      <div className={(styles.stick, styles.bottomStick)}></div>
     </div>
   );
 }

@@ -1,6 +1,8 @@
+import TestId from '../../../base/enums/testId';
 import { FormPageCard } from 'base/types';
 import React from 'react';
 import { radioConfig } from '../../forms/appForm/appFormConfig/appFormConfig';
+import styles from './formCard.module.scss';
 
 function FormCard({ name, date, select, checkbox, radio, imageSrc }: FormPageCard) {
   function isBorder(textValue: string | null) {
@@ -9,43 +11,40 @@ function FormCard({ name, date, select, checkbox, radio, imageSrc }: FormPageCar
     return text === textValue;
   }
 
-  function getBorderStyle(isBorder: boolean) {
-    return isBorder ? 'form-card__border' : '';
-  }
-
-  function getTitleStyles(checkbox: false | string[]) {
+  function getTitleStyles(initStyle: string, checkbox: false | string[]) {
     return checkbox
-      ? checkbox.map((style) => `form-card__${style.replace(/ /gi, '-').toLowerCase()}`)
-      : '';
+      ? checkbox
+          .reduce(
+            (acc, style) => [...acc, styles[style.replace(/ /gi, '-').toLowerCase()]],
+            [initStyle]
+          )
+          .join(' ')
+      : initStyle;
   }
 
-  function getTypeStyle(select: string) {
-    return `form-card__${select.replace(/ /gi, '-').toLowerCase()}`;
-  }
-
-  function addStyles(select: string, checkbox: false | string[], radio: string | null) {
-    return [getBorderStyle(isBorder(radio)), getTitleStyles(checkbox), getTypeStyle(select)]
-      .flat(Infinity)
-      .filter((value) => value)
-      .join(' ');
+  function getTypeStyle(initStyle: string, select: string) {
+    return `${initStyle} ${styles[select.replace(/ /gi, '-').toLowerCase()]}`;
   }
 
   return (
-    <div data-testid="form-card" className={`form-card ${addStyles(select, checkbox, radio)}`}>
-      <img className="form-card__img" src={imageSrc}></img>
-      <div className="form-card__type">{select}</div>
-      <div className="form-card__title">{name}</div>
+    <div
+      data-testid={TestId.formCard}
+      className={`${styles.card} ${isBorder(radio) && styles.border}`}
+    >
+      <img className={styles.img} src={imageSrc}></img>
+      <div className={getTypeStyle(styles.type, select)}>{select}</div>
+      <div className={getTitleStyles(styles.title, checkbox)}>{name}</div>
       <div>
-        <span className="form-card__name">Date:</span>
-        <span className="form-card__value">{date}</span>
+        <span className={styles.name}>Date:</span>
+        <span className={styles.value}>{date}</span>
       </div>
       <div>
-        <span className="form-card__name">Title style:</span>
-        <span className="form-card__value">{checkbox && checkbox.join(' | ')}</span>
+        <span className={styles.name}>Title style:</span>
+        <span className={styles.value}>{checkbox && checkbox.join(' | ')}</span>
       </div>
       <div>
-        <span className="form-card__name">Border:</span>
-        <span className="form-card__value">{isBorder(radio) ? 'Yes' : 'No'}</span>
+        <span className={styles.name}>Border:</span>
+        <span className={styles.value}>{isBorder(radio) ? 'Yes' : 'No'}</span>
       </div>
     </div>
   );
