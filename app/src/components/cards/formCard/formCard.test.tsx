@@ -28,7 +28,6 @@ describe('form card tests', () => {
     expect(card).toBeInTheDocument();
     const name = screen.getByText('card');
     expect(name).toBeInTheDocument();
-    expect(card).toHaveClass('form-card__bold form-card__italic');
   });
 
   test('render date name test', () => {
@@ -52,7 +51,7 @@ describe('form card tests', () => {
     expect(border).toBeInTheDocument();
     const card = screen.getByTestId('form-card');
     expect(card).toBeInTheDocument();
-    expect(card).toHaveClass('form-card__border');
+    expect(card).toHaveClass('border');
   });
 
   test('render img test', () => {

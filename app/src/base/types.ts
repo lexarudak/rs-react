@@ -19,7 +19,7 @@ export type PopupProps = {
 
 export type CardsContainerProps = {
   cards: Character[];
-  setActiveCard: (character: Character | null) => void;
+  setActiveCard: (character: Character | undefined) => void;
 };
 
 export type CharacterResp = {
@@ -55,7 +55,7 @@ export type Character = {
 
 export type CardInfo = {
   character: Character;
-  setActiveCard: (character: Character | null) => void;
+  setActiveCard: (character: Character | undefined) => void;
 };
 
 export type TextInputProps = {

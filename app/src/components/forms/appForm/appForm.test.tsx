@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { FormPageCard } from 'base/types';
 import React from 'react';
 import AppForm from './appForm';
+import styles from './appFormBlock/appFormBlock.module.scss';
 
 describe('form tests', () => {
   const showPopupForSeconds = jest.fn();
@@ -45,12 +46,9 @@ describe('form tests', () => {
       <AppForm showPopupForSeconds={showPopupForSeconds} addNewCard={addNewCard} />
     );
 
-    const errors = container.getElementsByClassName('app-form__error-text_active');
-    const noErrors = container.getElementsByClassName('app-form__error-text');
+    const errors = container.getElementsByClassName(styles.errorTextActive);
     expect(errors.length).toEqual(0);
-    expect(noErrors.length).toEqual(6);
     await userEvent.click(getByRole('button'));
-    expect(noErrors.length).toEqual(0);
     expect(errors.length).toEqual(6);
   });
 

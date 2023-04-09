@@ -2,35 +2,55 @@ import { render, screen } from '@testing-library/react';
 import React from 'react';
 import '@testing-library/jest-dom';
 import Card from './card';
+import userEvent from '@testing-library/user-event';
+import { Character } from 'base/types';
+
+const { getByText, queryByText } = screen;
 
 const testObj = {
-  id: 1,
-  title: 'Echeveria SC-092',
-  description:
-    'Succulent plants are drought-resistant plants in which the leaves, stem, or roots have become more than usually fleshy by the development of water-storing tissue.',
-  price: 15,
-  sale: 10,
-  rating: 5,
-  stock: 0,
-  type: 'Succulent',
-  thumbnail: 'url(src/data/plants/1/1.jpg)',
+  id: 0,
+  name: 'John',
+  status: 'cool',
+  species: 'test_species',
+  type: 'test_type',
+  gender: 'test_gender',
+  origin: {
+    name: 'test_origin',
+    url: '',
+  },
+  location: {
+    name: 'test_location',
+    url: '',
+  },
+  image: '',
+  episode: [],
+  url: '',
+  created: '',
 };
 
 describe('card', () => {
   test('render card text', () => {
-    render(<Card {...testObj} />);
+    render(<Card character={testObj} setActiveCard={jest.fn()} />);
 
-    const type = screen.getByText('Succulent');
-    const title = screen.getByText(/Echeveria SC-092/i);
-    const description = screen.getByText(
-      'Succulent plants are drought-resistant plants in which the leaves, stem, or roots have become more than usually fleshy by the development of water-storing tissue.'
-    );
-    expect(title).toBeInTheDocument();
-    expect(description).toBeInTheDocument();
-    expect(type).toBeInTheDocument();
+    expect(getByText('cool')).toBeInTheDocument();
+    expect(getByText('John')).toBeInTheDocument();
+    expect(queryByText('test_species')).not.toBeInTheDocument();
+    expect(queryByText('test_type')).not.toBeInTheDocument();
+    expect(queryByText('test_gender')).not.toBeInTheDocument();
+    expect(queryByText('test_origin')).not.toBeInTheDocument();
+    expect(queryByText('test_location')).not.toBeInTheDocument();
+  });
 
-    expect(title.classList).toContain('card__title');
-    expect(description.classList).toContain('card__text');
-    expect(type.classList).toContain('card__type');
+  test('click card text', async () => {
+    let characterDef: Character | undefined = undefined;
+    const setActiveCard = (character: Character | undefined) => {
+      characterDef = character;
+    };
+    render(<Card character={testObj} setActiveCard={setActiveCard} />);
+    expect(characterDef).toBeUndefined();
+    await userEvent.click(getByText('John'));
+
+    expect(characterDef).not.toBeUndefined();
+    expect(characterDef).toEqual(testObj);
   });
 });

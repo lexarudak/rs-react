@@ -1,5 +1,5 @@
 import Loading from '../../components/loading/loading';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PageNames from '../../base/enums/pageNames';
 import { Character, PageProps } from '../../base/types';
 import BigCard from '../../components/cards/bigCard/bigCard';
@@ -15,9 +15,12 @@ function MainPage(props: PageProps) {
   });
 
   const [cards, setCards] = useState<Character[]>([]);
-  const [activeCard, setActiveCard] = useState<Character | null>(null);
+  const [activeCard, setActiveCard] = useState<Character>();
   const [isLoading, setIsLoading] = useState(true);
-  const removeActiveCard = setActiveCard.bind(null, null);
+  const removeActiveCard = setActiveCard.bind(null, undefined);
+
+  const lastActiveCard = useRef<Character>();
+  activeCard && (lastActiveCard.current = activeCard);
 
   function fillPage() {
     if (isLoading) return <Loading />;
@@ -32,7 +35,7 @@ function MainPage(props: PageProps) {
       <SearchInput setCards={setCards} setIsLoading={setIsLoading} />
       {fillPage()}
       <Popup isShow={Boolean(activeCard)} closeFn={removeActiveCard}>
-        <BigCard char={activeCard} />
+        {lastActiveCard.current && <BigCard {...lastActiveCard.current} />}
       </Popup>
     </div>
   );

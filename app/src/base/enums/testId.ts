@@ -4,6 +4,8 @@ const enum TestId {
   dateInput = 'date-input',
   imageInput = 'image-input',
   popup = 'popup',
+  closeButton = 'close-button',
+  loading = 'loading',
 }
 
 export default TestId;
