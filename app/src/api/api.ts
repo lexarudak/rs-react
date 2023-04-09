@@ -8,7 +8,7 @@ class Api {
     paramValue: string
   ): Promise<Character[]> {
     const res = await fetch(`${Path.origin}${Path.character}/?${paramName}=${paramValue}`);
-    if (res.status === 200) {
+    if (res.ok) {
       const data: CharacterResp = await res.json();
       return data.results;
     }

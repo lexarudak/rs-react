@@ -16,5 +16,6 @@
     "resolveJsonModule": true,
     "plugins": [{ "name": "ts-plugin-scss-modules" }]
   },
+  "compilerConfig.lib": "dom",
   "include": ["./src/**/*", "styled.d.ts", "babel.config.js"]
 }

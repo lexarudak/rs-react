@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import '@testing-library/jest-dom';
 import Card from './card';
+import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { Character } from 'base/types';
 
@@ -31,7 +31,6 @@ const testObj = {
 describe('card', () => {
   test('render card text', () => {
     render(<Card character={testObj} setActiveCard={jest.fn()} />);
-
     expect(getByText('cool')).toBeInTheDocument();
     expect(getByText('John')).toBeInTheDocument();
     expect(queryByText('test_species')).not.toBeInTheDocument();
