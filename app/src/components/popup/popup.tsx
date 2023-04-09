@@ -10,7 +10,9 @@ function Popup({ isShow, children, closeFn }: PopupProps) {
       data-testid={TestId.popup}
       className={`${styles.popup} ${isShow && styles.active}`}
       onClick={(e) => {
-        e.target === e.currentTarget && closeFn && closeFn();
+        (e.target === e.currentTarget || e.target === e.currentTarget.firstChild) &&
+          closeFn &&
+          closeFn();
       }}
     >
       <div className={styles.inner}>
