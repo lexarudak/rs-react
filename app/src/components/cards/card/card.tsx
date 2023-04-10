@@ -2,17 +2,22 @@ import TestId from '../../../base/enums/testId';
 import { CardInfo } from 'base/types';
 import React from 'react';
 import styles from './card.module.scss';
+import Api from '../../../api/api';
 
-function Card({ character, setActiveCard }: CardInfo) {
+function Card({ character: { status, name, image, id }, setActiveCard, setIsPopupShow }: CardInfo) {
   return (
     <div
       className={styles.card}
       data-testid={TestId.mainCard}
-      onClick={() => setActiveCard(character)}
+      onClick={async () => {
+        setActiveCard(undefined);
+        setIsPopupShow(true);
+        setActiveCard(await Api.getCharacterById(id));
+      }}
     >
-      <img src={character.image} alt="Card image" className={styles.img}></img>
-      <div className={styles.type}>{character.status}</div>
-      <div className={styles.title}>{character.name}</div>
+      <img src={image} alt="Card image" className={styles.img}></img>
+      <div className={styles.type}>{status}</div>
+      <div className={styles.title}>{name}</div>
     </div>
   );
 }

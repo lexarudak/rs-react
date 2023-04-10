@@ -6,6 +6,10 @@ export type PageProps = {
   changeName: (name: PageNames) => void;
 };
 
+export type NotFoundObj = {
+  error: string;
+};
+
 export type SearchBarProps = {
   setCards: (cards: Character[]) => void;
   setIsLoading: (isLoading: boolean) => void;
@@ -19,7 +23,8 @@ export type PopupProps = {
 
 export type CardsContainerProps = {
   cards: Character[];
-  setActiveCard: (character: Character | undefined) => void;
+  setIsPopupShow: (isShow: boolean) => void;
+  setActiveCard: (character: Character | string | undefined) => void;
 };
 
 export type CharacterResp = {
@@ -55,7 +60,8 @@ export type Character = {
 
 export type CardInfo = {
   character: Character;
-  setActiveCard: (character: Character | undefined) => void;
+  setIsPopupShow: (isShow: boolean) => void;
+  setActiveCard: (character: Character | string | undefined) => void;
 };
 
 export type TextInputProps = {

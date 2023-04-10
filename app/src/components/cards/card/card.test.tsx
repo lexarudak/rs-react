@@ -4,6 +4,9 @@ import Card from './card';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { Character } from 'base/types';
+import fetchMock from 'jest-fetch-mock';
+
+fetchMock.enableMocks();
 
 const { getByText, queryByText } = screen;
 
@@ -30,7 +33,7 @@ const testObj = {
 
 describe('card', () => {
   test('render card text', () => {
-    render(<Card character={testObj} setActiveCard={jest.fn()} />);
+    render(<Card character={testObj} setActiveCard={jest.fn()} setIsPopupShow={jest.fn()} />);
     expect(getByText('cool')).toBeInTheDocument();
     expect(getByText('John')).toBeInTheDocument();
     expect(queryByText('test_species')).not.toBeInTheDocument();
@@ -41,15 +44,27 @@ describe('card', () => {
   });
 
   test('click card text', async () => {
-    let characterDef: Character | undefined = undefined;
-    const setActiveCard = (character: Character | undefined) => {
+    fetchMock.once(JSON.stringify(testObj));
+    let characterDef: Character | undefined | string = undefined;
+    let isPopupShow = false;
+    const setActiveCard = (character: Character | undefined | string) => {
       characterDef = character;
     };
-    render(<Card character={testObj} setActiveCard={setActiveCard} />);
+
+    const setIsPopupShow = (isShow: boolean) => {
+      isPopupShow = isShow;
+    };
+
+    render(
+      <Card character={testObj} setActiveCard={setActiveCard} setIsPopupShow={setIsPopupShow} />
+    );
     expect(characterDef).toBeUndefined();
+    expect(isPopupShow).toBeFalsy();
+
     await userEvent.click(getByText('John'));
 
     expect(characterDef).not.toBeUndefined();
     expect(characterDef).toEqual(testObj);
+    expect(isPopupShow).toBeTruthy();
   });
 });

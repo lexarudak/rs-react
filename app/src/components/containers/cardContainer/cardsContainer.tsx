@@ -3,11 +3,16 @@ import React from 'react';
 import Card from '../../cards/card/card';
 import style from './cardsContainer.module.scss';
 
-function CardsContainer({ cards, setActiveCard }: CardsContainerProps) {
+function CardsContainer({ cards, setActiveCard, setIsPopupShow }: CardsContainerProps) {
   return (
     <div className={style.container}>
       {cards.map((character: Character) => (
-        <Card character={character} setActiveCard={setActiveCard} key={character.id} />
+        <Card
+          character={character}
+          setActiveCard={setActiveCard}
+          setIsPopupShow={setIsPopupShow}
+          key={character.id}
+        />
       ))}
     </div>
   );

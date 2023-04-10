@@ -3,6 +3,12 @@ import Path from '../base/enums/path';
 import { Character, CharacterResp } from '../base/types';
 
 class Api {
+  public static async getCharacterById(id: number): Promise<Character | string> {
+    const res = await fetch(`${Path.origin}${Path.character}/${id}`);
+    const data: Character = await res.json();
+    return res.ok ? data : 'Character not found';
+  }
+
   public static async getAllCharactersByParam(
     paramName: CharacterSearchParam,
     paramValue: string
