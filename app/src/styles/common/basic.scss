@@ -17,12 +17,14 @@ html,
 
 .body {
   background-color: $color-bg;
+  overflow: hidden;
 }
 
 .bodyContainer {
   display: flex;
   flex-direction: column;
   padding: 0 40px;
+  overflow: auto;
 
   @media (max-width: 555px) {
     padding: 0 20px;
