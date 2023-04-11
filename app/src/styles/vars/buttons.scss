@@ -1,0 +1,9 @@
+@mixin button-main {
+  padding: 15px 25px;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  background-color: $color-main;
+  color: $color-bg;
+  transition: .2s;
+  cursor: pointer;
+}
