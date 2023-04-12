@@ -1,22 +1,9 @@
-import Api from '../../../api/api';
-import CharacterSearchParam from '../../../base/enums/params';
-import { SearchBarProps } from '../../../base/types';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { SearchBarProps } from '../../../base/models';
 import style from './searchForm.module.scss';
 
-function SearchForm({ setCards, setIsLoading }: SearchBarProps) {
+function SearchForm({ fetchData }: SearchBarProps) {
   const [searchValue, changeSearchVal] = useState(localStorage.getItem('searchVal') || '');
-  const [fetchData, setFetchData] = useState(searchValue);
-
-  useEffect(() => {
-    async function getCards() {
-      setIsLoading(true);
-      const cards = await Api.getAllCharactersByParam(CharacterSearchParam.name, fetchData);
-      setCards(cards);
-      setIsLoading(false);
-    }
-    getCards();
-  }, [fetchData, setCards, setIsLoading]);
 
   return (
     <form
@@ -24,7 +11,7 @@ function SearchForm({ setCards, setIsLoading }: SearchBarProps) {
       onSubmit={async (e) => {
         e.preventDefault();
         changeSearchVal((...prev) => prev[0].trim());
-        setFetchData(searchValue);
+        fetchData(searchValue);
         localStorage.setItem('searchVal', searchValue);
       }}
     >

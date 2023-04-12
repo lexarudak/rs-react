@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInputProps } from 'base/types';
+import { TextInputProps } from 'base/models';
 import inputStyles from '../inputs.module.scss';
 
 function TextInput({ config: { title }, register }: TextInputProps) {

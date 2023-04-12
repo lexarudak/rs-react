@@ -1,5 +1,5 @@
 import TestId from '../../../base/enums/testId';
-import { DateInputProps } from 'base/types';
+import { DateInputProps } from 'base/models';
 import React from 'react';
 import inputStyles from '../inputs.module.scss';
 

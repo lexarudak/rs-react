@@ -1,5 +1,5 @@
-import { AppFormData, AppFormProps } from 'base/types';
-import React from 'react';
+import { AppFormData } from 'base/models';
+import React, { Fragment, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import CheckboxInput from '../../inputs/checkboxInput/checkboxInput';
 import DateInput from '../../inputs/dateInput/dateInput';
@@ -17,8 +17,22 @@ import {
   selectConfig,
 } from './appFormConfig/appFormConfig';
 import styles from './appForm.module.scss';
+import Popup from '../../../components/popup/popup';
+import Banner from '../../../components/banner/banner';
+import { useActions } from '../../../hooks/hooks';
 
-function AppForm({ showPopupForSeconds, addNewCard }: AppFormProps) {
+function AppForm() {
+  const bannerText = 'Card created successfully!';
+  const [isPopupShow, setIsPopupShow] = useState(false);
+  const { createCard } = useActions();
+
+  const showPopupForSeconds = (seconds: number) => {
+    setIsPopupShow(true);
+    setTimeout(() => {
+      setIsPopupShow(false);
+    }, seconds * 1000);
+  };
+
   const {
     register,
     formState: { errors },
@@ -38,42 +52,49 @@ function AppForm({ showPopupForSeconds, addNewCard }: AppFormProps) {
   };
 
   const onSubmit: SubmitHandler<AppFormData> = ({ name, date, select, checkbox, radio, image }) => {
-    addNewCard({ name, date, select, checkbox, radio, imageSrc: URL.createObjectURL(image[0]) });
-    showPopupForSeconds(1.5);
+    const id = Date.now().toString();
+    const imageSrc = URL.createObjectURL(image[0]);
+    createCard({ name, date, select, checkbox, radio, imageSrc: imageSrc, id });
+    showPopupForSeconds(1);
     reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <fieldset className={styles.border}>
-        <legend className={styles.title}>Create form card</legend>
-        <AppFormBlock
-          inputBlock={<TextInput config={nameConfig} register={registers.name} />}
-          err={errors[nameConfig.registerName]}
-        />
-        <AppFormBlock
-          inputBlock={<DateInput config={dateConfig} register={registers.date} />}
-          err={errors[dateConfig.registerName]}
-        />
-        <AppFormBlock
-          inputBlock={<SelectInput config={selectConfig} register={registers.select} />}
-          err={errors[selectConfig.registerName]}
-        />
-        <AppFormBlock
-          inputBlock={<CheckboxInput config={checkboxConfig} register={registers.checkbox} />}
-          err={errors[checkboxConfig.registerName]}
-        />
-        <AppFormBlock
-          inputBlock={<RadioInput config={radioConfig} register={registers.radio} />}
-          err={errors[radioConfig.registerName]}
-        />
-        <AppFormBlock
-          inputBlock={<ImageInput config={imageConfig} register={registers.image} />}
-          err={errors[imageConfig.registerName]}
-        />
-        <input type="submit" className={styles.button}></input>
-      </fieldset>
-    </form>
+    <Fragment>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <fieldset className={styles.border}>
+          <legend className={styles.title}>Create form card</legend>
+          <AppFormBlock
+            inputBlock={<TextInput config={nameConfig} register={registers.name} />}
+            err={errors[nameConfig.registerName]}
+          />
+          <AppFormBlock
+            inputBlock={<DateInput config={dateConfig} register={registers.date} />}
+            err={errors[dateConfig.registerName]}
+          />
+          <AppFormBlock
+            inputBlock={<SelectInput config={selectConfig} register={registers.select} />}
+            err={errors[selectConfig.registerName]}
+          />
+          <AppFormBlock
+            inputBlock={<CheckboxInput config={checkboxConfig} register={registers.checkbox} />}
+            err={errors[checkboxConfig.registerName]}
+          />
+          <AppFormBlock
+            inputBlock={<RadioInput config={radioConfig} register={registers.radio} />}
+            err={errors[radioConfig.registerName]}
+          />
+          <AppFormBlock
+            inputBlock={<ImageInput config={imageConfig} register={registers.image} />}
+            err={errors[imageConfig.registerName]}
+          />
+          <input type="submit" className={styles.button}></input>
+        </fieldset>
+      </form>
+      <Popup isShow={isPopupShow}>
+        <Banner text={bannerText} />
+      </Popup>
+    </Fragment>
   );
 }
 

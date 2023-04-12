@@ -1,5 +1,5 @@
 import TestId from '../../base/enums/testId';
-import { PopupProps } from 'base/types';
+import { PopupProps } from 'base/models';
 import React from 'react';
 import CloseButton from '../buttons/closeButton/closeButton';
 import styles from './popup.module.scss';

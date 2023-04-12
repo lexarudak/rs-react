@@ -1,4 +1,4 @@
-import { MultiInputProps, MultipleValueObj } from 'base/types';
+import { MultiInputProps, MultipleValueObj } from 'base/models';
 import React from 'react';
 import inputStyles from '../inputs.module.scss';
 

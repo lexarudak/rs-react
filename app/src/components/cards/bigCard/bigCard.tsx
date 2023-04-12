@@ -1,4 +1,4 @@
-import { Character } from 'base/types';
+import { Character } from 'base/models';
 import React from 'react';
 
 import styles from './bigCard.module.scss';

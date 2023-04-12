@@ -1,4 +1,4 @@
-import { FormBlock } from 'base/types';
+import { FormBlock } from 'base/models';
 import React from 'react';
 import styles from './appFormBlock.module.scss';
 

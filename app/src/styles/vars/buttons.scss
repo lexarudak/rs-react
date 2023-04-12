@@ -6,4 +6,8 @@
   color: $color-bg;
   transition: .2s;
   cursor: pointer;
+
+  &:hover {
+    background-color: rgba($color-main, 0.8);
+  }
 }

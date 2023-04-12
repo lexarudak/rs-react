@@ -1,10 +1,12 @@
 import TestId from '../../../base/enums/testId';
-import { FormPageCard } from 'base/types';
+import { FormPageCard } from 'base/models';
 import React from 'react';
 import { radioConfig } from '../../forms/appForm/appFormConfig/appFormConfig';
 import styles from './formCard.module.scss';
+import { useActions } from '../../../hooks/hooks';
 
-function FormCard({ name, date, select, checkbox, radio, imageSrc }: FormPageCard) {
+function FormCard({ name, date, select, checkbox, radio, imageSrc, id }: FormPageCard) {
+  const { removeCard } = useActions();
   function isBorder(textValue: string | null) {
     const [trueValue] = radioConfig.valuesArr;
     const { text } = trueValue;
@@ -46,6 +48,9 @@ function FormCard({ name, date, select, checkbox, radio, imageSrc }: FormPageCar
         <span className={styles.name}>Border:</span>
         <span className={styles.value}>{isBorder(radio) ? 'Yes' : 'No'}</span>
       </div>
+      <button className={styles.button} onClick={() => removeCard(id)}>
+        Remove card
+      </button>
     </div>
   );
 }

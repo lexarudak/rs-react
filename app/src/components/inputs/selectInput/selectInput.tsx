@@ -1,4 +1,4 @@
-import { SelectInputProps, SelectValueObj } from 'base/types';
+import { SelectInputProps, SelectValueObj } from 'base/models';
 import React from 'react';
 import inputStyles from '../inputs.module.scss';
 

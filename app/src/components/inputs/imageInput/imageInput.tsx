@@ -1,5 +1,5 @@
 import TestId from '../../../base/enums/testId';
-import { TextInputProps } from 'base/types';
+import { TextInputProps } from 'base/models';
 import React from 'react';
 import inputStyles from '../inputs.module.scss';
 import styles from './imageInput.module.scss';

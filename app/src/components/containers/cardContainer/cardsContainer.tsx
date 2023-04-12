@@ -1,15 +1,15 @@
-import { CardsContainerProps, Character } from 'base/types';
+import { CardsContainerProps, Character } from 'base/models';
 import React from 'react';
 import Card from '../../cards/card/card';
 import style from './cardsContainer.module.scss';
 
-function CardsContainer({ cards, setActiveCard, setIsPopupShow }: CardsContainerProps) {
+function CardsContainer({ cards, fetchCharacterById, setIsPopupShow }: CardsContainerProps) {
   return (
     <div className={style.container}>
       {cards.map((character: Character) => (
         <Card
           character={character}
-          setActiveCard={setActiveCard}
+          fetchCharacterById={fetchCharacterById}
           setIsPopupShow={setIsPopupShow}
           key={character.id}
         />

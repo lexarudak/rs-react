@@ -6,13 +6,8 @@ export type PageProps = {
   changeName: (name: PageNames) => void;
 };
 
-export type NotFoundObj = {
-  error: string;
-};
-
 export type SearchBarProps = {
-  setCards: (cards: Character[]) => void;
-  setIsLoading: (isLoading: boolean) => void;
+  fetchData: (value: string) => void;
 };
 
 export type PopupProps = {
@@ -24,10 +19,10 @@ export type PopupProps = {
 export type CardsContainerProps = {
   cards: Character[];
   setIsPopupShow: (isShow: boolean) => void;
-  setActiveCard: (character: Character | string | undefined) => void;
+  fetchCharacterById: (id: number) => void;
 };
 
-export type CharacterResp = {
+export interface RickAndMortyRes {
   info: {
     count: number;
     pages: number;
@@ -35,7 +30,14 @@ export type CharacterResp = {
     prev: string | null;
   };
   results: Character[];
-};
+}
+
+export interface RickAndMortyErrorRes {
+  data: {
+    error: string;
+  };
+  status: number;
+}
 
 export type Character = {
   id: number;
@@ -58,10 +60,10 @@ export type Character = {
   created: string;
 };
 
-export type CardInfo = {
+export type CardProps = {
   character: Character;
   setIsPopupShow: (isShow: boolean) => void;
-  setActiveCard: (character: Character | string | undefined) => void;
+  fetchCharacterById: (id: number) => void;
 };
 
 export type TextInputProps = {
@@ -106,12 +108,6 @@ export type FormState = {
   isImageValid: boolean;
 };
 
-export type FormPageState = {
-  isPopupShow: boolean;
-  cards: FormPageCard[];
-  counter: number;
-};
-
 export type AppFormData = {
   name: string;
   date: string;
@@ -128,7 +124,7 @@ export type FormPageCard = {
   checkbox: string[] | false;
   radio: string | null;
   imageSrc: string;
-  key?: number;
+  id: string;
 };
 
 export type FormBlock = {
@@ -138,7 +134,6 @@ export type FormBlock = {
 
 export type AppFormProps = {
   showPopupForSeconds: (seconds: number) => void;
-  addNewCard: (date: FormPageCard) => void;
 };
 
 export type FormInputs = {

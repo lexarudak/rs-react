@@ -1,5 +1,4 @@
 .card {
-  height: 540px;
   width: 300px;
   border-radius: 15px;
   box-shadow: $shadow-main;
@@ -64,6 +63,7 @@
   font-size: 30px;
   margin-bottom: 30px;
   @include oneLineText;
+  color: $color-main;
 }
 
 .bright-color {
@@ -89,4 +89,10 @@
 .value {
   color: $color-second;
   @include oneLineText
+}
+
+.button {
+  @include button-main;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }

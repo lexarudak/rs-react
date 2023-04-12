@@ -1,4 +1,4 @@
-import { PageProps } from '../../base/types';
+import { PageProps } from '../../base/models';
 import InnerBanner from '../../components/innerBanner/innerBanner';
 import React, { useEffect } from 'react';
 import PageNames from '../../base/enums/pageNames';
