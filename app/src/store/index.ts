@@ -1,11 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { rickAndMortyApi } from './rickAndMorty/rickAndMorty.api';
-import formReducer from './formSlice/formSlice';
+import rickAndMortyReducer from './rickAndMorty/rickAndMortySlice';
+import appReducer from './app/appSlice';
+import formReducer from './form/formSlice';
+import SliceNames from '../base/enums/sliceNames';
 
 export const store = configureStore({
   reducer: {
     [rickAndMortyApi.reducerPath]: rickAndMortyApi.reducer,
-    form: formReducer,
+    [SliceNames.form]: formReducer,
+    [SliceNames.rickAndMorty]: rickAndMortyReducer,
+    [SliceNames.app]: appReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rickAndMortyApi.middleware),
 });

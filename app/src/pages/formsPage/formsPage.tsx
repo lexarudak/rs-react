@@ -1,14 +1,16 @@
+import { useActions } from '../../hooks/hooks';
 import React, { useEffect } from 'react';
 import PageNames from '../../base/enums/pageNames';
-import { PageProps } from '../../base/models';
 import FormCardsContainer from '../../components/containers/formCardsContainer/formCardsContainer';
 import AppForm from '../../components/forms/appForm/appForm';
 import styles from './formsPage.module.scss';
 
-function FormsPage(props: PageProps) {
+function FormsPage() {
+  const { setCurrentPage } = useActions();
+
   useEffect(() => {
-    props.changeName(PageNames.formsPage);
-  });
+    setCurrentPage(PageNames.formsPage);
+  }, [setCurrentPage]);
 
   return (
     <div className={styles.container}>

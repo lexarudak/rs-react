@@ -1,53 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import { useActions, useAppSelector } from '../../hooks/hooks';
+import React, { useEffect } from 'react';
 import PageNames from '../../base/enums/pageNames';
-import { PageProps } from '../../base/models';
-import Banner from '../../components/banner/banner';
-import BigCard from '../../components/cards/bigCard/bigCard';
 import CardsContainer from '../../components/containers/cardContainer/cardsContainer';
 import SearchInput from '../../components/forms/searchForm/searchForm';
 import InnerBanner from '../../components/innerBanner/innerBanner';
 import Loading from '../../components/loading/loading';
-import Popup from '../../components/popup/popup';
-import {
-  useLazyFetchCharacterByIdQuery,
-  useLazySearchCharactersQuery,
-} from '../../store/rickAndMorty/rickAndMorty.api';
+import { useLazySearchCharactersQuery } from '../../store/rickAndMorty/rickAndMorty.api';
 import styles from './mainPage.module.scss';
+import InnerText from '../../base/enums/innerText';
+import SliceNames from '../../base/enums/sliceNames';
 
-function MainPage(props: PageProps) {
+function MainPage() {
+  const { cards, initLoading } = useAppSelector((state) => state[SliceNames.rickAndMorty]);
+  const { setCards, setSearchValue, endInitLoading, setCurrentPage } = useActions();
+  const [fetchCharactersData, { isFetching }] = useLazySearchCharactersQuery();
+
   useEffect(() => {
-    props.changeName(PageNames.mainPage);
-  });
+    setCurrentPage(PageNames.mainPage);
+  }, [setCurrentPage]);
 
-  const [isPopupShow, setIsPopupShow] = useState(false);
-  const [
-    fetchCharactersData,
-    { isFetching: isCardsFetching, currentData: cards, error: cardsError },
-  ] = useLazySearchCharactersQuery();
-  const [
-    fetchCharacterById,
-    { isFetching: isCharFetching, currentData: char, isError: isCharError },
-  ] = useLazyFetchCharacterByIdQuery();
+  const fetchCards = async (searchValue: string) => {
+    console.log(searchValue);
+    setCards([]);
+    const { data } = await fetchCharactersData(searchValue);
+    setSearchValue(searchValue);
+    setCards(data || []);
+  };
+
+  const makeInitLoading = () => {
+    if (initLoading) {
+      endInitLoading();
+      fetchCards('');
+    }
+  };
+  makeInitLoading();
 
   return (
     <div className={styles.container}>
-      <SearchInput fetchData={fetchCharactersData} />
-      {isCardsFetching && <Loading />}
-      {cardsError && (
-        <InnerBanner text={typeof cardsError === 'string' ? cardsError : 'No Cards'} />
-      )}
-      {cards && (
-        <CardsContainer
-          cards={cards}
-          fetchCharacterById={fetchCharacterById}
-          setIsPopupShow={setIsPopupShow}
-        />
-      )}
-      <Popup isShow={Boolean(isPopupShow)} closeFn={setIsPopupShow.bind(null, false)}>
-        {isCharFetching && <Loading />}
-        {isCharError && <Banner text="No Character" />}
-        {char && <BigCard {...char} />}
-      </Popup>
+      <SearchInput fetchData={fetchCards} />
+      {isFetching && <Loading />}
+      {!isFetching && !cards[0] && <InnerBanner text={InnerText.noCards} />}
+      {cards[0] && <CardsContainer cards={cards} />}
     </div>
   );
 }

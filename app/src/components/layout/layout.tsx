@@ -1,14 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import PageNames from '../../base/enums/pageNames';
 import Footer from './footer/footer';
 import Header from './header/header';
 import styles from './layout.module.scss';
 
-function Layout(props: { pageName: PageNames }) {
+function Layout() {
   return (
     <>
-      <Header {...props} />
+      <Header />
       <main className={styles.maim}>
         <Outlet />
       </main>

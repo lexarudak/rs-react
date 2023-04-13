@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
+import SliceNames from '../../../base/enums/sliceNames';
 import { SearchBarProps } from '../../../base/models';
+import React, { useState } from 'react';
+import { useAppSelector } from '../../../hooks/hooks';
 import style from './searchForm.module.scss';
 
 function SearchForm({ fetchData }: SearchBarProps) {
-  const [searchValue, changeSearchVal] = useState(localStorage.getItem('searchVal') || '');
+  const { searchValue } = useAppSelector((state) => state[SliceNames.rickAndMorty]);
+  const [currentValue, changeCurrentValue] = useState(searchValue);
 
   return (
     <form
       className={style.form}
       onSubmit={async (e) => {
         e.preventDefault();
-        changeSearchVal((...prev) => prev[0].trim());
-        fetchData(searchValue);
-        localStorage.setItem('searchVal', searchValue);
+        changeCurrentValue((...prev) => prev[0].trim());
+        fetchData(currentValue);
       }}
     >
       <input
         type={'text'}
         placeholder={'Search'}
         className={style.input}
-        value={searchValue}
+        value={currentValue}
         onChange={(event) => {
-          changeSearchVal(event.target.value);
+          changeCurrentValue(event.target.value);
         }}
       ></input>
     </form>

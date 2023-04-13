@@ -1,5 +1,5 @@
-import PageNames from '../../base/enums/pageNames';
-import RouteList from '../../base/enums/routeList';
+import PageNames from '../../../../base/enums/pageNames';
+import RouteList from '../../../../base/enums/routeList';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './nav.module.scss';

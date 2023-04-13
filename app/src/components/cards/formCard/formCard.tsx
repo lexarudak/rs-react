@@ -1,7 +1,7 @@
 import TestId from '../../../base/enums/testId';
 import { FormPageCard } from 'base/models';
 import React from 'react';
-import { radioConfig } from '../../forms/appForm/appFormConfig/appFormConfig';
+import { radioConfig } from '../../forms/appForm/appFormConfig';
 import styles from './formCard.module.scss';
 import { useActions } from '../../../hooks/hooks';
 

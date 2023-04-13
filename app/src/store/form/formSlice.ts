@@ -1,21 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { FormPageCard } from 'base/models';
+import SliceNames from '../../base/enums/sliceNames';
+import { FormPageCard } from '../../base/models';
 
 const formSlice = createSlice({
-  name: 'formList',
+  name: SliceNames.form,
   initialState: {
-    formList: <FormPageCard[]>[],
+    cards: <FormPageCard[]>[],
   },
   reducers: {
     createCard(state, action: PayloadAction<FormPageCard>) {
-      state.formList.push(action.payload);
+      state.cards.push(action.payload);
     },
     removeCard(state, action: PayloadAction<string>) {
-      state.formList = state.formList.filter((card) => card.id !== action.payload);
+      state.cards = state.cards.filter((card) => card.id !== action.payload);
     },
   },
 });
 
 export const formActions = formSlice.actions;
-
 export default formSlice.reducer;

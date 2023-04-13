@@ -1,25 +1,13 @@
-import { ReactElement } from 'react';
 import { FieldError, Merge, UseFormRegisterReturn } from 'react-hook-form';
-import PageNames from './enums/pageNames';
-
-export type PageProps = {
-  changeName: (name: PageNames) => void;
-};
 
 export type SearchBarProps = {
-  fetchData: (value: string) => void;
+  fetchData: (searchValue: string) => void;
 };
 
 export type PopupProps = {
   isShow: boolean;
   closeFn?: () => void;
   children: React.ReactNode;
-};
-
-export type CardsContainerProps = {
-  cards: Character[];
-  setIsPopupShow: (isShow: boolean) => void;
-  fetchCharacterById: (id: number) => void;
 };
 
 export interface RickAndMortyRes {
@@ -127,14 +115,7 @@ export type FormPageCard = {
   id: string;
 };
 
-export type FormBlock = {
-  inputBlock: ReactElement;
-  err: FieldError | Merge<FieldError, FieldError> | undefined;
-};
-
-export type AppFormProps = {
-  showPopupForSeconds: (seconds: number) => void;
-};
+export type InputErrorProps = FieldError | Merge<FieldError, FieldError> | undefined;
 
 export type FormInputs = {
   nameInput: HTMLInputElement | null;
