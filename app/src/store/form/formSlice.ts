@@ -17,5 +17,5 @@ const formSlice = createSlice({
   },
 });
 
-export const formActions = formSlice.actions;
+export const { createCard, removeCard } = formSlice.actions;
 export default formSlice.reducer;

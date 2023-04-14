@@ -8,7 +8,7 @@ function Popup({ isShow, children, closeFn }: PopupProps) {
   return (
     <div
       data-testid={TestId.popup}
-      className={isShow ? `${styles.popup} ${styles.active}` : styles.popup}
+      className={[styles.popup, isShow && styles.active].join(' ')}
       onClick={(e) => {
         (e.target === e.currentTarget || e.target === e.currentTarget.firstChild) &&
           closeFn &&

@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import PageNames from '../../base/enums/pageNames';
 import InnerBanner from '../../components/innerBanner/innerBanner';
-import { useActions } from '../../hooks/hooks';
+import { setCurrentPage } from '../../store/app/appSlice';
+import { useAppDispatch } from '../../hooks/hooks';
 
 function AboutPage() {
-  const { setCurrentPage } = useActions();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setCurrentPage(PageNames.aboutPage);
-  }, [setCurrentPage]);
+    dispatch(setCurrentPage(PageNames.aboutPage));
+  }, [dispatch]);
 
   return <InnerBanner text={PageNames.aboutPage} />;
 }

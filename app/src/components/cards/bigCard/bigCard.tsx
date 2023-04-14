@@ -1,6 +1,5 @@
 import { Character } from 'base/models';
 import React from 'react';
-
 import styles from './bigCard.module.scss';
 
 function BigCard({
@@ -15,7 +14,7 @@ function BigCard({
 }: Character) {
   return (
     <div className={styles.card}>
-      <img className={styles.img} src={image} alt="Card image"></img>
+      <img className={styles.img} src={image} alt={name}></img>
       <div className={styles.info}>
         <p className={styles.title}>{name}</p>
         <p className={styles.status}>{status}</p>

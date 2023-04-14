@@ -1,12 +1,13 @@
-import InnerText from '../../../base/enums/innerText';
-import { AppFormData } from '../../../base/models';
-import InputError from '../../../components/inputs/inputError/inputError';
 import React, { Fragment, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import InnerText from '../../../base/enums/innerText';
 import { showPopupForSeconds } from '../../../base/helpers';
+import { AppFormData } from '../../../base/models';
 import Banner from '../../../components/banner/banner';
+import InputError from '../../../components/inputs/inputError/inputError';
 import Popup from '../../../components/popup/popup';
-import { useActions } from '../../../hooks/hooks';
+import { useAppDispatch } from '../../../hooks/hooks';
+import { createCard } from '../../../store/form/formSlice';
 import CheckboxInput from '../../inputs/checkboxInput/checkboxInput';
 import DateInput from '../../inputs/dateInput/dateInput';
 import ImageInput from '../../inputs/imageInput/imageInput';
@@ -25,7 +26,7 @@ import {
 
 function AppForm() {
   const [isPopupShow, setIsPopupShow] = useState(false);
-  const { createCard } = useActions();
+  const dispatch = useAppDispatch();
 
   const {
     register,
@@ -48,7 +49,7 @@ function AppForm() {
   const onSubmit: SubmitHandler<AppFormData> = ({ name, date, select, checkbox, radio, image }) => {
     const id = Date.now().toString();
     const imageSrc = URL.createObjectURL(image[0]);
-    createCard({ name, date, select, checkbox, radio, imageSrc: imageSrc, id });
+    dispatch(createCard({ name, date, select, checkbox, radio, imageSrc: imageSrc, id }));
     showPopupForSeconds(setIsPopupShow, 1);
     reset();
   };
@@ -59,17 +60,17 @@ function AppForm() {
         <fieldset className={styles.border}>
           <legend className={styles.title}>Create form card</legend>
           <TextInput config={nameConfig} register={reg.name} />
-          <InputError {...errors[nameConfig.registerName]} />
+          <InputError err={errors[nameConfig.registerName]?.message} />
           <DateInput config={dateConfig} register={reg.date} />
-          <InputError {...errors[dateConfig.registerName]} />
+          <InputError err={errors[dateConfig.registerName]?.message} />
           <SelectInput config={selectConfig} register={reg.select} />
-          <InputError {...errors[selectConfig.registerName]} />
+          <InputError err={errors[selectConfig.registerName]?.message} />
           <CheckboxInput config={checkboxConfig} register={reg.checkbox} />
-          <InputError {...errors[checkboxConfig.registerName]} />
+          <InputError err={errors[checkboxConfig.registerName]?.message} />
           <RadioInput config={radioConfig} register={reg.radio} />
-          <InputError {...errors[radioConfig.registerName]} />
+          <InputError err={errors[radioConfig.registerName]?.message} />
           <ImageInput config={imageConfig} register={reg.image} />
-          <InputError {...errors[imageConfig.registerName]} />
+          <InputError err={errors[imageConfig.registerName]?.message} />
           <input type="submit" className={styles.button}></input>
         </fieldset>
       </form>

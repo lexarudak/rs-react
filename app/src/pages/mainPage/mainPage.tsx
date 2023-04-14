@@ -1,46 +1,31 @@
-import { useActions, useAppSelector } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import React, { useEffect } from 'react';
 import PageNames from '../../base/enums/pageNames';
 import CardsContainer from '../../components/containers/cardContainer/cardsContainer';
 import SearchInput from '../../components/forms/searchForm/searchForm';
 import InnerBanner from '../../components/innerBanner/innerBanner';
 import Loading from '../../components/loading/loading';
-import { useLazySearchCharactersQuery } from '../../store/rickAndMorty/rickAndMorty.api';
+import { useSearchCharactersQuery } from '../../store/rickAndMorty/rickAndMorty.api';
 import styles from './mainPage.module.scss';
 import InnerText from '../../base/enums/innerText';
 import SliceNames from '../../base/enums/sliceNames';
+import { setCurrentPage } from '../../store/app/appSlice';
 
 function MainPage() {
-  const { cards, initLoading } = useAppSelector((state) => state[SliceNames.rickAndMorty]);
-  const { setCards, setSearchValue, endInitLoading, setCurrentPage } = useActions();
-  const [fetchCharactersData, { isFetching }] = useLazySearchCharactersQuery();
+  const dispatch = useAppDispatch();
+  const { searchValue } = useAppSelector((state) => state[SliceNames.rickAndMorty]);
+  const { isFetching, currentData, isError } = useSearchCharactersQuery(searchValue);
 
   useEffect(() => {
-    setCurrentPage(PageNames.mainPage);
-  }, [setCurrentPage]);
-
-  const fetchCards = async (searchValue: string) => {
-    console.log(searchValue);
-    setCards([]);
-    const { data } = await fetchCharactersData(searchValue);
-    setSearchValue(searchValue);
-    setCards(data || []);
-  };
-
-  const makeInitLoading = () => {
-    if (initLoading) {
-      endInitLoading();
-      fetchCards('');
-    }
-  };
-  makeInitLoading();
+    dispatch(setCurrentPage(PageNames.mainPage));
+  }, [dispatch]);
 
   return (
     <div className={styles.container}>
-      <SearchInput fetchData={fetchCards} />
+      <SearchInput />
       {isFetching && <Loading />}
-      {!isFetching && !cards[0] && <InnerBanner text={InnerText.noCards} />}
-      {cards[0] && <CardsContainer cards={cards} />}
+      {isError && <InnerBanner text={InnerText.noCards} />}
+      {currentData && <CardsContainer cards={currentData} />}
     </div>
   );
 }

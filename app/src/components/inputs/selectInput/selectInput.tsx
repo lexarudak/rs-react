@@ -9,7 +9,7 @@ function SelectInput({ config: { title, valuesArr }, register }: SelectInputProp
       <select {...register} className={inputStyles.input} defaultValue={valuesArr[0].value}>
         {valuesArr.map(({ id, value }: SelectValueObj, index) => {
           return (
-            <option value={value} key={id} disabled={index === 0 ? true : false}>
+            <option value={value} key={id} disabled={index === 0}>
               {value}
             </option>
           );

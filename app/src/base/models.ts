@@ -1,8 +1,4 @@
-import { FieldError, Merge, UseFormRegisterReturn } from 'react-hook-form';
-
-export type SearchBarProps = {
-  fetchData: (searchValue: string) => void;
-};
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 export type PopupProps = {
   isShow: boolean;
@@ -18,13 +14,6 @@ export interface RickAndMortyRes {
     prev: string | null;
   };
   results: Character[];
-}
-
-export interface RickAndMortyErrorRes {
-  data: {
-    error: string;
-  };
-  status: number;
 }
 
 export type Character = {
@@ -87,15 +76,6 @@ export type MultiInputProps = {
 
 export type MultipleValueObj = { id: number; text: string };
 
-export type FormState = {
-  isNameValid: boolean;
-  isDateValid: boolean;
-  isSelectValid: boolean;
-  isCheckboxValid: boolean;
-  isRadioValid: boolean;
-  isImageValid: boolean;
-};
-
 export type AppFormData = {
   name: string;
   date: string;
@@ -113,15 +93,4 @@ export type FormPageCard = {
   radio: string | null;
   imageSrc: string;
   id: string;
-};
-
-export type InputErrorProps = FieldError | Merge<FieldError, FieldError> | undefined;
-
-export type FormInputs = {
-  nameInput: HTMLInputElement | null;
-  dateInput: HTMLInputElement | null;
-  selectInput: HTMLSelectElement | null;
-  checkboxInputs: (HTMLInputElement | null)[];
-  radioInputs: (HTMLInputElement | null)[];
-  imageInput: HTMLInputElement | null;
 };

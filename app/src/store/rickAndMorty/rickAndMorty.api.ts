@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import Path from '../../base/enums/path';
 import ReducerPath from '../../base/enums/reducerPath';
-import { Character, RickAndMortyRes, RickAndMortyErrorRes } from '../../base/models';
+import { Character, RickAndMortyRes } from '../../base/models';
 
 export const rickAndMortyApi = createApi({
   reducerPath: ReducerPath.rickAndMortyApi,
@@ -17,12 +17,14 @@ export const rickAndMortyApi = createApi({
         },
       }),
       transformResponse: (res: RickAndMortyRes) => res.results,
-      transformErrorResponse: (error: RickAndMortyErrorRes) => error.data.error,
     }),
     fetchCharacterById: build.query<Character, number>({
       query: (id: number) => `${Path.character}/${id}`,
     }),
   }),
 });
-
-export const { useLazySearchCharactersQuery, useLazyFetchCharacterByIdQuery } = rickAndMortyApi;
+export const {
+  useLazySearchCharactersQuery,
+  useLazyFetchCharacterByIdQuery,
+  useSearchCharactersQuery,
+} = rickAndMortyApi;

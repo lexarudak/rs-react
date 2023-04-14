@@ -1,10 +1,11 @@
 import SliceNames from '../../../base/enums/sliceNames';
-import { SearchBarProps } from '../../../base/models';
 import React, { useState } from 'react';
-import { useAppSelector } from '../../../hooks/hooks';
 import style from './searchForm.module.scss';
+import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
+import { setSearchValue } from '../../../store/rickAndMorty/rickAndMortySlice';
 
-function SearchForm({ fetchData }: SearchBarProps) {
+function SearchForm() {
+  const dispatch = useAppDispatch();
   const { searchValue } = useAppSelector((state) => state[SliceNames.rickAndMorty]);
   const [currentValue, changeCurrentValue] = useState(searchValue);
 
@@ -14,7 +15,7 @@ function SearchForm({ fetchData }: SearchBarProps) {
       onSubmit={async (e) => {
         e.preventDefault();
         changeCurrentValue((...prev) => prev[0].trim());
-        fetchData(currentValue);
+        dispatch(setSearchValue(currentValue));
       }}
     >
       <input
