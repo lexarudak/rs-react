@@ -1,6 +1,7 @@
 .card {
   width: 670px;
   min-height: 400px;
+  max-height: 80vh;
   border-radius: 25px;
   box-shadow: $shadow-main;
   position: relative;
@@ -20,7 +21,7 @@
 }
 
 .info {
-  overflow: hidden;
+  overflow: auto;
 }
 
 .img {
@@ -28,6 +29,12 @@
   height: 300px;
   box-shadow: $shadow-main;
   border-radius: 100%;
+
+  @media (max-width: 760px) {
+    width: 200px;
+    height: 200px;
+  }
+
 }
 
 .title {
@@ -35,12 +42,22 @@
   font-size: 42px;
   font-weight: 800;
   line-height: 1.2;
+
+  @media (max-width: 760px) {
+    font-size: 32px;
+  }
+
 }
 
 .status {
   color: $color-active;
   font-weight: 800;
   margin-bottom: 60px;
+
+  @media (max-width: 760px) {
+    margin-bottom: 40px;
+  }
+
 }
 
 .prop {
