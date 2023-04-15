@@ -1,13 +1,11 @@
 import '@testing-library/jest-dom';
-import { fireEvent, render, renderHook, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { useAppSelector } from '../../../hooks/hooks';
+import TestId from 'base/enums/testId';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../../../store';
 import SearchForm from './searchForm';
-import rickAndMortySlice from 'store/rickAndMorty/rickAndMortySlice';
-import TestId from 'base/enums/testId';
 
 const { findByPlaceholderText, getByTestId } = screen;
 
