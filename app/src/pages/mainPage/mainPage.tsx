@@ -8,12 +8,11 @@ import Loading from '../../components/loading/loading';
 import { useSearchCharactersQuery } from '../../store/rickAndMorty/rickAndMorty.api';
 import styles from './mainPage.module.scss';
 import InnerText from '../../base/enums/innerText';
-import SliceNames from '../../base/enums/sliceNames';
 import { setCurrentPage } from '../../store/app/appSlice';
 
 function MainPage() {
   const dispatch = useAppDispatch();
-  const { searchValue } = useAppSelector((state) => state[SliceNames.rickAndMorty]);
+  const { searchValue } = useAppSelector((state) => state.rickAndMorty);
   const { isFetching, currentData, isError } = useSearchCharactersQuery(searchValue);
 
   useEffect(() => {

@@ -1,11 +1,10 @@
 import Nav from './nav/nav';
 import React from 'react';
 import styles from './header.module.scss';
-import { useAppSelector } from '../../../hooks/hooks';
-import SliceNames from '../../../base/enums/sliceNames';
+import { useAppSelector } from '../../hooks/hooks';
 
 function Header() {
-  const { currentPage } = useAppSelector((state) => state[SliceNames.app]);
+  const { currentPage } = useAppSelector((state) => state.app);
 
   return (
     <header className={styles.header}>

@@ -1,56 +1,47 @@
-it('fake test', async () => {});
-// import '@testing-library/jest-dom';
-// import { render, screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
-// import { Character } from 'base/models';
-// import fetchMock from 'jest-fetch-mock';
-// import React from 'react';
-// import SearchForm from './searchForm';
-// fetchMock.enableMocks();
+import '@testing-library/jest-dom';
+import { fireEvent, render, renderHook, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { useAppSelector } from '../../../hooks/hooks';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../../../store';
+import SearchForm from './searchForm';
+import rickAndMortySlice from 'store/rickAndMorty/rickAndMortySlice';
+import TestId from 'base/enums/testId';
 
-// fetchMock.enableMocks();
+const { findByPlaceholderText, getByTestId } = screen;
 
-// const { findByPlaceholderText } = screen;
+describe('search input tests', () => {
+  it('render test', async () => {
+    render(
+      <Provider store={store}>
+        <SearchForm />
+      </Provider>
+    );
+    const search = await findByPlaceholderText('Search');
+    expect(search).toBeInTheDocument();
+  });
 
-// const char: Character = {
-//   id: 0,
-//   name: 'Tsoy',
-//   status: 'Alive',
-//   species: '',
-//   type: 'immortal',
-//   gender: '',
-//   origin: {
-//     name: '',
-//     url: '',
-//   },
-//   location: {
-//     name: '',
-//     url: '',
-//   },
-//   image: '',
-//   episode: [],
-//   url: '',
-//   created: '',
-// };
+  it('render test', async () => {
+    render(
+      <Provider store={store}>
+        <SearchForm />
+      </Provider>
+    );
+    const {
+      rickAndMorty: { searchValue },
+    } = store.getState();
+    expect(searchValue).toEqual('');
 
-// describe('search input tests', () => {
-//   it('render test', async () => {
-//     fetchMock.once(JSON.stringify({ results: [char] }));
-//     render(<SearchForm setCards={jest.fn()} setIsLoading={jest.fn()} />);
-//     const search = await findByPlaceholderText('Search');
-//     expect(search).toBeInTheDocument();
-//   });
+    const search = await findByPlaceholderText('Search');
+    await userEvent.click(search);
+    await userEvent.type(search, 'test');
+    fireEvent.submit(getByTestId(TestId.searchForm));
 
-//   it('setCards test', async () => {
-//     let arr: Character[] = [];
-//     const setCards = (cards: Character[]) => {
-//       arr = [...cards];
-//     };
+    const {
+      rickAndMorty: { searchValue: newSearchValue },
+    } = store.getState();
 
-//     fetchMock.once(JSON.stringify({ results: [char] }));
-//     render(<SearchForm setCards={setCards} setIsLoading={jest.fn()} />);
-//     const search: HTMLInputElement = await findByPlaceholderText('Search');
-//     await userEvent.click(search);
-//     expect(arr[0].name).toEqual('Tsoy');
-//   });
-// });
+    expect(newSearchValue).toEqual('test');
+  });
+});

@@ -6,6 +6,7 @@ export default {
     '\\.(css|less|scss|sss|styl)$': '<rootDir>/node_modules/jest-css-modules',
   },
   testEnvironment: 'jest-environment-jsdom',
+  setupFilesAfterEnv: ['@testing-library/jest-dom', './jest.setup.ts'],
   preset: 'ts-jest',
   collectCoverageFrom: [
     '**/*.{ts,tsx}',

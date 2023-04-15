@@ -6,6 +6,7 @@ const enum TestId {
   popup = 'popup',
   closeButton = 'close-button',
   loading = 'loading',
+  searchForm = 'search-form',
 }
 
 export default TestId;

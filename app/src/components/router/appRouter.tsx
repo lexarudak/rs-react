@@ -1,5 +1,5 @@
 import RouteList from '../../base/enums/routeList';
-import Layout from '../layout/layout';
+import Layout from '../../layout/layout';
 import AboutPage from '../../pages/aboutPage/aboutPage';
 import ErrorPage from '../../pages/errorPage/errorPage';
 import MainPage from '../../pages/mainPage/mainPage';

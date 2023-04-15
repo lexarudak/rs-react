@@ -1,7 +1,7 @@
 const enum SliceNames {
-  app = 'app.slice',
-  form = 'form.slice',
-  rickAndMorty = 'rick-and-morty.slice',
+  app = 'app',
+  form = 'form',
+  rickAndMorty = 'rickAndMorty',
 }
 
 export default SliceNames;
