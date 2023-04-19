@@ -2,10 +2,9 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { FormPageCard } from '../../../base/models';
-import { store } from '../../../store';
-import formReducer, { createCard } from '../../../store/form/formSlice';
-import FormCardsContainer from './formCardsContainer';
+import { FormPageCard } from 'models';
+import { createCard, formReducer, store } from 'store';
+import { FormCardsContainer } from 'components';
 
 describe('form cards container tests', () => {
   const { queryByText } = screen;

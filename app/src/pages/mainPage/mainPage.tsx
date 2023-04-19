@@ -1,18 +1,13 @@
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import React, { useEffect } from 'react';
-import PageNames from '../../base/enums/pageNames';
-import CardsContainer from '../../components/containers/cardContainer/cardsContainer';
-import SearchInput from '../../components/forms/searchForm/searchForm';
-import InnerBanner from '../../components/innerBanner/innerBanner';
-import Loading from '../../components/loading/loading';
-import { useSearchCharactersQuery } from '../../store/rickAndMorty/rickAndMorty.api';
-import styles from './mainPage.module.scss';
-import InnerText from '../../base/enums/innerText';
-import { setCurrentPage } from '../../store/app/appSlice';
+import { rickAndMortySelector, useSearchCharactersQuery, setCurrentPage } from 'store';
+import { CardsContainer, Loading, InnerBanner, SearchForm } from 'components';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { InnerText, PageNames } from 'models';
+import styles from './MainPage.module.scss';
 
-function MainPage() {
+const MainPage = () => {
   const dispatch = useAppDispatch();
-  const { searchValue } = useAppSelector((state) => state.rickAndMorty);
+  const { searchValue } = useAppSelector(rickAndMortySelector);
   const { isFetching, currentData, isError } = useSearchCharactersQuery(searchValue);
 
   useEffect(() => {
@@ -21,12 +16,12 @@ function MainPage() {
 
   return (
     <div className={styles.container}>
-      <SearchInput />
+      <SearchForm />
       {isFetching && <Loading />}
       {isError && <InnerBanner text={InnerText.noCards} />}
       {currentData && <CardsContainer cards={currentData} />}
     </div>
   );
-}
+};
 
 export default MainPage;

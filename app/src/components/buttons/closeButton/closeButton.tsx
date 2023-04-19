@@ -1,8 +1,8 @@
-import TestId from '../../../base/enums/testId';
 import React from 'react';
 import styles from './closeButton.module.scss';
+import { TestId } from 'models';
 
-function CloseButton({ closeFn }: { closeFn: () => void }) {
+const CloseButton = ({ closeFn }: { closeFn: () => void }) => {
   return (
     <div
       data-testid={TestId.closeButton}
@@ -15,6 +15,6 @@ function CloseButton({ closeFn }: { closeFn: () => void }) {
       <div className={(styles.stick, styles.bottomStick)}></div>
     </div>
   );
-}
+};
 
 export default CloseButton;

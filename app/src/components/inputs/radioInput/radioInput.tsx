@@ -1,21 +1,22 @@
-import { MultiInputProps, MultipleValueObj } from 'base/models';
 import React from 'react';
-import inputStyles from '../inputs.module.scss';
+import { MultiInputProps, MultipleValueObj } from 'models';
+import { inputStyles } from 'components';
 
-function RadioInput({ config: { title, valuesArr }, register }: MultiInputProps) {
+const RadioInput = ({ config: { TITLE, VALUES_ARR }, register }: MultiInputProps) => {
+  const fillRadioButtons = () =>
+    VALUES_ARR.map(({ id, text }: MultipleValueObj) => (
+      <label key={id}>
+        <input {...register} className={inputStyles.hide} value={text} type="radio"></input>
+        <span className={inputStyles.checkerText}>{text}</span>
+      </label>
+    ));
+
   return (
     <fieldset className={inputStyles.border}>
-      <legend>{title}</legend>
-      {valuesArr.map(({ id, text }: MultipleValueObj) => {
-        return (
-          <label key={id}>
-            <input {...register} className={inputStyles.hide} value={text} type="radio"></input>
-            <span className={inputStyles.checkerText}>{text}</span>
-          </label>
-        );
-      })}
+      <legend>{TITLE}</legend>
+      {fillRadioButtons()}
     </fieldset>
   );
-}
+};
 
 export default RadioInput;

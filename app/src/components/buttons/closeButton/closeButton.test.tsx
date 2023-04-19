@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
 import '@testing-library/jest-dom';
-import CloseButton from './closeButton';
-import TestId from 'base/enums/testId';
+import { CloseButton } from 'components/buttons';
+import { TestId } from 'models';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 const { getByTestId } = screen;

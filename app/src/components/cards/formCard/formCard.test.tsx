@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { FormPageCard } from 'base/models';
+import { FormPageCard } from 'models';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store } from '../../../store';
-import FormCard from './formCard';
+import { store } from 'store';
+import { FormCard } from 'components';
 
 describe('form card tests', () => {
   const props: FormPageCard = {

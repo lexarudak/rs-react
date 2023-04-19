@@ -1,22 +1,23 @@
-import TestId from '../../../base/enums/testId';
-import { TextInputProps } from 'base/models';
 import React from 'react';
-import inputStyles from '../inputs.module.scss';
-import styles from './imageInput.module.scss';
+import { TestId, TextInputProps } from 'models';
+import { inputStyles } from 'components';
+import styles from './ImageInput.module.scss';
 
-function ImageInput({ config: { title }, register }: TextInputProps) {
+const ImageInput = ({ config: { TITLE }, register }: TextInputProps) => {
+  const ACCEPT = 'image/png, image/jpeg, image/jpg';
+
   return (
     <label className={inputStyles.block}>
-      <span className={inputStyles.title}>{title}</span>
+      <span className={inputStyles.title}>{TITLE}</span>
       <input
         {...register}
         data-testid={TestId.imageInput}
         className={styles.input}
         type="file"
-        accept="image/png, image/jpeg, image/jpg"
+        accept={ACCEPT}
       ></input>
     </label>
   );
-}
+};
 
 export default ImageInput;

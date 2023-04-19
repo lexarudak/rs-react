@@ -1,9 +1,8 @@
+import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import Banner from '../../components/banner/banner';
-import React from 'react';
-import Popup from './popup';
-import TestId from 'base/enums/testId';
+import { OuterBanner, Popup } from 'components';
+import { TestId } from 'models';
 import styles from './popup.module.scss';
 
 const { getByText, getByTestId, queryByTestId } = screen;
@@ -12,7 +11,7 @@ describe('popup', () => {
   it('render test', () => {
     render(
       <Popup isShow={true}>
-        <Banner text={'test'} />
+        <OuterBanner text={'test'} />
       </Popup>
     );
     expect(getByText('test')).toBeInTheDocument();
@@ -22,7 +21,7 @@ describe('popup', () => {
   it('hide test', () => {
     render(
       <Popup isShow={false}>
-        <Banner text={'test'} />
+        <OuterBanner text={'test'} />
       </Popup>
     );
     expect(queryByTestId(TestId.popup)).toBeInTheDocument();

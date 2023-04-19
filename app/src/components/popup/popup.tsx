@@ -1,19 +1,19 @@
-import TestId from '../../base/enums/testId';
-import { PopupProps } from 'base/models';
+import { TestId, PopupProps } from 'models';
 import React from 'react';
-import CloseButton from '../buttons/closeButton/closeButton';
+import { CloseButton } from 'components';
 import styles from './popup.module.scss';
 
-function Popup({ isShow, children, closeFn }: PopupProps) {
+const Popup = ({ isShow, children, closeFn }: PopupProps) => {
+  const onClickHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
+    (e.target === e.currentTarget || e.target === e.currentTarget.firstChild) &&
+    closeFn &&
+    closeFn();
+
   return (
     <div
       data-testid={TestId.popup}
-      className={[styles.popup, isShow && styles.active].join(' ')}
-      onClick={(e) => {
-        (e.target === e.currentTarget || e.target === e.currentTarget.firstChild) &&
-          closeFn &&
-          closeFn();
-      }}
+      className={`${styles.popup} ${isShow ? styles.active : ''}`}
+      onClick={(e) => onClickHandler(e)}
     >
       <div className={styles.inner}>
         {closeFn && <CloseButton closeFn={closeFn} />}
@@ -21,6 +21,6 @@ function Popup({ isShow, children, closeFn }: PopupProps) {
       </div>
     </div>
   );
-}
+};
 
 export default Popup;

@@ -1,8 +1,8 @@
+import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import TestId from 'base/enums/testId';
-import React from 'react';
-import Loading from './loading';
+import { Alts, TestId } from 'models';
+import { Loading } from 'components';
 
 const { getByTestId, getAllByAltText } = screen;
 
@@ -14,11 +14,11 @@ describe('loading', () => {
 
   test('rick test', () => {
     render(<Loading />);
-    expect(getAllByAltText('rick')[0]).toBeInTheDocument();
+    expect(getAllByAltText(Alts.rickAlt)[0]).toBeInTheDocument();
   });
 
   test('portal test', () => {
     render(<Loading />);
-    expect(getAllByAltText('portal')[0]).toBeInTheDocument();
+    expect(getAllByAltText(Alts.portalAlt)[0]).toBeInTheDocument();
   });
 });

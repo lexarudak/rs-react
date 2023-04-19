@@ -1,10 +1,11 @@
-import Nav from './nav/nav';
 import React from 'react';
-import styles from './header.module.scss';
-import { useAppSelector } from '../../hooks/hooks';
+import { useAppSelector } from 'hooks';
+import { appSelector } from 'store';
+import { Nav } from 'layout';
+import styles from './Header.module.scss';
 
-function Header() {
-  const { currentPage } = useAppSelector((state) => state.app);
+const Header = () => {
+  const { currentPage } = useAppSelector(appSelector);
 
   return (
     <header className={styles.header}>
@@ -13,6 +14,6 @@ function Header() {
       <Nav />
     </header>
   );
-}
+};
 
 export default Header;

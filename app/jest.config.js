@@ -2,6 +2,7 @@ export default {
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
   },
+  modulePaths: ['<rootDir>/src/'],
   moduleNameMapper: {
     '\\.(css|less|scss|sss|styl)$': '<rootDir>/node_modules/jest-css-modules',
   },
