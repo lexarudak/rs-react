@@ -1,6 +1,6 @@
-import { Character } from 'models';
 import React from 'react';
 import { BigCardInfoList } from 'components';
+import { Character } from 'models';
 import styles from './BigCard.module.scss';
 
 const BigCard = ({ image, name, species, status, type, gender, origin, location }: Character) => {

@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { OuterBanner, Popup } from 'components';
 import { TestId } from 'models';
-import styles from './popup.module.scss';
+import styles from './Popup.module.scss';
 
 const { getByText, getByTestId, queryByTestId } = screen;
 

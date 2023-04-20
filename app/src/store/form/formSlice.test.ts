@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { FormPageCard, FORM_CARDS } from 'models';
-import { createCard, removeCard, formReducer } from '../../store/form/formSlice';
+import { createCard, removeCard, formReducer } from 'store';
 
 describe('form slice tests', () => {
   const [FIRST_CARD, SECOND_CARD]: FormPageCard[] = FORM_CARDS;

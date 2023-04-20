@@ -1,7 +1,7 @@
-import { TestId, PopupProps } from 'models';
 import React from 'react';
+import { TestId, PopupProps } from 'models';
 import { CloseButton } from 'components';
-import styles from './popup.module.scss';
+import styles from './Popup.module.scss';
 
 const Popup = ({ isShow, children, closeFn }: PopupProps) => {
   const onClickHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>

@@ -1,5 +1,5 @@
 import { ReducerPath } from 'models';
-import { RootState } from 'store/types';
+import { RootState } from 'store';
 
 export const rickAndMortyApiSelector = (state: RootState) => state[ReducerPath.rickAndMortyApi];
 

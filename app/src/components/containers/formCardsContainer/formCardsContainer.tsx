@@ -3,7 +3,7 @@ import { InnerBanner, FormCard } from 'components';
 import { useAppSelector } from 'hooks';
 import { formSelector } from 'store';
 import { InnerText } from 'models';
-import styles from './formCardsContainer.module.scss';
+import styles from './FormCardsContainer.module.scss';
 
 const FormCardsContainer = () => {
   const { cards } = useAppSelector(formSelector);

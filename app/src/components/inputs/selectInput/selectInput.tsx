@@ -1,6 +1,6 @@
 import React from 'react';
 import { SelectInputProps, SelectValueObj } from 'models';
-import { inputStyles } from 'components/inputs';
+import { inputStyles } from 'components';
 
 const SelectInput = ({ config: { TITLE, VALUES_ARR }, register }: SelectInputProps) => {
   const fillOptions = () =>
