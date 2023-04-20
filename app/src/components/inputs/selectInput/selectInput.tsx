@@ -1,22 +1,23 @@
-import { SelectInputProps, SelectValueObj } from 'base/models';
 import React from 'react';
-import inputStyles from '../inputs.module.scss';
+import { SelectInputProps, SelectValueObj } from 'models';
+import { inputStyles } from 'components';
 
-function SelectInput({ config: { title, valuesArr }, register }: SelectInputProps) {
+const SelectInput = ({ config: { TITLE, VALUES_ARR }, register }: SelectInputProps) => {
+  const fillOptions = () =>
+    VALUES_ARR.map(({ id, value }: SelectValueObj, index) => (
+      <option value={value} key={id} disabled={index === 0}>
+        {value}
+      </option>
+    ));
+
   return (
     <label className={inputStyles.block}>
-      <span className={inputStyles.title}>{title}</span>
-      <select {...register} className={inputStyles.input} defaultValue={valuesArr[0].value}>
-        {valuesArr.map(({ id, value }: SelectValueObj, index) => {
-          return (
-            <option value={value} key={id} disabled={index === 0}>
-              {value}
-            </option>
-          );
-        })}
+      <span className={inputStyles.title}>{TITLE}</span>
+      <select {...register} className={inputStyles.input} defaultValue={VALUES_ARR[0].value}>
+        {fillOptions()}
       </select>
     </label>
   );
-}
+};
 
 export default SelectInput;

@@ -1,9 +1,9 @@
+import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
-import AboutPage from './aboutPage';
-import { store } from '../../store';
 import { Provider } from 'react-redux';
+import { AboutPage } from 'pages';
+import { store } from 'store';
 
 const { getByText } = screen;
 

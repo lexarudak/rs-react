@@ -59,21 +59,3 @@
   }
 
 }
-
-.prop {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 15px;
-}
-
-.propName {
-  display: block;
-  width: 100px;
-  color: $color-main;
-  font-weight: 600;
-  flex-shrink: 0;
-}
-
-.propValue {
-  display: block;
-}

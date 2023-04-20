@@ -1,11 +1,11 @@
+import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TestId from 'base/enums/testId';
-import React from 'react';
+import { SearchForm } from 'components';
 import { Provider } from 'react-redux';
-import { store } from '../../../store';
-import SearchForm from './searchForm';
+import { TestId } from 'models';
+import { store } from 'store';
 
 const { findByPlaceholderText, getByTestId } = screen;
 

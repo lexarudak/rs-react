@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import Path from '../../base/enums/path';
-import ReducerPath from '../../base/enums/reducerPath';
-import { Character, RickAndMortyRes } from '../../base/models';
+import { Path, ReducerPath, Character, RickAndMortyRes } from 'models';
 
 export const rickAndMortyApi = createApi({
   reducerPath: ReducerPath.rickAndMortyApi,

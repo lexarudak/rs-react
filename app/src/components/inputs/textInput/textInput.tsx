@@ -1,15 +1,15 @@
 import React from 'react';
-import { TextInputProps } from 'base/models';
-import inputStyles from '../inputs.module.scss';
+import { TextInputProps } from 'models';
+import { inputStyles } from 'components';
 
-function TextInput({ config: { title }, register }: TextInputProps) {
+function TextInput({ config: { TITLE }, register }: TextInputProps) {
   return (
     <label className={inputStyles.block}>
-      <span className={inputStyles.title}>{title}</span>
+      <span className={inputStyles.title}>{TITLE}</span>
       <input
         {...register}
         type={'text'}
-        placeholder={`enter ${title.toLowerCase()}`}
+        placeholder={`enter ${TITLE.toLowerCase()}`}
         className={inputStyles.input}
       ></input>
     </label>

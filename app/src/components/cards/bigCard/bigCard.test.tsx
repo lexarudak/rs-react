@@ -1,42 +1,32 @@
-import { render, screen } from '@testing-library/react';
 import React from 'react';
 import '@testing-library/jest-dom';
-import BigCard from './bigCard';
+import { BigCard } from 'components';
+import { render, screen } from '@testing-library/react';
+import { CHARACTERS } from 'models';
 
 const { getByText, getByRole } = screen;
-
-const testObj = {
-  id: 0,
-  name: 'John',
-  status: 'cool',
-  species: 'test_species',
-  type: 'test_type',
-  gender: 'test_gender',
-  origin: {
-    name: 'test_origin',
-    url: '',
-  },
-  location: {
-    name: 'test_location',
-    url: '',
-  },
-  image: 'url',
-  episode: [],
-  url: '',
-  created: '',
-};
+const [CHARACTER] = CHARACTERS;
+const {
+  name,
+  status,
+  species,
+  type,
+  gender,
+  origin: { name: origin },
+  location: { name: location },
+} = CHARACTER;
 
 describe('big card', () => {
   test('render card text', () => {
-    render(<BigCard {...testObj} />);
+    render(<BigCard {...CHARACTER} />);
 
-    expect(getByText('cool')).toBeInTheDocument();
-    expect(getByText('John')).toBeInTheDocument();
-    expect(getByText('test_species')).toBeInTheDocument();
-    expect(getByText('test_type')).toBeInTheDocument();
-    expect(getByText('test_gender')).toBeInTheDocument();
-    expect(getByText('test_origin')).toBeInTheDocument();
-    expect(getByText('test_location')).toBeInTheDocument();
+    expect(getByText(name)).toBeInTheDocument();
+    expect(getByText(status)).toBeInTheDocument();
+    expect(getByText(species)).toBeInTheDocument();
+    expect(getByText(type)).toBeInTheDocument();
+    expect(getByText(gender)).toBeInTheDocument();
+    expect(getByText(origin)).toBeInTheDocument();
+    expect(getByText(location)).toBeInTheDocument();
     expect(getByRole<HTMLImageElement>('img')).toBeInTheDocument();
   });
 });

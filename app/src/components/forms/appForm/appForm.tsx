@@ -1,30 +1,25 @@
 import React, { Fragment, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import InnerText from '../../../base/enums/innerText';
-import { showPopupForSeconds } from '../../../base/helpers';
-import { AppFormData } from '../../../base/models';
-import Banner from '../../../components/banner/banner';
-import InputError from '../../../components/inputs/inputError/inputError';
-import Popup from '../../../components/popup/popup';
-import { useAppDispatch } from '../../../hooks/hooks';
-import { createCard } from '../../../store/form/formSlice';
-import CheckboxInput from '../../inputs/checkboxInput/checkboxInput';
-import DateInput from '../../inputs/dateInput/dateInput';
-import ImageInput from '../../inputs/imageInput/imageInput';
-import RadioInput from '../../inputs/radioInput/radioInput';
-import SelectInput from '../../inputs/selectInput/selectInput';
-import TextInput from '../../inputs/textInput/textInput';
-import styles from './appForm.module.scss';
+import { getId, showPopupForSeconds } from 'utils';
+import { InnerText, AppFormData } from 'models';
+import { useAppDispatch } from 'hooks';
+import { createCard } from 'store';
 import {
-  checkboxConfig,
-  dateConfig,
-  imageConfig,
-  nameConfig,
-  radioConfig,
-  selectConfig,
-} from './appFormConfig';
+  Popup,
+  OuterBanner,
+  APP_FORM_CONFIG,
+  CheckboxInput,
+  DateInput,
+  ImageInput,
+  InputError,
+  RadioInput,
+  SelectInput,
+  TextInput,
+} from 'components';
+import styles from './AppForm.module.scss';
 
 function AppForm() {
+  const { TEXT, DATE, SELECT, CHECKBOX, RADIO, IMAGE } = APP_FORM_CONFIG;
   const [isPopupShow, setIsPopupShow] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -38,16 +33,16 @@ function AppForm() {
   });
 
   const reg = {
-    name: register(nameConfig.registerName, nameConfig.registerOptions),
-    date: register(dateConfig.registerName, dateConfig.registerOptions),
-    select: register(selectConfig.registerName, selectConfig.registerOptions),
-    checkbox: register(checkboxConfig.registerName, checkboxConfig.registerOptions),
-    radio: register(radioConfig.registerName, radioConfig.registerOptions),
-    image: register(imageConfig.registerName, imageConfig.registerOptions),
+    text: register(TEXT.REG_NAME, TEXT.REG_OPT),
+    date: register(DATE.REG_NAME, DATE.REG_OPT),
+    select: register(SELECT.REG_NAME, SELECT.REG_OPT),
+    checkbox: register(CHECKBOX.REG_NAME, CHECKBOX.REG_OPT),
+    radio: register(RADIO.REG_NAME, RADIO.REG_OPT),
+    image: register(IMAGE.REG_NAME, IMAGE.REG_OPT),
   };
 
   const onSubmit: SubmitHandler<AppFormData> = ({ name, date, select, checkbox, radio, image }) => {
-    const id = Date.now().toString();
+    const id = getId();
     const imageSrc = URL.createObjectURL(image[0]);
     dispatch(createCard({ name, date, select, checkbox, radio, imageSrc: imageSrc, id }));
     showPopupForSeconds(setIsPopupShow, 1);
@@ -59,23 +54,23 @@ function AppForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset className={styles.border}>
           <legend className={styles.title}>Create form card</legend>
-          <TextInput config={nameConfig} register={reg.name} />
-          <InputError err={errors[nameConfig.registerName]?.message} />
-          <DateInput config={dateConfig} register={reg.date} />
-          <InputError err={errors[dateConfig.registerName]?.message} />
-          <SelectInput config={selectConfig} register={reg.select} />
-          <InputError err={errors[selectConfig.registerName]?.message} />
-          <CheckboxInput config={checkboxConfig} register={reg.checkbox} />
-          <InputError err={errors[checkboxConfig.registerName]?.message} />
-          <RadioInput config={radioConfig} register={reg.radio} />
-          <InputError err={errors[radioConfig.registerName]?.message} />
-          <ImageInput config={imageConfig} register={reg.image} />
-          <InputError err={errors[imageConfig.registerName]?.message} />
+          <TextInput config={TEXT} register={reg.text} />
+          <InputError err={errors[TEXT.REG_NAME]?.message} />
+          <DateInput config={DATE} register={reg.date} />
+          <InputError err={errors[DATE.REG_NAME]?.message} />
+          <SelectInput config={SELECT} register={reg.select} />
+          <InputError err={errors[SELECT.REG_NAME]?.message} />
+          <CheckboxInput config={CHECKBOX} register={reg.checkbox} />
+          <InputError err={errors[CHECKBOX.REG_NAME]?.message} />
+          <RadioInput config={RADIO} register={reg.radio} />
+          <InputError err={errors[RADIO.REG_NAME]?.message} />
+          <ImageInput config={IMAGE} register={reg.image} />
+          <InputError err={errors[IMAGE.REG_NAME]?.message} />
           <input type="submit" className={styles.button}></input>
         </fieldset>
       </form>
       <Popup isShow={isPopupShow}>
-        <Banner text={InnerText.cardCreated} />
+        <OuterBanner text={InnerText.cardCreated} />
       </Popup>
     </Fragment>
   );

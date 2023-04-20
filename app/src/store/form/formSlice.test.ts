@@ -1,28 +1,9 @@
 import '@testing-library/jest-dom';
-import { FormPageCard } from '../../base/models';
-import formReducer, { createCard, removeCard } from '../../store/form/formSlice';
+import { FormPageCard, FORM_CARDS } from 'models';
+import { createCard, removeCard, formReducer } from 'store';
 
 describe('form slice tests', () => {
-  const [firsCard, secondCard]: FormPageCard[] = [
-    {
-      id: '1',
-      name: 'AAA',
-      date: '01-01-2023',
-      select: 'cool card',
-      checkbox: ['bold', 'italic'],
-      radio: 'Yes, of course!',
-      imageSrc: '/public/plants/1/1.jpg',
-    },
-    {
-      id: '2',
-      name: 'card 2',
-      date: '01-01-2023',
-      select: 'cool card',
-      checkbox: ['bold', 'italic'],
-      radio: 'Yes, of course!',
-      imageSrc: '/public/plants/1/1.jpg',
-    },
-  ];
+  const [FIRST_CARD, SECOND_CARD]: FormPageCard[] = FORM_CARDS;
 
   it('init state', () => {
     const res = formReducer(undefined, { type: '' });
@@ -30,21 +11,24 @@ describe('form slice tests', () => {
   });
 
   it('add firs card state', () => {
-    const res = formReducer({ cards: [] }, { type: createCard.type, payload: firsCard });
-    expect(res.cards).toEqual([firsCard]);
+    const res = formReducer({ cards: [] }, { type: createCard.type, payload: FIRST_CARD });
+    expect(res.cards).toEqual([FIRST_CARD]);
   });
 
   it('add second card state', () => {
-    const res = formReducer({ cards: [firsCard] }, { type: createCard.type, payload: secondCard });
-    expect(res.cards).toEqual([firsCard, secondCard]);
+    const res = formReducer(
+      { cards: [FIRST_CARD] },
+      { type: createCard.type, payload: SECOND_CARD }
+    );
+    expect(res.cards).toEqual([FIRST_CARD, SECOND_CARD]);
   });
 
   it('remove first card state', () => {
-    const { id } = firsCard;
+    const { id } = FIRST_CARD;
     const res = formReducer(
-      { cards: [firsCard, secondCard] },
+      { cards: [FIRST_CARD, SECOND_CARD] },
       { type: removeCard.type, payload: id }
     );
-    expect(res.cards).toEqual([secondCard]);
+    expect(res.cards).toEqual([SECOND_CARD]);
   });
 });

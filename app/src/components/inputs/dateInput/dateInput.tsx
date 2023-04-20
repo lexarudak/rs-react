@@ -1,22 +1,21 @@
-import TestId from '../../../base/enums/testId';
-import { DateInputProps } from 'base/models';
 import React from 'react';
-import inputStyles from '../inputs.module.scss';
+import { TestId, DateInputProps } from 'models';
+import { inputStyles } from 'components';
 
-function DateInput({ config: { title, from, to }, register }: DateInputProps) {
+const DateInput = ({ config: { TITLE, FROM, TO }, register }: DateInputProps) => {
   return (
     <label className={inputStyles.block}>
-      <span className={inputStyles.title}>{title}</span>
+      <span className={inputStyles.title}>{TITLE}</span>
       <input
         {...register}
         data-testid={TestId.dateInput}
         type={'date'}
         className={inputStyles.input}
-        min={from}
-        max={to}
+        min={FROM}
+        max={TO}
       ></input>
     </label>
   );
-}
+};
 
 export default DateInput;

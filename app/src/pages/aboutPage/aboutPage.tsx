@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import PageNames from '../../base/enums/pageNames';
-import InnerBanner from '../../components/innerBanner/innerBanner';
-import { setCurrentPage } from '../../store/app/appSlice';
-import { useAppDispatch } from '../../hooks/hooks';
+import { InnerBanner } from 'components';
+import { useAppDispatch } from 'hooks';
+import { setCurrentPage } from 'store';
+import { PageNames } from 'models';
 
-function AboutPage() {
+const AboutPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -12,6 +12,6 @@ function AboutPage() {
   }, [dispatch]);
 
   return <InnerBanner text={PageNames.aboutPage} />;
-}
+};
 
 export default AboutPage;

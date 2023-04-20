@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import SliceNames from '../../base/enums/sliceNames';
+import { SliceNames } from 'models';
 
 const rickAndMortySlice = createSlice({
   name: SliceNames.rickAndMorty,
@@ -14,4 +14,5 @@ const rickAndMortySlice = createSlice({
 });
 
 export const { setSearchValue } = rickAndMortySlice.actions;
-export default rickAndMortySlice.reducer;
+
+export const rickAndMortyReducer = rickAndMortySlice.reducer;

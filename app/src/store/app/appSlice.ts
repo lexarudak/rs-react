@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import SliceNames from '../../base/enums/sliceNames';
+import { SliceNames } from 'models';
 
 const appSlice = createSlice({
   name: SliceNames.app,
@@ -15,4 +15,4 @@ const appSlice = createSlice({
 
 export const { setCurrentPage } = appSlice.actions;
 
-export default appSlice.reducer;
+export const appReducer = appSlice.reducer;

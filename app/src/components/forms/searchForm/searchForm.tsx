@@ -1,35 +1,40 @@
-import TestId from '../../../base/enums/testId';
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
-import { setSearchValue } from '../../../store/rickAndMorty/rickAndMortySlice';
-import style from './searchForm.module.scss';
+import { setSearchValue, rickAndMortySelector } from 'store';
+import { useAppDispatch, useAppSelector } from 'hooks';
+import { TestId } from 'models';
+import style from './SearchForm.module.scss';
 
-function SearchForm() {
+const PLACEHOLDER = 'Search';
+
+const SearchForm = () => {
   const dispatch = useAppDispatch();
-  const { searchValue } = useAppSelector((state) => state.rickAndMorty);
+  const { searchValue } = useAppSelector(rickAndMortySelector);
   const [currentValue, changeCurrentValue] = useState(searchValue);
+
+  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    changeCurrentValue((...prev) => prev[0].trim());
+    dispatch(setSearchValue(currentValue));
+  };
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
+    changeCurrentValue(e.target.value);
 
   return (
     <form
       data-testid={TestId.searchForm}
       className={style.form}
-      onSubmit={async (e) => {
-        e.preventDefault();
-        changeCurrentValue((...prev) => prev[0].trim());
-        dispatch(setSearchValue(currentValue));
-      }}
+      onSubmit={(e) => onSubmitHandler(e)}
     >
       <input
         type={'text'}
-        placeholder={'Search'}
+        placeholder={PLACEHOLDER}
         className={style.input}
         value={currentValue}
-        onChange={(event) => {
-          changeCurrentValue(event.target.value);
-        }}
+        onChange={(e) => onChangeHandler(e)}
       ></input>
     </form>
   );
-}
+};
 
 export default SearchForm;

@@ -1,10 +1,10 @@
-import InnerBanner from '../../components/innerBanner/innerBanner';
 import React, { useEffect } from 'react';
-import PageNames from '../../base/enums/pageNames';
-import { setCurrentPage } from '../../store/app/appSlice';
-import { useAppDispatch } from '../../hooks/hooks';
+import { InnerBanner } from 'components';
+import { useAppDispatch } from 'hooks';
+import { setCurrentPage } from 'store';
+import { PageNames } from 'models';
 
-function ErrorPage() {
+const ErrorPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -12,6 +12,6 @@ function ErrorPage() {
   }, [dispatch]);
 
   return <InnerBanner text={PageNames.errorPage} />;
-}
+};
 
 export default ErrorPage;

@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import SliceNames from '../../base/enums/sliceNames';
-import { FormPageCard } from '../../base/models';
+import { SliceNames, FormPageCard } from 'models';
 
 const formSlice = createSlice({
   name: SliceNames.form,
@@ -18,4 +17,5 @@ const formSlice = createSlice({
 });
 
 export const { createCard, removeCard } = formSlice.actions;
-export default formSlice.reducer;
+
+export const formReducer = formSlice.reducer;

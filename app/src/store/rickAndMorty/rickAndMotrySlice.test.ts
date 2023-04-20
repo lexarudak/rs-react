@@ -1,5 +1,8 @@
 import '@testing-library/jest-dom';
-import rickAndMortyReducer, { setSearchValue } from '../../store/rickAndMorty/rickAndMortySlice';
+import { setSearchValue, rickAndMortyReducer } from 'store';
+
+const RICK = 'Rick';
+const MORTY = 'Morty';
 
 describe('app slice tests', () => {
   it('init state', () => {
@@ -10,14 +13,14 @@ describe('app slice tests', () => {
   it('add string to the state', () => {
     const res = rickAndMortyReducer(
       { searchValue: '' },
-      { type: setSearchValue.type, payload: 'Rick' }
+      { type: setSearchValue.type, payload: RICK }
     );
-    expect(res.searchValue).toEqual('Rick');
+    expect(res.searchValue).toEqual(RICK);
   });
 
   it('clear state', () => {
     const res = rickAndMortyReducer(
-      { searchValue: 'Rick' },
+      { searchValue: RICK },
       { type: setSearchValue.type, payload: '' }
     );
     expect(res.searchValue).toEqual('');
@@ -25,9 +28,9 @@ describe('app slice tests', () => {
 
   it('replace string into the state', () => {
     const res = rickAndMortyReducer(
-      { searchValue: 'Rick' },
-      { type: setSearchValue.type, payload: 'Morty' }
+      { searchValue: RICK },
+      { type: setSearchValue.type, payload: MORTY }
     );
-    expect(res.searchValue).toEqual('Morty');
+    expect(res.searchValue).toEqual(MORTY);
   });
 });
