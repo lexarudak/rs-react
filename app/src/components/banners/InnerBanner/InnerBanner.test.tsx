@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { InnerBanner } from 'components';
+import { InnerBanner } from 'components/banners';
 
 const { getByText } = screen;
 

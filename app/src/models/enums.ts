@@ -9,6 +9,8 @@ export const enum PageNames {
   aboutPage = 'About Us',
   formsPage = 'Forms',
   errorPage = '404 page',
+  testPage = 'test',
+  secondPage = 'second',
 }
 
 export const enum CharacterSearchParam {
@@ -39,6 +41,8 @@ export const enum RouteList {
   aboutPage = 'about',
   formsPage = 'forms',
   errorPage = '404',
+  testPage = 'test',
+  secondPage = 'second',
 }
 
 export const enum SliceNames {
