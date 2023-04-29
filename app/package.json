@@ -13,7 +13,7 @@
   "scripts": {
     "startA": "vite --open",
     "lint": "npx eslint --ext .tsx --ext .ts ./src",
-    "lint fix": "npx eslint --ext js,jsx,ts,tsx ./src --fix",
+    "lint fix": "npx eslint --fix --ext js,jsx,ts,tsx ./src",
     "test": "jest",
     "test-coverage": "jest --coverage",
     "buildA": "tsc --noEmit && vite build",
