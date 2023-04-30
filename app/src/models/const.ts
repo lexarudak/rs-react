@@ -1,7 +1,7 @@
 import { PageNames, RouteList } from 'models';
 
 export const NAV_LIST: [number, RouteList, PageNames][] = [
-  [0, RouteList.homePage, PageNames.testPage],
+  [0, RouteList.homePage, PageNames.mainPage],
   [1, RouteList.formsPage, PageNames.formsPage],
   [2, RouteList.aboutPage, PageNames.aboutPage],
 ];

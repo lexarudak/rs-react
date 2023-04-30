@@ -1,6 +1,6 @@
-import TestPage from './TestPage/TestPage';
+import MainPage from './MainPage/MainPage';
 import AboutPage from './AboutPage/AboutPage';
 import ErrorPage from './ErrorPage/ErrorPage';
 import FormsPage from './FormsPage/FormsPage';
 
-export { FormsPage, TestPage, AboutPage, ErrorPage };
+export { FormsPage, MainPage, AboutPage, ErrorPage };

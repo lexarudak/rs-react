@@ -20,8 +20,9 @@
     "preview": "vite preview",
     "build:client": "tsc --noEmit && vite build --outDir ./dist/client",
     "build:server": "tsc --noEmit && vite build --outDir ./dist/server --ssr ./src/ServerApp.tsx",
-    "build": "npm run build:client && npm run build:server",
-    "start": "tsc --module 'node16' server.ts && node server.js"
+    "compile:server": "tsc --module 'nodenext' server.ts",
+    "build": "npm run build:client && npm run build:server && npm run compile:server",
+    "start": "node server.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.0-alpha.5",
