@@ -10,25 +10,22 @@ const [firstPart, lastPart] = html.split('my awesome code');
 const app = express();
 app.use('/assets', express.static(path.resolve(__dirname, './dist/client/assets')));
 app.use((req, res) => {
-  res.write(firstPart);
-  const stream = renderApp(req.url, {
-    onShellReady() {
-      stream.pipe(res);
-    },
-    onShellError(err) {
-      console.error(err);
-    },
-    onAllReady() {
-      res.write(lastPart);
-      res.end();
-    },
-    onError(err) {
-      console.error(err);
-    },
-  });
+    res.write(firstPart);
+    const stream = renderApp(req.url, {
+        onShellReady() {
+            stream.pipe(res);
+        },
+        onShellError(err) {
+            console.error(err);
+        },
+        onAllReady() {
+            res.write(lastPart);
+            res.end();
+        },
+        onError(err) {
+            console.error(err);
+        },
+    });
 });
 console.log(`listening on http://localhost:${PORT}`);
 app.listen(PORT);
-//     "@reduxjs/toolkit": "^1.9.3",
-//     "redux": "^4.2.1",
-//     "react-redux": "^8.0.5",

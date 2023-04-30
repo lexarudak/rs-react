@@ -36,7 +36,3 @@ app.use((req, res) => {
 
 console.log(`listening on http://localhost:${PORT}`);
 app.listen(PORT);
-
-//     "@reduxjs/toolkit": "^1.9.3",
-//     "redux": "^4.2.1",
-//     "react-redux": "^8.0.5",

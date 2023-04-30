@@ -1,4 +1,6 @@
 import TestPage from './TestPage/TestPage';
-import SecondPage from './TestPage/SecondPage';
+import AboutPage from './AboutPage/AboutPage';
+import ErrorPage from './ErrorPage/ErrorPage';
+import FormsPage from './FormsPage/FormsPage';
 
-export { SecondPage, TestPage };
+export { FormsPage, TestPage, AboutPage, ErrorPage };
