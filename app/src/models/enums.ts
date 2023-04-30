@@ -28,8 +28,8 @@ export const enum Path {
 }
 
 export const enum AssetsPath {
-  rickImg = '/assets/img/portal.webp',
-  portalImg = '../../assets/img/rick.webp',
+  rickImg = '/img/rick.webp',
+  portalImg = '/img/portal.webp',
 }
 
 export const enum ReducerPath {

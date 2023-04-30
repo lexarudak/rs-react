@@ -16,6 +16,7 @@ export default {
     '!**/coverage/**',
     '!**/vendor/**',
     '!**/src/base/**',
+    '!**/server.ts',
     '!**/src/api/**',
     '!**/vite.config.ts',
     '!**/appFormConfig.ts',
