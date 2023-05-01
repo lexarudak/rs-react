@@ -11,13 +11,9 @@
     }
   },
   "scripts": {
-    "start": "npm run build:client && npm run build:server && npm run compile:server && node server.js",
+    "start": "tsc --noEmit && vite build --outDir ./dist/client && tsc --noEmit && vite build --outDir ./dist/server --ssr ./src/ServerApp.tsx && tsc --module 'nodenext' server.ts && node server.js",
     "lint": "npx eslint --ext .tsx --ext .ts ./src",
-    "run": "node server.js",
-    "test-coverage": "jest --coverage",
-    "build:client": "tsc --noEmit && vite build --outDir ./dist/client",
-    "build:server": "tsc --noEmit && vite build --outDir ./dist/server --ssr ./src/ServerApp.tsx",
-    "compile:server": "tsc --module 'nodenext' server.ts"
+    "test-coverage": "jest --coverage"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.0-alpha.5",
