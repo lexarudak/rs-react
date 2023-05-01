@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { rickAndMortySelector, useSearchCharactersQuery, setCurrentPage } from 'store';
 import { CardsContainer, Loading, InnerBanner, SearchForm } from 'components';
 import { useAppDispatch, useAppSelector } from 'hooks';
@@ -17,9 +17,11 @@ const MainPage = () => {
   return (
     <div className={styles.container}>
       <SearchForm />
-      {isFetching && <Loading />}
-      {isError && <InnerBanner text={InnerText.noCards} />}
-      {currentData && <CardsContainer cards={currentData} />}
+      <Suspense>
+        {isFetching && <Loading />}
+        {isError && <InnerBanner text={InnerText.noCards} />}
+        {currentData && <CardsContainer cards={currentData} />}
+      </Suspense>
     </div>
   );
 };

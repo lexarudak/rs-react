@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SliceNames } from 'models';
+import { PageNames, SliceNames } from 'models';
 
 const appSlice = createSlice({
   name: SliceNames.app,
   initialState: {
-    currentPage: '',
+    currentPage: PageNames.mainPage as string,
   },
   reducers: {
     setCurrentPage(state, action: PayloadAction<string>) {

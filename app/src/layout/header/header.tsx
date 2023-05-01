@@ -1,6 +1,4 @@
 import React from 'react';
-// import { useAppSelector } from 'hooks';
-// import { appSelector } from 'store';
 import { Nav } from 'layout';
 import styles from './Header.module.scss';
 import { useAppSelector } from 'hooks';

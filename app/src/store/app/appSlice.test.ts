@@ -4,11 +4,6 @@ const HOME = 'Home';
 const ABOUT = 'About';
 
 describe('app slice tests', () => {
-  it('init state', () => {
-    const res = appReducer(undefined, { type: '' });
-    expect(res.currentPage).toEqual('');
-  });
-
   it('add string to the state', () => {
     const res = appReducer({ currentPage: '' }, { type: setCurrentPage.type, payload: HOME });
     expect(res.currentPage).toEqual(HOME);

@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import renderApp from './dist/server/ServerApp.js';
+import { renderApp } from './dist/server/ServerApp.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -17,9 +17,9 @@ const app = express();
 app.use(express.static('public'));
 
 app.use('/assets', express.static(path.resolve(__dirname, './dist/client/assets')));
-app.use((req, res) => {
+app.use(async (req, res) => {
   res.write(firstPart);
-  const stream = renderApp(req.url, {
+  const stream = await renderApp(req.url, {
     onShellReady() {
       stream.pipe(res);
     },

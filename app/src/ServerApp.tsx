@@ -2,10 +2,12 @@ import React from 'react';
 import { renderToPipeableStream, RenderToPipeableStreamOptions } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router-dom/server';
-import { store } from 'store';
+import { rickAndMortyApi, store } from 'store';
 import AppRouter from './AppRouter';
 
-export default function render(url: string, opts: RenderToPipeableStreamOptions) {
+export const renderApp = async (url: string, opts: RenderToPipeableStreamOptions) => {
+  await store.dispatch(rickAndMortyApi.endpoints.searchCharacters.initiate(''));
+
   const stream = renderToPipeableStream(
     <Provider store={store}>
       <StaticRouter location={url}>
@@ -15,4 +17,4 @@ export default function render(url: string, opts: RenderToPipeableStreamOptions)
     opts
   );
   return stream;
-}
+};
