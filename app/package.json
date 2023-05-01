@@ -11,18 +11,12 @@
     }
   },
   "scripts": {
-    "startA": "vite --open",
+    "start": "npm run build:client && npm run build:server && npm run compile:server && node server.js",
     "lint": "npx eslint --ext .tsx --ext .ts ./src",
-    "lint fix": "npx eslint --fix --ext js,jsx,ts,tsx ./src",
-    "test": "jest",
     "test-coverage": "jest --coverage",
-    "buildA": "tsc --noEmit && vite build",
-    "preview": "vite preview",
     "build:client": "tsc --noEmit && vite build --outDir ./dist/client",
     "build:server": "tsc --noEmit && vite build --outDir ./dist/server --ssr ./src/ServerApp.tsx",
-    "compile:server": "tsc --module 'nodenext' server.ts",
-    "build": "npm run build:client && npm run build:server && npm run compile:server",
-    "start": "node server.js"
+    "compile:server": "tsc --module 'nodenext' server.ts"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.0-alpha.5",
