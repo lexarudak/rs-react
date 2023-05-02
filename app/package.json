@@ -14,7 +14,7 @@
     "! install all": "npm config set legacy-peer-deps true && npm i",
     "----------":"",
     "lint": "npx eslint --ext .tsx --ext .ts ./src",
-    "start": "tsc --noEmit && vite build --outDir ./dist/client && tsc --noEmit && vite build --outDir ./dist/server --ssr ./src/ServerApp.tsx && tsc --module 'nodenext' server.ts && node server.js",
+    "start": "tsc --noEmit && vite build --outDir ./dist/client && tsc --noEmit && vite build --outDir ./dist/server --ssr ./src/ServerApp.tsx && tsc --module \"nodenext\" server.ts && node server.js",
     "unit tests coverage": "jest --coverage",
     "---------":"",
     "cy:open-e2e": "cypress open --e2e --browser chrome",
