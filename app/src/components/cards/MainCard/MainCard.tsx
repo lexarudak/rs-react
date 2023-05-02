@@ -16,7 +16,9 @@ const MainCard = ({
     <div className={styles.card} data-testid={TestId.mainCard} onClick={() => onClickHandler()}>
       <img src={image} alt={name} className={styles.img}></img>
       <div className={styles.type}>{status}</div>
-      <div className={styles.title}>{name}</div>
+      <div data-testid={TestId.cardTitle} className={styles.title}>
+        {name}
+      </div>
     </div>
   );
 };

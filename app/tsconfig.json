@@ -1,9 +1,10 @@
-{
+{ 
   "compilerOptions": {
     "target": "esnext",
     "lib": ["dom", "esnext", "dom.iterable"],
     "jsx": "react",
     "module": "esnext",
+    "types": ["cypress"],
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
@@ -18,4 +19,5 @@
   },
   "compilerConfig.lib": "dom",
   "include": ["./src/**/*", "styled.d.ts", "babel.config.js"],
+  "exclude": ["./cypress/e2e/spec.cy.ts"]
 }

@@ -60,6 +60,8 @@ export const enum TestId {
   closeButton = 'close-button',
   loading = 'loading',
   searchForm = 'search-form',
+  cardTitle = 'card-title',
+  bigCard = 'big-card',
 }
 
 export const enum Alts {

@@ -11,17 +11,17 @@
     }
   },
   "scripts": {
-    "! install all": "npm config set legacy-peer-deps true && npm i",
-    "----------":"",
+    "install all": "npm config set legacy-peer-deps true && npm i",
+    "----------": "",
     "lint": "npx eslint --ext .tsx --ext .ts ./src",
     "start": "tsc --noEmit && vite build --outDir ./dist/client && tsc --noEmit && vite build --outDir ./dist/server --ssr ./src/ServerApp.tsx && tsc --module \"nodenext\" server.ts && node server.js",
     "unit tests coverage": "jest --coverage",
-    "---------":"",
-    "cy:open-e2e": "cypress open --e2e --browser chrome",
-    "cy:open-unit": "cypress open --component --browser chrome",
-    "cy:run-e2e": "cypress run --e2e",
-    "cy:run-unit": "cypress run --component",
-    "cy:e2e": "start-server-and-test start http-get://localhost:3001 cy:open-e2e"
+    "---------": "",
+    "cypress:open-e2e": "cypress open --e2e",
+    "cypress:e2e": "start-server-and-test start http-get://localhost:3001 cypress:open-e2e",
+    "test:e2e": "npm run cypress:clean && npx nyc cypress run && npx nyc report --reporter=text-summary",
+    "coverage:e2e": "start-server-and-test start http-get://localhost:3001 test:e2e",
+    "cypress:clean": "npx rimraf coverage && npx rimraf .nyc_output"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.0-alpha.5",
@@ -33,6 +33,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
     "redux": "^5.0.0-alpha.5",
+    "suppress-experimental-warnings": "^1.1.16",
     "vite-tsconfig-paths": "^4.0.8",
     "whatwg-fetch": "^3.6.2"
   },
@@ -55,11 +56,14 @@
     "@typescript-eslint/parser": "^5.54.1",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-jest": "^29.5.0",
+    "babel-plugin-istanbul": "^6.1.1",
     "cross-env": "^7.0.3",
     "cypress": "^12.11.0",
+    "cypress-vite": "^1.4.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
