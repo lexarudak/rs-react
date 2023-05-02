@@ -1,4 +1,3 @@
-import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
@@ -7,6 +6,7 @@ import fetchMock from 'jest-fetch-mock';
 import { CHARACTERS, TestId } from 'models';
 import { MainPage } from 'pages';
 import { store } from 'store';
+import React from 'react';
 
 const { findByPlaceholderText, findByText, findByTestId } = screen;
 const [CHARACTER_OBJ_1, CHARACTER_OBJ_2] = CHARACTERS;
