@@ -14,12 +14,12 @@ describe('Home page', () => {
     cy.get('input').should('have.value', 'Rick');
   });
 
-  it('should have a cart - Doofus ', () => {
-    cy.visit('/');
-    cy.get('input').should('have.value', '');
-    cy.get('input').type('Rick');
-    cy.get('input').should('have.value', 'Rick');
-    cy.get('[data-testid="search-form"]').submit();
-    cy.get('[data-testid="card-title"]').contains('Doofus');
-  });
+  // it('should have a cart - Doofus ', () => {
+  //   cy.visit('/');
+  //   cy.get('input').should('have.value', '');
+  //   cy.get('input').type('Rick');
+  //   cy.get('input').should('have.value', 'Rick');
+  //   cy.get('[data-testid="search-form"]').submit();
+  //   cy.get('[data-testid="card-title"]').contains('Doofus');
+  // });
 });

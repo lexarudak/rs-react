@@ -11,7 +11,7 @@
     }
   },
   "scripts": {
-    "install all": "npm config set legacy-peer-deps true && npm i",
+    "install all": "npm config set legacy-peer-deps true && npm i && npm config set legacy-peer-deps false",
     "----------": "",
     "lint": "npx eslint --ext .tsx --ext .ts ./src",
     "start": "tsc --noEmit && vite build --outDir ./dist/client && tsc --noEmit && vite build --outDir ./dist/server --ssr ./src/ServerApp.tsx && tsc --module \"nodenext\" server.ts && node server.js",
