@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  padding: 60px 0px 30px;
+}
+
+.title {
+  @include title;
+  margin-bottom: 30px;
+  text-align: center;
+  color: $color-main;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
