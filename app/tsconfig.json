@@ -4,7 +4,7 @@
     "lib": ["dom", "esnext", "dom.iterable"],
     "jsx": "react",
     "module": "esnext",
-    "types": ["cypress"],
+    "types": ["node", "jest", "@testing-library/jest-dom", "cypress"],
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,

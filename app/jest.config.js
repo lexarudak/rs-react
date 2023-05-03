@@ -13,6 +13,7 @@ export default {
     '**/*.{ts,tsx}',
     '!**/node_modules/**',
     '!**/dist/**',
+    '!**/cypress/**',
     '!**/coverage/**',
     '!**/vendor/**',
     '!**/src/base/**',
@@ -21,5 +22,6 @@ export default {
     '!**/vite.config.ts',
     '!**/appFormConfig.ts',
     '!**/src/vite-env.d.ts',
+    '!**cypress.config.ts',
   ],
 };
