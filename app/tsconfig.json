@@ -18,6 +18,6 @@
     "plugins": [{ "name": "ts-plugin-scss-modules" }],
   },
   "compilerConfig.lib": "dom",
-  "include": ["./src/**/*", "styled.d.ts", "babel.config.js"],
+  "include": ["./src/**/*", "styled.d.ts", "babel.config.js", "cypress"],
   "exclude": ["./cypress/e2e/spec.cy.ts"]
 }

@@ -1,6 +1,4 @@
-// import { getValidDate } from '../../src/utils/utils';
-// import { ErrorsMessages } from '../../src/types/enums';
-// const searchInput = 'input';
+/// <reference types="cypress" />
 
 describe('Home page', () => {
   it('should visit', () => {
