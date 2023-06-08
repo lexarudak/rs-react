@@ -1,0 +1,18 @@
+.errorText {
+  height: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  color: $color-active;
+  margin: 5px 0 20px;
+
+  @media (max-width: 555px) {
+    margin: 5px 0 10px;
+  }
+
+}
+
+.errorTextActive {
+  opacity: 1;
+  visibility: visible;
+}

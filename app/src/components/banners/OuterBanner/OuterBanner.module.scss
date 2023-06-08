@@ -1,0 +1,11 @@
+.banner {
+  margin: 20px;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg;
+  color: $color-main;
+  border-radius: 30px;
+  box-shadow: $shadow-main;
+}
